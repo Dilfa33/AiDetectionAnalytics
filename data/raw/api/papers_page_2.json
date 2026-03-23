@@ -1,0 +1,93 @@
+[
+    {
+        "id": "2603.20179",
+        "title": "AI Agents Can Already Autonomously Perform Experimental High Energy Physics",
+        "authors": [
+            "Eric A. Moreno",
+            "Samuel Bright-Thonney",
+            "Andrzej Novak",
+            "Dolores Garcia",
+            "Philip Harris"
+        ],
+        "abstract": "Large language model-based AI agents are now able to autonomously execute substantial portions of a high energy physics (HEP) analysis pipeline with minimal expert-curated input. Given access to a HEP dataset, an execution framework, and a corpus of prior experimental literature, we find that Claude Code succeeds in automating all stages of a typical analysis: event selection, background estimation, uncertainty quantification, statistical inference, and paper drafting. We argue that the experimental HEP community is underestimating the current capabilities of these systems, and that most proposed agentic workflows are too narrowly scoped or scaffolded to specific analysis structures. We present a proof-of-concept framework, Just Furnish Context (JFC), that integrates autonomous analysis agents with literature-based knowledge retrieval and multi-agent review, and show that this is sufficient to plan, execute, and document a credible high energy physics analysis. We demonstrate this by conducting analyses on open data from ALEPH, DELPHI, and CMS to perform electroweak, QCD, and Higgs boson measurements. Rather than replacing physicists, these tools promise to offload the repetitive technical burden of analysis code development, freeing researchers to focus on physics insight, truly novel method development, and rigorous validation. Given these developments, we advocate for new strategies for how the community trains students, organizes analysis efforts, and allocates human expertise.",
+        "published": "2026-03-20T17:55:27Z",
+        "categories": [
+            "hep-ex",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20179",
+        "abs_url": "https://arxiv.org/abs/2603.20179"
+    },
+    {
+        "id": "2603.20172",
+        "title": "Measuring Faithfulness Depends on How You Measure: Classifier Sensitivity in LLM Chain-of-Thought Evaluation",
+        "authors": [
+            "Richard J. Young"
+        ],
+        "abstract": "Recent work on chain-of-thought (CoT) faithfulness reports single aggregate numbers (e.g., DeepSeek-R1 acknowledges hints 39% of the time), implying that faithfulness is an objective, measurable property of a model. This paper demonstrates that it is not. Three classifiers (a regex-only detector, a two-stage regex-plus-LLM pipeline, and an independent Claude Sonnet 4 judge) are applied to 10,276 influenced reasoning traces from 12 open-weight models spanning 9 families and 7B to 1T parameters. On identical data, these classifiers produce overall faithfulness rates of 74.4%, 82.6%, and 69.7%, respectively, with non-overlapping 95% confidence intervals. Per-model gaps range from 2.6 to 30.6 percentage points; all are statistically significant (McNemar's test, p < 0.001). The disagreements are systematic, not random: inter-classifier agreement measured by Cohen's kappa ranges from 0.06 (\"slight\") for sycophancy hints to 0.42 (\"moderate\") for grader hints, and the asymmetry is pronounced: for sycophancy, 883 cases are classified as faithful by the pipeline but unfaithful by the Sonnet judge, while only 2 go the other direction. Classifier choice can also reverse model rankings: Qwen3.5-27B ranks 1st under the pipeline but 7th under the Sonnet judge; OLMo-3.1-32B moves in the opposite direction, from 9th to 3rd. The root cause is that different classifiers operationalize related faithfulness constructs at different levels of stringency (lexical mention versus epistemic dependence), and these constructs yield divergent measurements on the same behavior. These results demonstrate that published faithfulness numbers cannot be meaningfully compared across studies that use different classifiers, and that future evaluations should report sensitivity ranges across multiple classification methodologies rather than single point estimates.",
+        "published": "2026-03-20T17:48:43Z",
+        "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20172",
+        "abs_url": "https://arxiv.org/abs/2603.20172"
+    },
+    {
+        "id": "2603.20170",
+        "title": "Learning Dynamic Belief Graphs for Theory-of-mind Reasoning",
+        "authors": [
+            "Ruxiao Chen",
+            "Xilei Zhao",
+            "Thomas J. Cova",
+            "Frank A. Drews",
+            "Susu Xu"
+        ],
+        "abstract": "Theory of Mind (ToM) reasoning with Large Language Models (LLMs) requires inferring how people's implicit, evolving beliefs shape what they seek and how they act under uncertainty -- especially in high-stakes settings such as disaster response, emergency medicine, and human-in-the-loop autonomy. Prior approaches either prompt LLMs directly or use latent-state models that treat beliefs as static and independent, often producing incoherent mental models over time and weak reasoning in dynamic contexts. We introduce a structured cognitive trajectory model for LLM-based ToM that represents mental state as a dynamic belief graph, jointly inferring latent beliefs, learning their time-varying dependencies, and linking belief evolution to information seeking and decisions. Our model contributes (i) a novel projection from textualized probabilistic statements to consistent probabilistic graphical model updates, (ii) an energy-based factor graph representation of belief interdependencies, and (iii) an ELBO-based objective that captures belief accumulation and delayed decisions. Across multiple real-world disaster evacuation datasets, our model significantly improves action prediction and recovers interpretable belief trajectories consistent with human reasoning, providing a principled module for augmenting LLMs with ToM in high-uncertainty environment. https://anonymous.4open.science/r/ICML_submission-6373/",
+        "published": "2026-03-20T17:46:55Z",
+        "categories": [
+            "cs.AI"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20170",
+        "abs_url": "https://arxiv.org/abs/2603.20170"
+    },
+    {
+        "id": "2603.20164",
+        "title": "The Robot's Inner Critic: Self-Refinement of Social Behaviors through VLM-based Replanning",
+        "authors": [
+            "Jiyu Lim",
+            "Youngwoo Yoon",
+            "Kwanghyun Park"
+        ],
+        "abstract": "Conventional robot social behavior generation has been limited in flexibility and autonomy, relying on predefined motions or human feedback. This study proposes CRISP (Critique-and-Replan for Interactive Social Presence), an autonomous framework where a robot critiques and replans its own actions by leveraging a Vision-Language Model (VLM) as a `human-like social critic.' CRISP integrates (1) extraction of movable joints and constraints by analyzing the robot's description file (e.g., MJCF), (2) generation of step-by-step behavior plans based on situational context, (3) generation of low-level joint control code by referencing visual information (joint range-of-motion visualizations), (4) VLM-based evaluation of social appropriateness and naturalness, including pinpointing erroneous steps, and (5) iterative refinement of behaviors through reward-based search. This approach is not tied to a specific robot API; it can generate subtly different, human-like motions on various platforms using only the robot's structure file. In a user study involving five different robot types and 20 scenarios, including mobile manipulators and humanoids, our proposed method achieved significantly higher preference and situational appropriateness ratings compared to previous methods. This research presents a general framework that minimizes human intervention while expanding the robot's autonomous interaction capabilities and cross-platform applicability.   Detailed result videos and supplementary information regarding this work are available at: https://limjiyu99.github.io/inner-critic/",
+        "published": "2026-03-20T17:40:21Z",
+        "categories": [
+            "cs.RO",
+            "cs.AI"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20164",
+        "abs_url": "https://arxiv.org/abs/2603.20164"
+    },
+    {
+        "id": "2603.20161",
+        "title": "Semantic Token Clustering for Efficient Uncertainty Quantification in Large Language Models",
+        "authors": [
+            "Qi Cao",
+            "Andrew Gambardella",
+            "Takeshi Kojima",
+            "Yutaka Matsuo",
+            "Yusuke Iwasawa"
+        ],
+        "abstract": "Large language models (LLMs) have demonstrated remarkable capabilities across diverse tasks. However, the truthfulness of their outputs is not guaranteed, and their tendency toward overconfidence further limits reliability. Uncertainty quantification offers a promising way to identify potentially unreliable outputs, but most existing methods rely on repeated sampling or auxiliary models, introducing substantial computational overhead. To address these limitations, we propose Semantic Token Clustering (STC), an efficient uncertainty quantification method that leverages the semantic information inherently encoded in LLMs. Specifically, we group tokens into semantically consistent clusters using embedding clustering and prefix matching, and quantify uncertainty based on the probability mass aggregated over the corresponding semantic cluster. Our approach requires only a single generation and does not depend on auxiliary models. Experimental results show that STC achieves performance comparable to state-of-the-art baselines while substantially reducing computational overhead.",
+        "published": "2026-03-20T17:37:33Z",
+        "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20161",
+        "abs_url": "https://arxiv.org/abs/2603.20161"
+    }
+]

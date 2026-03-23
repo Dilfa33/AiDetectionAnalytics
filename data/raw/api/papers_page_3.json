@@ -1,0 +1,97 @@
+[
+    {
+        "id": "2603.20151",
+        "title": "Design-OS: A Specification-Driven Framework for Engineering System Design with a Control-Systems Design Case",
+        "authors": [
+            "H. Sinan Bank",
+            "Daniel R. Herber",
+            "Thomas H. Bradley"
+        ],
+        "abstract": "Engineering system design -- whether mechatronic, control, or embedded -- often proceeds in an ad hoc manner, with requirements left implicit and traceability from intent to parameters largely absent. Existing specification-driven and systematic design methods mostly target software, and AI-assisted tools tend to enter the workflow at solution generation rather than at problem framing. Human--AI collaboration in the design of physical systems remains underexplored. This paper presents Design-OS, a lightweight, specification-driven workflow for engineering system design organized in five stages: concept definition, literature survey, conceptual design, requirements definition, and design definition. Specifications serve as the shared contract between human designers and AI agents; each stage produces structured artifacts that maintain traceability and support agent-augmented execution. We position Design-OS relative to requirements-driven design, systematic design frameworks, and AI-assisted design pipelines, and demonstrate it on a control systems design case using two rotary inverted pendulum platforms -- an open-source SimpleFOC reaction wheel and a commercial Quanser Furuta pendulum -- showing how the same specification-driven workflow accommodates fundamentally different implementations. A blank template and the full design-case artifacts are shared in a public repository to support reproducibility and reuse. The workflow makes the design process visible and auditable, and extends specification-driven orchestration of AI from software to physical engineering system design.",
+        "published": "2026-03-20T17:26:44Z",
+        "categories": [
+            "cs.CE",
+            "cs.AI",
+            "eess.SY"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20151",
+        "abs_url": "https://arxiv.org/abs/2603.20151"
+    },
+    {
+        "id": "2603.20149",
+        "title": "Enhancing Hyperspace Analogue to Language (HAL) Representations via Attention-Based Pooling for Text Classification",
+        "authors": [
+            "Ali Sakour",
+            "Zoalfekar Sakour"
+        ],
+        "abstract": "The Hyperspace Analogue to Language (HAL) model relies on global word co-occurrence matrices to construct distributional semantic representations. While these representations capture lexical relationships effectively, aggregating them into sentence-level embeddings via standard mean pooling often results in information loss. Mean pooling assigns equal weight to all tokens, thereby diluting the impact of contextually salient words with uninformative structural tokens. In this paper, we address this limitation by integrating a learnable, temperature-scaled additive attention mechanism into the HAL representation pipeline. To mitigate the sparsity and high dimensionality of the raw co-occurrence matrices, we apply Truncated Singular Value Decomposition (SVD) to project the vectors into a dense latent space prior to the attention layer. We evaluate the proposed architecture on the IMDB sentiment analysis dataset. Empirical results demonstrate that the attention-based pooling approach achieves a test accuracy of 82.38%, yielding an absolute improvement of 6.74 percentage points over the traditional mean pooling baseline (75.64%). Furthermore, qualitative analysis of the attention weights indicates that the mechanism successfully suppresses stop-words and selectively attends to sentiment-bearing tokens, improving both classification performance and model interpretability.",
+        "published": "2026-03-20T17:25:09Z",
+        "categories": [
+            "cs.CL",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20149",
+        "abs_url": "https://arxiv.org/abs/2603.20149"
+    },
+    {
+        "id": "2603.20131",
+        "title": "An Agentic Multi-Agent Architecture for Cybersecurity Risk Management",
+        "authors": [
+            "Ravish Gupta",
+            "Saket Kumar",
+            "Shreeya Sharma",
+            "Maulik Dang",
+            "Abhishek Aggarwal"
+        ],
+        "abstract": "Getting a real cybersecurity risk assessment for a small organization is expensive -- a NIST CSF-aligned engagement runs $15,000 on the low end, takes weeks, and depends on practitioners who are genuinely scarce. Most small companies skip it entirely. We built a six-agent AI system where each agent handles one analytical stage: profiling the organization, mapping assets, analyzing threats, evaluating controls, scoring risks, and generating recommendations. Agents share a persistent context that grows as the assessment proceeds, so later agents build on what earlier ones concluded -- the mechanism that distinguishes this from standard sequential agent pipelines. We tested it on a 15-person HIPAA-covered healthcare company and compared outputs to independent assessments by three CISSP practitioners -- the system agreed with them 85% of the time on severity classifications, covered 92% of identified risks, and finished in under 15 minutes. We then ran 30 repeated single-agent assessments across five synthetic but sector-realistic organizational profiles in healthcare, fintech, manufacturing, retail, and SaaS, comparing a general-purpose Mistral-7B against a domain fine-tuned model. Both completed every run. The fine-tuned model flagged threats the baseline could not see at all: PHI exposure in healthcare, OT/IIoT vulnerabilities in manufacturing, platform-specific risks in retail. The full multi-agent pipeline, however, failed every one of 30 attempts on a Tesla T4 with its 4,096-token default context window -- context capacity, not model quality, turned out to be the binding constraint.",
+        "published": "2026-03-20T17:00:05Z",
+        "categories": [
+            "eess.SY",
+            "cs.AI",
+            "cs.CR"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20131",
+        "abs_url": "https://arxiv.org/abs/2603.20131"
+    },
+    {
+        "id": "2603.20122",
+        "title": "Evolving Jailbreaks: Automated Multi-Objective Long-Tail Attacks on Large Language Models",
+        "authors": [
+            "Wenjing Hong",
+            "Zhonghua Rong",
+            "Li Wang",
+            "Feng Chang",
+            "Jian Zhu",
+            "Ke Tang",
+            "Zexuan Zhu",
+            "Yew-Soon Ong"
+        ],
+        "abstract": "Large Language Models (LLMs) have been widely deployed, especially through free Web-based applications that expose them to diverse user-generated inputs, including those from long-tail distributions such as low-resource languages and encrypted private data. This open-ended exposure increases the risk of jailbreak attacks that undermine model safety alignment. While recent studies have shown that leveraging long-tail distributions can facilitate such jailbreaks, existing approaches largely rely on handcrafted rules, limiting the systematic evaluation of these security and privacy vulnerabilities. In this work, we present EvoJail, an automated framework for discovering long-tail distribution attacks via multi-objective evolutionary search. EvoJail formulates long-tail attack prompt generation as a multi-objective optimization problem that jointly maximizes attack effectiveness and minimizes output perplexity, and introduces a semantic-algorithmic solution representation to capture both high-level semantic intent and low-level structural transformations of encryption-decryption logic. Building upon this representation, EvoJail integrates LLM-assisted operators into a multi-objective evolutionary framework, enabling adaptive and semantically informed mutation and crossover for efficiently exploring a highly structured and open-ended search space. Extensive experiments demonstrate that EvoJail consistently discovers diverse and effective long-tail jailbreak strategies, achieving competitive performance with existing methods in both individual and ensemble level.",
+        "published": "2026-03-20T16:45:04Z",
+        "categories": [
+            "cs.CR",
+            "cs.AI"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20122",
+        "abs_url": "https://arxiv.org/abs/2603.20122"
+    },
+    {
+        "id": "2603.20116",
+        "title": "Chain-of-Adaptation: Surgical Vision-Language Adaptation with Reinforcement Learning",
+        "authors": [
+            "Jiajie Li",
+            "Chenhui Xu",
+            "Meihuan Liu",
+            "Jinjun Xiong"
+        ],
+        "abstract": "Conventional fine-tuning on domain-specific datasets can inadvertently alter a model's pretrained multimodal priors, leading to reduced generalization. To address this, we propose Chain-of-Adaptation (CoA), an adaptation framework designed to integrate domain knowledge while maintaining the model's inherent reasoning and perceptual capabilities. CoA introduces a structured reasoning format that enhances domain alignment without sacrificing general multimodal competence by reinforcement learning. Experiments on standard surgical benchmarks, under both in-distribution and out-of-distribution settings, demonstrate that CoA achieves higher accuracy, stronger generalization, and more stable behavior than supervised fine-tuning. Furthermore, ablation studies confirm that CoA effectively preserves the model's core visual-language abilities, providing a reliable pathway for domain specialization in VLMs.",
+        "published": "2026-03-20T16:38:37Z",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20116",
+        "abs_url": "https://arxiv.org/abs/2603.20116"
+    }
+]

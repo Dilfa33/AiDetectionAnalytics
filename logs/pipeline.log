@@ -1,0 +1,31 @@
+2026-03-23 23:41:00,126 - INFO - Fetching page 1 (attempt 1)
+2026-03-23 23:41:00,539 - INFO - Saved 5 papers to data\raw\api\papers_page_1.json
+2026-03-23 23:41:00,539 - INFO - Waiting 3s before next page (ArXiv rate limit)
+2026-03-23 23:41:03,550 - INFO - Fetching page 2 (attempt 1)
+2026-03-23 23:41:03,929 - INFO - Saved 5 papers to data\raw\api\papers_page_2.json
+2026-03-23 23:41:03,929 - INFO - Waiting 3s before next page (ArXiv rate limit)
+2026-03-23 23:41:06,935 - INFO - Fetching page 3 (attempt 1)
+2026-03-23 23:41:07,325 - INFO - Saved 5 papers to data\raw\api\papers_page_3.json
+2026-03-23 23:41:07,325 - INFO - Total papers fetched: 15
+2026-03-23 23:41:07,668 - INFO - Parsed JSON: papers_page_1.json (5 records)
+2026-03-23 23:41:07,706 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3aee (source: papers_page_1.json)
+2026-03-23 23:41:07,707 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3aef (source: papers_page_1.json)
+2026-03-23 23:41:07,707 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3af0 (source: papers_page_1.json)
+2026-03-23 23:41:07,707 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3af1 (source: papers_page_1.json)
+2026-03-23 23:41:07,708 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3af2 (source: papers_page_1.json)
+2026-03-23 23:41:07,716 - INFO - Parsed JSON: papers_page_2.json (5 records)
+2026-03-23 23:41:07,716 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3af3 (source: papers_page_2.json)
+2026-03-23 23:41:07,717 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3af4 (source: papers_page_2.json)
+2026-03-23 23:41:07,717 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3af5 (source: papers_page_2.json)
+2026-03-23 23:41:07,717 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3af6 (source: papers_page_2.json)
+2026-03-23 23:41:07,718 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3af7 (source: papers_page_2.json)
+2026-03-23 23:41:07,724 - INFO - Parsed JSON: papers_page_3.json (5 records)
+2026-03-23 23:41:07,724 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3af8 (source: papers_page_3.json)
+2026-03-23 23:41:07,724 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3af9 (source: papers_page_3.json)
+2026-03-23 23:41:07,725 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3afa (source: papers_page_3.json)
+2026-03-23 23:41:07,725 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3afb (source: papers_page_3.json)
+2026-03-23 23:41:07,726 - INFO - Saved to MongoDB: 69c1c183d4c974f02eea3afc (source: papers_page_3.json)
+2026-03-23 23:41:07,726 - ERROR - File not found: data/raw/csv/sample.csv
+2026-03-23 23:41:07,726 - ERROR - File not found: data/raw/xml/sample.xml
+2026-03-23 23:41:08,576 - INFO - Started uploading papers_page_1.json to S3 bucket arxiv-pipeline-bucket
+2026-03-23 23:41:08,640 - INFO - Successfully uploaded papers_page_1.json to arxiv-pipeline-bucket
