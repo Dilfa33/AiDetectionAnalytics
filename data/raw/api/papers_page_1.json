@@ -1,0 +1,115 @@
+[
+    {
+        "id": "2603.20193",
+        "title": "From Masks to Pixels and Meaning: A New Taxonomy, Benchmark, and Metrics for VLM Image Tampering",
+        "authors": [
+            "Xinyi Shang",
+            "Yi Tang",
+            "Jiacheng Cui",
+            "Ahmed Elhagry",
+            "Salwa K. Al Khatib",
+            "Sondos Mahmoud Bsharat",
+            "Jiacheng Liu",
+            "Xiaohan Zhao",
+            "Jing-Hao Xue",
+            "Hao Li",
+            "Salman Khan",
+            "Zhiqiang Shen"
+        ],
+        "abstract": "Existing tampering detection benchmarks largely rely on object masks, which severely misalign with the true edit signal: many pixels inside a mask are untouched or only trivially modified, while subtle yet consequential edits outside the mask are treated as natural. We reformulate VLM image tampering from coarse region labels to a pixel-grounded, meaning and language-aware task. First, we introduce a taxonomy spanning edit primitives (replace/remove/splice/inpaint/attribute/colorization, etc.) and their semantic class of tampered object, linking low-level changes to high-level understanding. Second, we release a new benchmark with per-pixel tamper maps and paired category supervision to evaluate detection and classification within a unified protocol. Third, we propose a training framework and evaluation metrics that quantify pixel-level correctness with localization to assess confidence or prediction on true edit intensity, and further measure tamper meaning understanding via semantics-aware classification and natural language descriptions for the predicted regions. We also re-evaluate the existing strong segmentation/localization baselines on recent strong tamper detectors and reveal substantial over- and under-scoring using mask-only metrics, and expose failure modes on micro-edits and off-mask changes. Our framework advances the field from masks to pixels, meanings and language descriptions, establishing a rigorous standard for tamper localization, semantic classification and description. Code and benchmark data are available at https://github.com/VILA-Lab/PIXAR.",
+        "published": "2026-03-20T17:59:54Z",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.LG"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20193",
+        "abs_url": "https://arxiv.org/abs/2603.20193"
+    },
+    {
+        "id": "2603.20192",
+        "title": "LumosX: Relate Any Identities with Their Attributes for Personalized Video Generation",
+        "authors": [
+            "Jiazheng Xing",
+            "Fei Du",
+            "Hangjie Yuan",
+            "Pengwei Liu",
+            "Hongbin Xu",
+            "Hai Ci",
+            "Ruigang Niu",
+            "Weihua Chen",
+            "Fan Wang",
+            "Yong Liu"
+        ],
+        "abstract": "Recent advances in diffusion models have significantly improved text-to-video generation, enabling personalized content creation with fine-grained control over both foreground and background elements. However, precise face-attribute alignment across subjects remains challenging, as existing methods lack explicit mechanisms to ensure intra-group consistency. Addressing this gap requires both explicit modeling strategies and face-attribute-aware data resources. We therefore propose LumosX, a framework that advances both data and model design. On the data side, a tailored collection pipeline orchestrates captions and visual cues from independent videos, while multimodal large language models (MLLMs) infer and assign subject-specific dependencies. These extracted relational priors impose a finer-grained structure that amplifies the expressive control of personalized video generation and enables the construction of a comprehensive benchmark. On the modeling side, Relational Self-Attention and Relational Cross-Attention intertwine position-aware embeddings with refined attention dynamics to inscribe explicit subject-attribute dependencies, enforcing disciplined intra-group cohesion and amplifying the separation between distinct subject clusters. Comprehensive evaluations on our benchmark demonstrate that LumosX achieves state-of-the-art performance in fine-grained, identity-consistent, and semantically aligned personalized multi-subject video generation. Code and models are available at https://jiazheng-xing.github.io/lumosx-home/.",
+        "published": "2026-03-20T17:59:46Z",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20192",
+        "abs_url": "https://arxiv.org/abs/2603.20192"
+    },
+    {
+        "id": "2603.20185",
+        "title": "VideoSeek: Long-Horizon Video Agent with Tool-Guided Seeking",
+        "authors": [
+            "Jingyang Lin",
+            "Jialian Wu",
+            "Jiang Liu",
+            "Ximeng Sun",
+            "Ze Wang",
+            "Xiaodong Yu",
+            "Jiebo Luo",
+            "Zicheng Liu",
+            "Emad Barsoum"
+        ],
+        "abstract": "Video agentic models have advanced challenging video-language tasks. However, most agentic approaches still heavily rely on greedy parsing over densely sampled video frames, resulting in high computational cost. We present VideoSeek, a long-horizon video agent that leverages video logic flow to actively seek answer-critical evidence instead of exhaustively parsing the full video. This insight allows the model to use far fewer frames while maintaining, or even improving, its video understanding capability. VideoSeek operates in a think-act-observe loop with a well-designed toolkit for collecting multi-granular video observations. This design enables query-aware exploration over accumulated observations and supports practical video understanding and reasoning. Experiments on four challenging video understanding and reasoning benchmarks demonstrate that VideoSeek achieves strong accuracy while using far fewer frames than prior video agents and standalone LMMs. Notably, VideoSeek achieves a 10.2 absolute points improvement on LVBench over its base model, GPT-5, while using 93% fewer frames. Further analysis highlights the significance of leveraging video logic flow, strong reasoning capability, and the complementary roles of toolkit design.",
+        "published": "2026-03-20T17:58:47Z",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20185",
+        "abs_url": "https://arxiv.org/abs/2603.20185"
+    },
+    {
+        "id": "2603.20181",
+        "title": "Improving Generalization on Cybersecurity Tasks with Multi-Modal Contrastive Learning",
+        "authors": [
+            "Jianan Huang",
+            "Rodolfo V. Valentim",
+            "Luca Vassio",
+            "Matteo Boffa",
+            "Marco Mellia",
+            "Idilio Drago",
+            "Dario Rossi"
+        ],
+        "abstract": "The use of ML in cybersecurity has long been impaired by generalization issues: Models that work well in controlled scenarios fail to maintain performance in production. The root cause often lies in ML algorithms learning superficial patterns (shortcuts) rather than underlying cybersecurity concepts. We investigate contrastive multi-modal learning as a first step towards improving ML performance in cybersecurity tasks. We aim at transferring knowledge from data-rich modalities, such as text, to data-scarce modalities, such as payloads. We set up a case study on threat classification and propose a two-stage multi-modal contrastive learning framework that uses textual vulnerability descriptions to guide payload classification. First, we construct a semantically meaningful embedding space using contrastive learning on descriptions. Then, we align payloads to this space, transferring knowledge from text to payloads. We evaluate the approach on a large-scale private dataset and a synthetic benchmark built from public CVE descriptions and LLM-generated payloads. The methodology appears to reduce shortcut learning over baselines on both benchmarks. We release our synthetic benchmark and source code as open source.",
+        "published": "2026-03-20T17:57:00Z",
+        "categories": [
+            "cs.CR",
+            "cs.AI"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20181",
+        "abs_url": "https://arxiv.org/abs/2603.20181"
+    },
+    {
+        "id": "2603.20180",
+        "title": "Adaptive Greedy Frame Selection for Long Video Understanding",
+        "authors": [
+            "Yuning Huang",
+            "Fengqing Zhu"
+        ],
+        "abstract": "Large vision--language models (VLMs) are increasingly applied to long-video question answering, yet inference is often bottlenecked by the number of input frames and resulting visual tokens. Naive sparse sampling can miss decisive moments, while purely relevance-driven selection frequently collapses onto near-duplicate frames and sacrifices coverage of temporally distant evidence. We propose a question-adaptive greedy frame selection method that jointly optimizes query relevance and semantic representativeness under a fixed frame budget. Our approach constructs a 1~FPS candidate pool (capped at 1000) with exact timestamp alignment, embeds candidates in two complementary spaces (SigLIP for question relevance and DINOv2 for semantic similarity), and selects frames by greedily maximizing a weighted sum of a modular relevance term and a facility-location coverage term. This objective is normalized, monotone, and submodular, yielding a standard (1-1/e) greedy approximation guarantee. To account for question-dependent trade-offs between relevance and coverage, we introduce four preset strategies and a lightweight text-only question-type classifier that routes each query to its best-performing preset. Experiments on MLVU show consistent accuracy gains over uniform sampling and a strong recent baseline across frame budgets, with the largest improvements under tight budgets.",
+        "published": "2026-03-20T17:55:32Z",
+        "categories": [
+            "cs.CV",
+            "cs.AI",
+            "cs.CL"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.20180",
+        "abs_url": "https://arxiv.org/abs/2603.20180"
+    }
+]
