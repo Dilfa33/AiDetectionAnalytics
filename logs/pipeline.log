@@ -29,3 +29,120 @@
 2026-03-23 23:41:07,726 - ERROR - File not found: data/raw/xml/sample.xml
 2026-03-23 23:41:08,576 - INFO - Started uploading papers_page_1.json to S3 bucket arxiv-pipeline-bucket
 2026-03-23 23:41:08,640 - INFO - Successfully uploaded papers_page_1.json to arxiv-pipeline-bucket
+2026-03-29 23:28:17,672 - INFO - === Processing folder: data\raw\pdf ===
+2026-03-29 23:28:17,673 - INFO - Found 1 document(s) in data\raw\pdf
+2026-03-29 23:28:17,673 - INFO - [PDF] Starting extraction: 2603.09957v1.pdf
+2026-03-29 23:28:17,698 - INFO - [PDF] 27 pages found in 2603.09957v1.pdf
+2026-03-29 23:28:17,858 - INFO - [PDF] Page 1: 1 table(s) found
+2026-03-29 23:28:19,792 - INFO - [PDF] Extraction complete: 2603.09957v1.pdf (27 pages)
+2026-03-29 23:28:19,809 - INFO - [MongoDB] Stored document extraction: 2603.09957v1.pdf (type=pdf, id=69c9997365bd3a7911adb753)
+2026-03-29 23:28:19,809 - INFO - === Processing folder: data\raw\word ===
+2026-03-29 23:28:19,809 - INFO - Found 0 document(s) in data\raw\word
+2026-03-29 23:28:19,810 - INFO - === Processing folder: data\raw\excel ===
+2026-03-29 23:28:19,810 - INFO - Found 0 document(s) in data\raw\excel
+2026-03-29 23:32:36,169 - INFO - Pipeline started
+2026-03-29 23:32:36,169 - INFO - ============================================================
+2026-03-29 23:32:36,170 - INFO - STAGE 1: Fetching papers from ArXiv API
+2026-03-29 23:32:36,170 - INFO - ============================================================
+2026-03-29 23:32:36,170 - INFO - Fetching page 1 (attempt 1)
+2026-03-29 23:32:51,310 - ERROR - Timeout on page 1
+2026-03-29 23:32:52,310 - INFO - Fetching page 1 (attempt 2)
+2026-03-29 23:33:07,203 - ERROR - HTTP error on page 1: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3Aartificial%2Bintelligence&start=0&max_results=5&sortBy=submittedDate&sortOrder=descending
+2026-03-29 23:33:07,204 - WARNING - Rate limited — waiting 2s before retry
+2026-03-29 23:33:09,210 - INFO - Fetching page 1 (attempt 3)
+2026-03-29 23:33:09,495 - ERROR - HTTP error on page 1: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3Aartificial%2Bintelligence&start=0&max_results=5&sortBy=submittedDate&sortOrder=descending
+2026-03-29 23:33:09,495 - WARNING - Rate limited — waiting 4s before retry
+2026-03-29 23:33:13,505 - ERROR - Failed to fetch page 1 after 3 attempts
+2026-03-29 23:33:13,505 - WARNING - Skipping page 1 — no data returned
+2026-03-29 23:33:13,505 - INFO - Fetching page 2 (attempt 1)
+2026-03-29 23:33:13,762 - ERROR - HTTP error on page 2: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3Aartificial%2Bintelligence&start=5&max_results=5&sortBy=submittedDate&sortOrder=descending
+2026-03-29 23:33:13,763 - WARNING - Rate limited — waiting 1s before retry
+2026-03-29 23:33:14,773 - INFO - Fetching page 2 (attempt 2)
+2026-03-29 23:33:15,029 - ERROR - HTTP error on page 2: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3Aartificial%2Bintelligence&start=5&max_results=5&sortBy=submittedDate&sortOrder=descending
+2026-03-29 23:33:15,029 - WARNING - Rate limited — waiting 2s before retry
+2026-03-29 23:33:17,036 - INFO - Fetching page 2 (attempt 3)
+2026-03-29 23:33:17,296 - ERROR - HTTP error on page 2: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3Aartificial%2Bintelligence&start=5&max_results=5&sortBy=submittedDate&sortOrder=descending
+2026-03-29 23:33:17,296 - WARNING - Rate limited — waiting 4s before retry
+2026-03-29 23:33:21,311 - ERROR - Failed to fetch page 2 after 3 attempts
+2026-03-29 23:33:21,312 - WARNING - Skipping page 2 — no data returned
+2026-03-29 23:33:21,312 - INFO - Fetching page 3 (attempt 1)
+2026-03-29 23:33:21,591 - ERROR - HTTP error on page 3: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3Aartificial%2Bintelligence&start=10&max_results=5&sortBy=submittedDate&sortOrder=descending
+2026-03-29 23:33:21,591 - WARNING - Rate limited — waiting 1s before retry
+2026-03-29 23:33:22,596 - INFO - Fetching page 3 (attempt 2)
+2026-03-29 23:33:22,953 - ERROR - HTTP error on page 3: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3Aartificial%2Bintelligence&start=10&max_results=5&sortBy=submittedDate&sortOrder=descending
+2026-03-29 23:33:22,954 - WARNING - Rate limited — waiting 2s before retry
+2026-03-29 23:33:24,959 - INFO - Fetching page 3 (attempt 3)
+2026-03-29 23:33:25,272 - ERROR - HTTP error on page 3: 429 Client Error: Unknown Error for url: https://export.arxiv.org/api/query?search_query=all%3Aartificial%2Bintelligence&start=10&max_results=5&sortBy=submittedDate&sortOrder=descending
+2026-03-29 23:33:25,273 - WARNING - Rate limited — waiting 4s before retry
+2026-03-29 23:33:29,273 - ERROR - Failed to fetch page 3 after 3 attempts
+2026-03-29 23:33:29,274 - WARNING - Skipping page 3 — no data returned
+2026-03-29 23:33:29,274 - INFO - Total papers fetched: 0
+2026-03-29 23:33:29,274 - INFO - API stage complete: 0 papers fetched
+2026-03-29 23:33:29,274 - INFO - ============================================================
+2026-03-29 23:33:29,274 - INFO - STAGE 2: Parsing and ingesting JSON files
+2026-03-29 23:33:29,275 - INFO - ============================================================
+2026-03-29 23:33:29,275 - INFO - Parsed JSON: papers_page_1.json (5 records)
+2026-03-29 23:33:29,311 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfbe (source: papers_page_1.json)
+2026-03-29 23:33:29,311 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfbf (source: papers_page_1.json)
+2026-03-29 23:33:29,311 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfc0 (source: papers_page_1.json)
+2026-03-29 23:33:29,312 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfc1 (source: papers_page_1.json)
+2026-03-29 23:33:29,313 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfc2 (source: papers_page_1.json)
+2026-03-29 23:33:29,313 - INFO - Parsed JSON: papers_page_2.json (5 records)
+2026-03-29 23:33:29,314 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfc3 (source: papers_page_2.json)
+2026-03-29 23:33:29,314 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfc4 (source: papers_page_2.json)
+2026-03-29 23:33:29,314 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfc5 (source: papers_page_2.json)
+2026-03-29 23:33:29,315 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfc6 (source: papers_page_2.json)
+2026-03-29 23:33:29,315 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfc7 (source: papers_page_2.json)
+2026-03-29 23:33:29,316 - INFO - Parsed JSON: papers_page_3.json (5 records)
+2026-03-29 23:33:29,316 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfc8 (source: papers_page_3.json)
+2026-03-29 23:33:29,317 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfc9 (source: papers_page_3.json)
+2026-03-29 23:33:29,317 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfca (source: papers_page_3.json)
+2026-03-29 23:33:29,317 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfcb (source: papers_page_3.json)
+2026-03-29 23:33:29,318 - INFO - Saved to MongoDB: 69c99aa94e252961db20cfcc (source: papers_page_3.json)
+2026-03-29 23:33:29,318 - INFO - Parsing stage complete: 15 records ingested
+2026-03-29 23:33:29,318 - INFO - ============================================================
+2026-03-29 23:33:29,318 - INFO - STAGE 3: Extracting documents (PDF / Word)
+2026-03-29 23:33:29,318 - INFO - ============================================================
+2026-03-29 23:33:29,318 - INFO - --- Processing PDF folder: data\raw\pdf ---
+2026-03-29 23:33:29,319 - INFO - Found 1 document(s) in data\raw\pdf
+2026-03-29 23:33:29,319 - INFO - [PDF] Starting extraction: 2603.09957v1.pdf
+2026-03-29 23:33:29,342 - INFO - [PDF] 27 pages found in 2603.09957v1.pdf
+2026-03-29 23:33:29,494 - INFO - [PDF] Page 1: 1 table(s) found
+2026-03-29 23:33:31,302 - INFO - [PDF] Extraction complete: 2603.09957v1.pdf (27 pages)
+2026-03-29 23:33:31,308 - INFO - [MongoDB] Skipping duplicate: 2603.09957v1.pdf already stored today
+2026-03-29 23:33:31,308 - INFO - PDF stage: 1 file(s) processed
+2026-03-29 23:33:31,309 - INFO - --- Processing WORD folder: data\raw\word ---
+2026-03-29 23:33:31,309 - INFO - Found 0 document(s) in data\raw\word
+2026-03-29 23:33:31,309 - INFO - WORD stage: 0 file(s) processed
+2026-03-29 23:33:31,309 - INFO - Document extraction complete: 1 total file(s) processed
+2026-03-29 23:33:31,309 - INFO - ============================================================
+2026-03-29 23:33:31,309 - INFO - Pipeline summary:
+2026-03-29 23:33:31,310 - INFO -   Papers fetched (API):       0
+2026-03-29 23:33:31,310 - INFO -   Papers ingested (MongoDB):  15
+2026-03-29 23:33:31,310 - INFO -   Documents extracted:        1
+2026-03-29 23:33:31,310 - INFO - Pipeline finished
+2026-03-29 23:35:23,636 - INFO - Pipeline started
+2026-03-29 23:35:23,636 - INFO - Processing PDF folder: data\raw\pdf
+2026-03-29 23:35:23,637 - INFO - Found 1 document(s) in data\raw\pdf
+2026-03-29 23:35:23,637 - INFO - [PDF] Starting extraction: 2603.09957v1.pdf
+2026-03-29 23:35:23,658 - INFO - [PDF] 27 pages found in 2603.09957v1.pdf
+2026-03-29 23:35:23,806 - INFO - [PDF] Page 1: 1 table(s) found
+2026-03-29 23:35:25,588 - INFO - [PDF] Extraction complete: 2603.09957v1.pdf (27 pages)
+2026-03-29 23:35:25,591 - INFO - [MongoDB] Skipping duplicate: 2603.09957v1.pdf already stored today
+2026-03-29 23:35:25,591 - INFO - ============================================================
+2026-03-29 23:35:25,591 - INFO - Pipeline summary:
+2026-03-29 23:35:25,591 - INFO -   PDFs processed: 1
+2026-03-29 23:35:25,617 - INFO - Pipeline finished
+2026-03-29 23:35:57,889 - INFO - Pipeline started
+2026-03-29 23:35:57,889 - INFO - Processing PDF folder: data\raw\pdf
+2026-03-29 23:35:57,890 - INFO - Found 1 document(s) in data\raw\pdf
+2026-03-29 23:35:57,890 - INFO - [PDF] Starting extraction: 2603.09957v1.pdf
+2026-03-29 23:35:57,913 - INFO - [PDF] 27 pages found in 2603.09957v1.pdf
+2026-03-29 23:35:58,062 - INFO - [PDF] Page 1: 1 table(s) found
+2026-03-29 23:35:59,864 - INFO - [PDF] Extraction complete: 2603.09957v1.pdf (27 pages)
+2026-03-29 23:35:59,866 - INFO - [MongoDB] Skipping duplicate: 2603.09957v1.pdf already stored today
+2026-03-29 23:35:59,867 - INFO - ============================================================
+2026-03-29 23:35:59,867 - INFO - Pipeline summary:
+2026-03-29 23:35:59,867 - INFO -   PDFs processed: 1
+2026-03-29 23:35:59,867 - INFO -   - 2603.09957v1.pdf id=69c9997365bd3a7911adb753
+2026-03-29 23:35:59,867 - INFO - Pipeline finished
