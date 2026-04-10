@@ -16,6 +16,8 @@ client = MongoClient("mongodb://localhost:27017/")
 db = client["arxiv_pipeline"]
 collection = db["raw_papers"]
 doc_collection = db["document_extractions"]
+img_collection  = db["image_metadata"]
+exif_collection = db["exif_metadata"]
 
 
 # ── Save paper ────────────────────────────────────────────────────────────────
@@ -62,4 +64,57 @@ def save_document_to_mongo(data, source="unknown"):
         return result.inserted_id
     except Exception as e:
         logging.error(f"[MongoDB] Document insert failed for {data.get('file_name', source)}: {e}")
+        return None
+
+
+# ── Save image metadata ───────────────────────────────────────────────────────
+def save_image_metadata(data: dict) -> object:
+    """
+    Insert image processing metadata into the image_metadata collection.
+    Skips if the same filename was already stored today.
+    """
+    try:
+        from datetime import datetime
+        today = datetime.utcnow().strftime("%Y-%m-%d")
+        existing = img_collection.find_one({
+            "filename": data.get("filename"),
+            "processed_at": {"$regex": f"^{today}"}
+        })
+        if existing:
+            logging.info(f"[MongoDB] Skipping duplicate image: {data.get('filename')}")
+            return existing["_id"]
+
+        data.setdefault("processed_at", datetime.utcnow().isoformat())
+        result = img_collection.insert_one(data)
+        logging.info(
+            f"[MongoDB] Stored image metadata: {data.get('filename')} "
+            f"(movie={data.get('title')}, id={result.inserted_id})"
+        )
+        return result.inserted_id
+    except Exception as e:
+        logging.error(f"[MongoDB] Image metadata insert failed: {e}")
+        return None
+
+
+# ── Save EXIF metadata ────────────────────────────────────────────────────────
+def save_exif_to_mongo(data: dict) -> object:
+    """
+    Insert EXIF summary into the exif_metadata collection.
+    Skips if the same filename was already stored.
+    """
+    try:
+        existing = exif_collection.find_one({"file": data.get("file")})
+        if existing:
+            logging.info(f"[MongoDB] Skipping duplicate EXIF: {data.get('file')}")
+            return existing["_id"]
+
+        data.setdefault("stored_at", datetime.utcnow().isoformat())
+        result = exif_collection.insert_one(data)
+        logging.info(
+            f"[MongoDB] Stored EXIF metadata: {data.get('file')} "
+            f"(camera={data.get('camera_make')} {data.get('camera_model')}, id={result.inserted_id})"
+        )
+        return result.inserted_id
+    except Exception as e:
+        logging.error(f"[MongoDB] EXIF insert failed: {e}")
         return None
