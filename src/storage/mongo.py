@@ -19,6 +19,7 @@ doc_collection = db["document_extractions"]
 img_collection  = db["image_metadata"]
 exif_collection = db["exif_metadata"]
 transcript_collection = db["transcripts"]
+pipeline_logs_collection = db["pipeline_logs"]
 
 
 # ── Save paper ────────────────────────────────────────────────────────────────
