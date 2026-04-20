@@ -1,11 +1,9 @@
 """
 run_pipeline.py
-Full data pipeline:
-  1. Extract content from PDF files in data/raw/pdf/
-  2. Download movie posters from TMDb API
-  3. Batch process images (resize, thumbnail, crop, WebP) -> MongoDB
-  4. Extract EXIF metadata from camera photos in data/raw/exif_samples/
-  5. Upload processed images to Google Drive
+Audio/video pipeline:
+  1. Load and process audio files (trim, convert, volume, fade)
+  2. Load video files, extract audio tracks and keyframes
+  3. Transcribe audio/video using faster-whisper -> MongoDB
 """
 
 import sys
@@ -14,113 +12,131 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 
 from pathlib import Path
 from src.utils.logger import logging
-from src.extraction.document_extractor import process_folder
-from src.image_processing.downloader import download_posters
-from src.image_processing.batch import batch_process_images
-from src.image_processing.exif_utils import get_exif_summary
-from src.storage.mongo import save_exif_to_mongo
+from src.storage.mongo import save_transcript_to_mongo
+from src.audio_processing.loader import inspect_all_audio, SUPPORTED_FORMATS as AUDIO_FORMATS
+from src.audio_processing.processor import run_demo as run_audio_demo
+from src.audio_processing.transcriber import transcribe, chunked_transcribe, save_all_formats
+from src.video_processing.loader import inspect_all_videos, extract_audio
+from src.video_processing.frame_extractor import extract_keyframes
 
 
-def run_pdf_stage():
+def run_audio_stage(audio_dir: Path = Path("data/raw/audio")) -> list[dict]:
     logging.info("=" * 60)
-    logging.info("STAGE 1: Extracting PDF documents")
+    logging.info("STAGE 1: Audio processing (inspect, trim, convert, fade)")
     logging.info("=" * 60)
-    folder  = Path("data/raw/pdf")
-    results = process_folder(folder, extensions=[".pdf"])
-    logging.info(f"PDF stage complete: {len(results)} file(s) processed")
-    return results
+    props = inspect_all_audio(audio_dir)
+    if props:
+        run_audio_demo(audio_dir)
+    logging.info(f"Audio stage complete: {len(props)} file(s) inspected")
+    return props
 
 
-def run_download_stage(count: int = 10):
+def run_video_stage(
+    video_dir: Path = Path("data/raw/video"),
+    frame_interval: float = 10.0,
+) -> dict:
     logging.info("=" * 60)
-    logging.info("STAGE 2: Downloading movie posters from TMDb")
+    logging.info("STAGE 2: Video processing (inspect, extract audio, keyframes)")
     logging.info("=" * 60)
-    movies     = download_posters(count=count)
-    downloaded = sum(1 for m in movies if m["local_path"])
-    logging.info(f"Download stage complete: {downloaded}/{count} posters saved")
-    return movies
+    video_props = inspect_all_videos(video_dir)
+    extracted_audio: list[Path] = []
+    total_frames = 0
 
+    for props in video_props:
+        video_path = video_dir / props["filename"]
+        if props["has_audio"]:
+            try:
+                audio_path = extract_audio(video_path)
+                extracted_audio.append(audio_path)
+            except Exception as e:
+                logging.error(f"[VideoStage] Audio extraction failed for {props['filename']}: {e}")
 
-def run_image_stage(movies: list):
-    logging.info("=" * 60)
-    logging.info("STAGE 3: Batch image processing")
-    logging.info("=" * 60)
-    lookup  = {m["filename"]: m for m in movies if m.get("filename")}
-    results = batch_process_images(
-        input_dir=Path("data/raw/images"),
-        movie_lookup=lookup,
-        upload_to_drive=True,
+        try:
+            records = extract_keyframes(video_path, interval_seconds=frame_interval)
+            total_frames += len(records)
+        except Exception as e:
+            logging.error(f"[VideoStage] Keyframe extraction failed for {props['filename']}: {e}")
+
+    logging.info(
+        f"Video stage complete: {len(video_props)} video(s), "
+        f"{len(extracted_audio)} audio track(s), {total_frames} frame(s)"
     )
-    logging.info(f"Image stage complete: {len(results)} image(s) processed")
-    return results
+    return {
+        "video_props": video_props,
+        "extracted_audio": extracted_audio,
+        "total_frames": total_frames,
+    }
 
 
-def run_exif_stage():
+def run_transcription_stage(
+    audio_dir: Path = Path("data/raw/audio"),
+    extracted_audio: list[Path] | None = None,
+    model_size: str = "base",
+    long_threshold_sec: float = 300.0,
+) -> list[dict]:
+    """
+    Transcribe audio files from data/raw/audio/ and any video-extracted audio.
+    Files longer than long_threshold_sec use chunked transcription.
+    Results are stored in MongoDB.
+    """
     logging.info("=" * 60)
-    logging.info("STAGE 4: Extracting EXIF metadata from camera photos")
+    logging.info("STAGE 3: Speech-to-text transcription")
     logging.info("=" * 60)
-    exif_dir = Path("data/raw/exif_samples")
-    photos   = list(exif_dir.glob("*.jpg")) + list(exif_dir.glob("*.jpeg"))
 
-    if not photos:
-        logging.warning("[EXIF] No JPEG photos found in data/raw/exif_samples/")
-        return []
+    files: list[Path] = sorted(
+        [f for f in audio_dir.iterdir() if f.suffix.lower() in AUDIO_FORMATS]
+    )
+    if extracted_audio:
+        files += [p for p in extracted_audio if p.exists()]
 
-    summaries = []
-    for photo in photos:
-        summary = get_exif_summary(photo)
-        save_exif_to_mongo(summary)
-        summaries.append(summary)
-        logging.info(
-            f"[EXIF] {photo.name}: camera={summary.get('camera_make')} {summary.get('camera_model')}, "
-            f"date={summary.get('datetime_original')}, GPS={summary.get('gps')}"
-        )
+    transcripts = []
+    for audio_file in files:
+        try:
+            from pydub import AudioSegment
+            duration_ms = len(AudioSegment.from_file(str(audio_file)))
+            duration_sec = duration_ms / 1000.0
 
-    logging.info(f"EXIF stage complete: {len(summaries)} photo(s) processed")
-    return summaries
+            if duration_sec > long_threshold_sec:
+                logging.info(
+                    f"[TranscriptionStage] Long file ({duration_sec:.0f}s), "
+                    f"using chunked transcription: {audio_file.name}"
+                )
+                result = chunked_transcribe(
+                    audio_file,
+                    chunk_duration_min=5.0,
+                    model_size=model_size,
+                    cache_chunks=True,
+                )
+            else:
+                result = transcribe(audio_file, model_size=model_size)
 
+            save_all_formats(result, audio_file.stem)
+            save_transcript_to_mongo(result)
+            transcripts.append(result)
+            logging.info(
+                f"[TranscriptionStage] {audio_file.name}: "
+                f"lang={result['language']}, {len(result['segments'])} segment(s)"
+            )
+        except Exception as e:
+            logging.error(f"[TranscriptionStage] Failed for {audio_file.name}: {e}")
 
-def run_drive_upload(image_results: list):
-    logging.info("=" * 60)
-    logging.info("STAGE 5: Uploading processed images to Google Drive")
-    logging.info("=" * 60)
-    try:
-        from src.utils.upload_utils import get_drive_service, upload_batch
-        service = get_drive_service()
-        if not service:
-            logging.error("[Drive] Could not authenticate — skipping upload")
-            return []
-
-        files_to_upload = []
-        for r in image_results:
-            for key in ("webp_path", "thumbnail_path"):
-                p = Path(r.get(key, ""))
-                if p.exists():
-                    files_to_upload.append(p)
-
-        results = upload_batch(service, files_to_upload)
-        uploaded = sum(1 for r in results if r["drive_id"])
-        logging.info(f"Drive stage complete: {uploaded}/{len(files_to_upload)} files uploaded")
-        return results
-    except Exception as e:
-        logging.error(f"Drive stage failed: {e}")
-        return []
+    logging.info(f"Transcription stage complete: {len(transcripts)} file(s) transcribed")
+    return transcripts
 
 
 if __name__ == "__main__":
     logging.info("Pipeline started")
 
-    pdf_results    = run_pdf_stage()
-    movies         = run_download_stage(count=10)
-    image_results  = run_image_stage(movies)
-    exif_results   = run_exif_stage()
-    drive_results  = run_drive_upload(image_results)
+    audio_results  = run_audio_stage()
+    video_results  = run_video_stage()
+    transcript_results = run_transcription_stage(
+        extracted_audio=video_results["extracted_audio"]
+    )
 
     logging.info("=" * 60)
     logging.info("Pipeline summary:")
-    logging.info(f"  PDFs processed:     {len(pdf_results)}")
-    logging.info(f"  Posters downloaded: {sum(1 for m in movies if m['local_path'])}")
-    logging.info(f"  Images processed:   {len(image_results)}")
-    logging.info(f"  EXIF photos:        {len(exif_results)}")
-    logging.info(f"  Drive uploads:      {sum(1 for r in drive_results if r['drive_id'])}")
+    logging.info(f"  Audio files:        {len(audio_results)}")
+    logging.info(f"  Videos processed:   {len(video_results['video_props'])}")
+    logging.info(f"  Keyframes saved:    {video_results['total_frames']}")
+    logging.info(f"  Transcripts:        {len(transcript_results)}")
     logging.info("Pipeline finished")
