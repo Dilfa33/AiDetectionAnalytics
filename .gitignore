@@ -17,6 +17,8 @@ data/raw/word/
 data/raw/excel/
 data/raw/images/
 data/raw/exif_samples/
+data/raw/audio/
+data/raw/video/
 data/processed/
 
 # Google Drive credentials (sensitive)
