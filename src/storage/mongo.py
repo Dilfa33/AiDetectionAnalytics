@@ -18,6 +18,8 @@ collection = db["raw_papers"]
 doc_collection = db["document_extractions"]
 img_collection  = db["image_metadata"]
 exif_collection = db["exif_metadata"]
+transcript_collection = db["transcripts"]
+pipeline_logs_collection = db["pipeline_logs"]
 
 
 # ── Save paper ────────────────────────────────────────────────────────────────
@@ -113,4 +115,40 @@ def save_exif_to_mongo(data: dict) -> object:
         return result.inserted_id
     except Exception as e:
         logging.error(f"[MongoDB] EXIF insert failed: {e}")
+        return None
+
+
+# ── Save transcript ────────────────────────────────────────────────────────────
+def save_transcript_to_mongo(result: dict) -> object:
+    """
+    Store a transcription result in the transcripts collection.
+    Each document is keyed by source_path + transcribed_at to avoid duplicates.
+    Expected keys in result: source_path, language, language_probability,
+    duration_sec, segments, full_text, model, transcribed_at.
+    """
+    try:
+        existing = transcript_collection.find_one({
+            "source_path": result.get("source_path"),
+            "model": result.get("model"),
+            "transcribed_at": {"$regex": f"^{result.get('transcribed_at', '')[:10]}"},
+        })
+        if existing:
+            logging.info(
+                f"[MongoDB] Skipping duplicate transcript: {result.get('source_path')}"
+            )
+            return existing["_id"]
+
+        doc = {
+            **result,
+            "stored_at": datetime.utcnow().isoformat(),
+        }
+        inserted = transcript_collection.insert_one(doc)
+        logging.info(
+            f"[MongoDB] Stored transcript: {result.get('source_path')} "
+            f"(lang={result.get('language')}, model={result.get('model')}, "
+            f"id={inserted.inserted_id})"
+        )
+        return inserted.inserted_id
+    except Exception as e:
+        logging.error(f"[MongoDB] Transcript insert failed: {e}")
         return None

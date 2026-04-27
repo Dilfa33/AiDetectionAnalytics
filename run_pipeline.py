@@ -22,7 +22,7 @@ from src.utils.logger import logging
 
 # ── Stage toggles ─────────────────────────────────────────────────────────────
 RUN_RESEED  = True    # re-download + reprocess images to enrich MongoDB
-RUN_DRIVE   = True   # set True after Google Drive credentials are configured
+RUN_DRIVE   = True    # set True after Google Drive credentials are configured
 
 
 # ── Stage 1: re-seed MongoDB with enriched movie data ─────────────────────────
