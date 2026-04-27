@@ -90,14 +90,19 @@ def download_posters(count: int = 10, save_dir: Path = RAW_IMAGE_DIR) -> list[di
         local_path = download_poster(poster_path, save_dir, filename)
 
         results.append({
-            "movie_id":     movie_id,
-            "title":        movie.get("title"),
-            "poster_path":  poster_path,
-            "local_path":   str(local_path) if local_path else None,
-            "filename":     filename,
-            "overview":     movie.get("overview", ""),
-            "release_date": movie.get("release_date", ""),
-            "vote_average": movie.get("vote_average", 0),
+            "movie_id":          movie_id,
+            "title":             movie.get("title"),
+            "poster_path":       poster_path,
+            "local_path":        str(local_path) if local_path else None,
+            "filename":          filename,
+            "overview":          movie.get("overview", ""),
+            "release_date":      movie.get("release_date", ""),
+            "vote_average":      movie.get("vote_average", 0),
+            "vote_count":        movie.get("vote_count", 0),
+            "popularity":        movie.get("popularity", 0.0),
+            "original_language": movie.get("original_language", ""),
+            "genre_ids":         movie.get("genre_ids", []),
+            "adult":             movie.get("adult", False),
         })
 
     downloaded = sum(1 for r in results if r["local_path"])
