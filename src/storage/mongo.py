@@ -72,29 +72,25 @@ def save_document_to_mongo(data, source="unknown"):
 # ── Save image metadata ───────────────────────────────────────────────────────
 def save_image_metadata(data: dict) -> object:
     """
-    Insert image processing metadata into the image_metadata collection.
-    Skips if the same filename was already stored today.
+    Upsert image processing metadata into the image_metadata collection.
+    Matches on filename; updates the record if it already exists so that
+    re-running the pipeline always stores the latest enriched fields.
     """
     try:
-        from datetime import datetime
-        today = datetime.utcnow().strftime("%Y-%m-%d")
-        existing = img_collection.find_one({
-            "filename": data.get("filename"),
-            "processed_at": {"$regex": f"^{today}"}
-        })
-        if existing:
-            logging.info(f"[MongoDB] Skipping duplicate image: {data.get('filename')}")
-            return existing["_id"]
-
-        data.setdefault("processed_at", datetime.utcnow().isoformat())
-        result = img_collection.insert_one(data)
-        logging.info(
-            f"[MongoDB] Stored image metadata: {data.get('filename')} "
-            f"(movie={data.get('title')}, id={result.inserted_id})"
+        data["processed_at"] = datetime.utcnow().isoformat()
+        result = img_collection.update_one(
+            {"filename": data.get("filename")},
+            {"$set": data},
+            upsert=True,
         )
-        return result.inserted_id
+        action = "Updated" if result.matched_count else "Inserted"
+        logging.info(
+            f"[MongoDB] {action} image metadata: {data.get('filename')} "
+            f"(movie={data.get('title')})"
+        )
+        return result.upserted_id
     except Exception as e:
-        logging.error(f"[MongoDB] Image metadata insert failed: {e}")
+        logging.error(f"[MongoDB] Image metadata upsert failed: {e}")
         return None
 
 

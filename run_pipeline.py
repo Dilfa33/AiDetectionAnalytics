@@ -1,142 +1,173 @@
 """
 run_pipeline.py
-Audio/video pipeline:
-  1. Load and process audio files (trim, convert, volume, fade)
-  2. Load video files, extract audio tracks and keyframes
-  3. Transcribe audio/video using faster-whisper -> MongoDB
+Lab 8 – NumPy, pandas, and Data Exploration pipeline.
+
+Stages
+------
+1. Re-seed MongoDB  – re-download posters so all movie fields are stored
+2. NumPy analysis   – array creation + vectorized stats
+3. Data loading     – MongoDB → CSV, chunked mean, per-language stats, dtype optimisation
+4. EDA              – shape/info/describe/value_counts + distribution charts
+5. Filtering        – loc / iloc / boolean / isin / between demos
+6. Regex            – title, overview, genre pattern analysis
+7. Quality report   – missing values, outliers, heatmap, CSV export
+8. Drive upload     – upload charts to Google Drive (optional)
 """
 
-import sys
-import os
+import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '.')))
 
 from pathlib import Path
 from src.utils.logger import logging
-from src.storage.mongo import save_transcript_to_mongo
-from src.audio_processing.loader import inspect_all_audio, SUPPORTED_FORMATS as AUDIO_FORMATS
-from src.audio_processing.processor import run_demo as run_audio_demo
-from src.audio_processing.transcriber import transcribe, chunked_transcribe, save_all_formats
-from src.video_processing.loader import inspect_all_videos, extract_audio
-from src.video_processing.frame_extractor import extract_keyframes
+
+# ── Stage toggles ─────────────────────────────────────────────────────────────
+RUN_RESEED  = True    # re-download + reprocess images to enrich MongoDB
+RUN_DRIVE   = True    # set True after Google Drive credentials are configured
 
 
-def run_audio_stage(audio_dir: Path = Path("data/raw/audio")) -> list[dict]:
+# ── Stage 1: re-seed MongoDB with enriched movie data ─────────────────────────
+def run_reseed_stage():
     logging.info("=" * 60)
-    logging.info("STAGE 1: Audio processing (inspect, trim, convert, fade)")
+    logging.info("STAGE 1: Re-seeding MongoDB with enriched movie data")
     logging.info("=" * 60)
-    props = inspect_all_audio(audio_dir)
-    if props:
-        run_audio_demo(audio_dir)
-    logging.info(f"Audio stage complete: {len(props)} file(s) inspected")
-    return props
+    from src.image_processing.downloader import download_posters
+    from src.image_processing.batch import batch_process_images
 
-
-def run_video_stage(
-    video_dir: Path = Path("data/raw/video"),
-    frame_interval: float = 10.0,
-) -> dict:
-    logging.info("=" * 60)
-    logging.info("STAGE 2: Video processing (inspect, extract audio, keyframes)")
-    logging.info("=" * 60)
-    video_props = inspect_all_videos(video_dir)
-    extracted_audio: list[Path] = []
-    total_frames = 0
-
-    for props in video_props:
-        video_path = video_dir / props["filename"]
-        if props["has_audio"]:
-            try:
-                audio_path = extract_audio(video_path)
-                extracted_audio.append(audio_path)
-            except Exception as e:
-                logging.error(f"[VideoStage] Audio extraction failed for {props['filename']}: {e}")
-
-        try:
-            records = extract_keyframes(video_path, interval_seconds=frame_interval)
-            total_frames += len(records)
-        except Exception as e:
-            logging.error(f"[VideoStage] Keyframe extraction failed for {props['filename']}: {e}")
-
-    logging.info(
-        f"Video stage complete: {len(video_props)} video(s), "
-        f"{len(extracted_audio)} audio track(s), {total_frames} frame(s)"
+    movies  = download_posters(count=10)
+    lookup  = {m["filename"]: m for m in movies if m.get("filename")}
+    results = batch_process_images(
+        input_dir=Path("data/raw/images"),
+        movie_lookup=lookup,
+        upload_to_drive=False,
     )
-    return {
-        "video_props": video_props,
-        "extracted_audio": extracted_audio,
-        "total_frames": total_frames,
-    }
+    logging.info(f"Re-seed complete: {len(results)} records upserted into MongoDB")
+    return results
 
 
-def run_transcription_stage(
-    audio_dir: Path = Path("data/raw/audio"),
-    extracted_audio: list[Path] | None = None,
-    model_size: str = "base",
-    long_threshold_sec: float = 300.0,
-) -> list[dict]:
-    """
-    Transcribe audio files from data/raw/audio/ and any video-extracted audio.
-    Files longer than long_threshold_sec use chunked transcription.
-    Results are stored in MongoDB.
-    """
+# ── Stage 2: NumPy analysis ───────────────────────────────────────────────────
+def run_numpy_stage(df):
     logging.info("=" * 60)
-    logging.info("STAGE 3: Speech-to-text transcription")
+    logging.info("STAGE 2: NumPy array operations")
     logging.info("=" * 60)
+    from src.analytics.numpy_ops import run_numpy_analysis
+    stats = run_numpy_analysis(df)
+    logging.info(f"NumPy stage complete: {stats}")
+    return stats
 
-    files: list[Path] = sorted(
-        [f for f in audio_dir.iterdir() if f.suffix.lower() in AUDIO_FORMATS]
+
+# ── Stage 3: Data loading & memory optimisation ───────────────────────────────
+def run_loader_stage():
+    logging.info("=" * 60)
+    logging.info("STAGE 3: Data loading, chunking, dtype optimisation")
+    logging.info("=" * 60)
+    from src.analytics.data_loader import (
+        load_from_mongo, save_to_csv, load_from_csv,
+        compute_mean_across_chunks, process_chunks_per_language,
+        optimise_dtypes, memory_report,
     )
-    if extracted_audio:
-        files += [p for p in extracted_audio if p.exists()]
 
-    transcripts = []
-    for audio_file in files:
-        try:
-            from pydub import AudioSegment
-            duration_ms = len(AudioSegment.from_file(str(audio_file)))
-            duration_sec = duration_ms / 1000.0
+    df       = load_from_mongo("image_metadata")
+    csv_path = save_to_csv(df)
 
-            if duration_sec > long_threshold_sec:
-                logging.info(
-                    f"[TranscriptionStage] Long file ({duration_sec:.0f}s), "
-                    f"using chunked transcription: {audio_file.name}"
-                )
-                result = chunked_transcribe(
-                    audio_file,
-                    chunk_duration_min=5.0,
-                    model_size=model_size,
-                    cache_chunks=True,
-                )
-            else:
-                result = transcribe(audio_file, model_size=model_size)
+    mean_rating  = compute_mean_across_chunks(csv_path, "vote_average")
+    lang_summary = process_chunks_per_language(csv_path)
+    logging.info(f"Per-language summary:\n{lang_summary.to_string()}")
 
-            save_all_formats(result, audio_file.stem)
-            save_transcript_to_mongo(result)
-            transcripts.append(result)
-            logging.info(
-                f"[TranscriptionStage] {audio_file.name}: "
-                f"lang={result['language']}, {len(result['segments'])} segment(s)"
-            )
-        except Exception as e:
-            logging.error(f"[TranscriptionStage] Failed for {audio_file.name}: {e}")
-
-    logging.info(f"Transcription stage complete: {len(transcripts)} file(s) transcribed")
-    return transcripts
+    df_opt = optimise_dtypes(df)
+    mem    = memory_report(df, df_opt)
+    logging.info(f"Memory: {mem['before_mb']} MB -> {mem['after_mb']} MB "
+                 f"({mem['reduction_pct']}% reduction)")
+    return df, df_opt
 
 
+# ── Stage 4: EDA ──────────────────────────────────────────────────────────────
+def run_eda_stage(df):
+    logging.info("=" * 60)
+    logging.info("STAGE 4: Exploratory Data Analysis")
+    logging.info("=" * 60)
+    from src.analytics.explorer import run_eda
+    results = run_eda(df)
+    logging.info(f"EDA complete: {len(results['charts'])} charts saved")
+    return results["charts"]
+
+
+# ── Stage 5: Filtering ────────────────────────────────────────────────────────
+def run_selector_stage(df):
+    logging.info("=" * 60)
+    logging.info("STAGE 5: loc / iloc / boolean / isin / between")
+    logging.info("=" * 60)
+    from src.analytics.selector import run_selector_demo
+    results = run_selector_demo(df)
+    for name, subset in results.items():
+        if hasattr(subset, "__len__"):
+            logging.info(f"  {name}: {len(subset)} rows")
+    return results
+
+
+# ── Stage 6: Regex ────────────────────────────────────────────────────────────
+def run_regex_stage(df):
+    logging.info("=" * 60)
+    logging.info("STAGE 6: Regular expression operations")
+    logging.info("=" * 60)
+    from src.analytics.regex_ops import run_regex_demo
+    results = run_regex_demo(df)
+    logging.info(f"Top genres: {results.get('top_genres')}")
+    return results
+
+
+# ── Stage 7: Quality report ───────────────────────────────────────────────────
+def run_quality_stage(df):
+    logging.info("=" * 60)
+    logging.info("STAGE 7: Data quality assessment")
+    logging.info("=" * 60)
+    from src.analytics.quality_report import full_quality_audit, save_quality_report, CHARTS_DIR
+    audit        = full_quality_audit(df)
+    report_path  = save_quality_report(audit)
+    logging.info(f"Quality report saved: {report_path}")
+    heatmap_path = CHARTS_DIR / "missing_data_heatmap.png"
+    return report_path, heatmap_path
+
+
+# ── Stage 8: Google Drive upload ──────────────────────────────────────────────
+def run_drive_stage(chart_paths):
+    logging.info("=" * 60)
+    logging.info("STAGE 8: Uploading charts to Google Drive")
+    logging.info("=" * 60)
+    try:
+        from src.utils.upload_utils import get_drive_service, upload_batch
+        service = get_drive_service()
+        if service:
+            results  = upload_batch(service, chart_paths)
+            uploaded = sum(1 for r in results if r["drive_id"])
+            logging.info(f"Drive upload: {uploaded}/{len(chart_paths)} charts uploaded")
+            return results
+    except Exception as e:
+        logging.error(f"Drive upload failed: {e}")
+    return []
+
+
+# ── Main ──────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    logging.info("Pipeline started")
+    logging.info("Pipeline started  (Lab 8 – Analytics)")
 
-    audio_results  = run_audio_stage()
-    video_results  = run_video_stage()
-    transcript_results = run_transcription_stage(
-        extracted_audio=video_results["extracted_audio"]
-    )
+    if RUN_RESEED:
+        run_reseed_stage()
+
+    df, df_opt = run_loader_stage()
+
+    if df.empty:
+        logging.error("No data loaded from MongoDB — aborting analytics stages")
+    else:
+        run_numpy_stage(df)
+        chart_paths          = run_eda_stage(df)
+        run_selector_stage(df)
+        run_regex_stage(df)
+        report_path, heatmap = run_quality_stage(df)
+
+        if RUN_DRIVE:
+            all_charts = list(chart_paths) + ([heatmap] if heatmap.exists() else [])
+            if all_charts:
+                run_drive_stage(all_charts)
 
     logging.info("=" * 60)
-    logging.info("Pipeline summary:")
-    logging.info(f"  Audio files:        {len(audio_results)}")
-    logging.info(f"  Videos processed:   {len(video_results['video_props'])}")
-    logging.info(f"  Keyframes saved:    {video_results['total_frames']}")
-    logging.info(f"  Transcripts:        {len(transcript_results)}")
     logging.info("Pipeline finished")

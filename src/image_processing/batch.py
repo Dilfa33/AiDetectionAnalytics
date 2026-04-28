@@ -58,24 +58,35 @@ def process_single(image_path: Path, movie_metadata: dict = None) -> dict | None
 
         meta = movie_metadata or {}
         record = {
-            "movie_id":       meta.get("movie_id"),
-            "title":          meta.get("title", image_path.stem),
-            "source":         "tmdb_api",
-            "type":           "poster",
-            "filename":       image_path.name,
-            "original_path":  str(image_path),
-            "resized_path":   str(resized_path),
-            "thumbnail_path": str(thumb_path),
-            "webp_path":      str(webp_path),
-            "cropped_path":   str(cropped_path),
-            "format":         props.get("format"),
-            "mode":           props.get("mode"),
-            "width":          props.get("width"),
-            "height":         props.get("height"),
-            "aspect_ratio":   props.get("aspect_ratio"),
-            "file_size_bytes":props.get("file_size_bytes"),
-            "file_size_kb":   props.get("file_size_kb"),
-            "exif":           {"camera_make": None, "gps": None},
+            # Image identity
+            "movie_id":          meta.get("movie_id"),
+            "title":             meta.get("title", image_path.stem),
+            "source":            "tmdb_api",
+            "type":              "poster",
+            "filename":          image_path.name,
+            # Movie metadata from TMDb
+            "overview":          meta.get("overview", ""),
+            "release_date":      meta.get("release_date", ""),
+            "vote_average":      meta.get("vote_average", 0.0),
+            "vote_count":        meta.get("vote_count", 0),
+            "popularity":        meta.get("popularity", 0.0),
+            "original_language": meta.get("original_language", ""),
+            "genre_ids":         meta.get("genre_ids", []),
+            # Image paths
+            "original_path":     str(image_path),
+            "resized_path":      str(resized_path),
+            "thumbnail_path":    str(thumb_path),
+            "webp_path":         str(webp_path),
+            "cropped_path":      str(cropped_path),
+            # Image properties
+            "format":            props.get("format"),
+            "mode":              props.get("mode"),
+            "width":             props.get("width"),
+            "height":            props.get("height"),
+            "aspect_ratio":      props.get("aspect_ratio"),
+            "file_size_bytes":   props.get("file_size_bytes"),
+            "file_size_kb":      props.get("file_size_kb"),
+            "exif":              {"camera_make": None, "gps": None},
         }
 
         logging.info(f"[Batch] Processed: {image_path.name}")
