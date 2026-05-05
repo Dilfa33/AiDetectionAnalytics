@@ -660,3 +660,47 @@
 2026-04-10 15:04:12,812 - INFO -   EXIF photos:        2
 2026-04-10 15:04:12,813 - INFO -   Drive uploads:      16
 2026-04-10 15:04:12,813 - INFO - Pipeline finished
+2026-05-05 20:56:04,813 - INFO - Pipeline started
+2026-05-05 20:56:04,813 - INFO - [GenerateRawCSV] Reading JSON files from data/raw/api
+2026-05-05 20:56:04,815 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_1.json
+2026-05-05 20:56:04,815 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_2.json
+2026-05-05 20:56:04,816 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_3.json
+2026-05-05 20:56:04,817 - INFO - [GenerateRawCSV] Wrote 18 rows to data/raw/csv/papers_raw.csv
+2026-05-05 20:56:04,817 - INFO - CSV stage complete: 18 rows written to data/raw/csv/papers_raw.csv
+2026-05-05 20:56:04,817 - INFO - [CleanPipeline] Loading raw data from data/raw/csv/papers_raw.csv
+2026-05-05 20:56:04,819 - INFO - [CleanPipeline] Loaded 18 rows, 11 columns
+2026-05-05 20:56:04,819 - INFO - [CleanPipeline] Step 1: drop high-missing columns
+2026-05-05 20:56:04,821 - INFO - [MissingHandler] Dropped 0 high-missing column(s): []
+2026-05-05 20:56:04,822 - INFO - [CleanPipeline] Step 2: handle missing values
+2026-05-05 20:56:04,823 - INFO - [MissingHandler] Dropped 2 row(s) with missing paper_id
+2026-05-05 20:56:04,824 - INFO - [MissingHandler] Filled 2 missing author(s) with 'Unknown'
+2026-05-05 20:56:04,826 - INFO - [MissingHandler] Filled 4 missing abstract(s)
+2026-05-05 20:56:04,827 - INFO - [MissingHandler] Filled 3 missing citation_count(s) with median 81.0
+2026-05-05 20:56:04,828 - INFO - [MissingHandler] Filled 3 missing/sentinel relevance_score(s) with median 0.7113
+2026-05-05 20:56:04,828 - INFO - [CleanPipeline] Step 3: string cleaning
+2026-05-05 20:56:04,829 - INFO - [StringCleaner] Cleaned title column
+2026-05-05 20:56:04,830 - INFO - [StringCleaner] Normalised language column
+2026-05-05 20:56:04,831 - INFO - [StringCleaner] Cleaned abstract column
+2026-05-05 20:56:04,831 - INFO - [StringCleaner] Cleaned primary_category column
+2026-05-05 20:56:04,831 - INFO - [CleanPipeline] Step 4: extract published year
+2026-05-05 20:56:04,832 - INFO - [StringCleaner] Extracted year into 'published_year' column
+2026-05-05 20:56:04,832 - INFO - [CleanPipeline] Step 5: deduplication
+2026-05-05 20:56:04,834 - INFO - [Deduplicator] Removed 1 exact duplicate row(s)
+2026-05-05 20:56:04,837 - INFO - [Deduplicator] Removed 1 key-duplicate row(s) on 'paper_id'
+2026-05-05 20:56:04,837 - INFO - [CleanPipeline] Step 6: type conversion
+2026-05-05 20:56:04,840 - INFO - [TypeConverter] Converted 'published_date' to datetime
+2026-05-05 20:56:04,841 - INFO - [TypeConverter] Converted 'citation_count' to Int64
+2026-05-05 20:56:04,841 - INFO - [TypeConverter] Converted 'relevance_score' to float32
+2026-05-05 20:56:04,842 - INFO - [TypeConverter] Converted 'primary_category' to category dtype
+2026-05-05 20:56:04,842 - INFO - [CleanPipeline] Step 7: validation
+2026-05-05 20:56:04,843 - INFO - [Validator] paper_id: OK (no nulls or empties)
+2026-05-05 20:56:04,843 - INFO - [Validator] relevance_score: OK (all in [0.0, 1.0])
+2026-05-05 20:56:04,844 - INFO - [Validator] published_date: OK (datetime, no NaT)
+2026-05-05 20:56:04,844 - INFO - [Validator] No duplicate paper_id values: OK
+2026-05-05 20:56:04,844 - INFO - [CleanPipeline]   paper_id_not_null → PASSED
+2026-05-05 20:56:04,844 - INFO - [CleanPipeline]   relevance_in_range → PASSED
+2026-05-05 20:56:04,844 - INFO - [CleanPipeline]   dates_are_datetime → PASSED
+2026-05-05 20:56:04,844 - INFO - [CleanPipeline]   no_duplicate_ids → PASSED
+2026-05-05 20:56:04,848 - INFO - [CleanPipeline] Saved cleaned data (14 rows) to data/processed/cleaned/cleaned_data.csv
+2026-05-05 20:56:04,848 - INFO - Cleaning stage complete: 14 clean rows saved
+2026-05-05 20:56:04,848 - INFO - Pipeline finished
