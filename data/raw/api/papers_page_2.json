@@ -1,93 +1,190 @@
 [
     {
-        "id": "2603.20179",
-        "title": "AI Agents Can Already Autonomously Perform Experimental High Energy Physics",
+        "id": "2604.19090",
+        "title": "Dual-Guard: Dual-Channel Latent Watermarking for Provenance and Tamper Localization in Diffusion Images",
         "authors": [
-            "Eric A. Moreno",
-            "Samuel Bright-Thonney",
-            "Andrzej Novak",
-            "Dolores Garcia",
-            "Philip Harris"
+            "JinFeng Xie",
+            "Chengfu Ou",
+            "Peipeng Yu",
+            "Xiaoyu Zhou",
+            "Dingding Huang",
+            "Jianwei Fei",
+            "Zixuan Shen",
+            "Zhihua Xia"
         ],
-        "abstract": "Large language model-based AI agents are now able to autonomously execute substantial portions of a high energy physics (HEP) analysis pipeline with minimal expert-curated input. Given access to a HEP dataset, an execution framework, and a corpus of prior experimental literature, we find that Claude Code succeeds in automating all stages of a typical analysis: event selection, background estimation, uncertainty quantification, statistical inference, and paper drafting. We argue that the experimental HEP community is underestimating the current capabilities of these systems, and that most proposed agentic workflows are too narrowly scoped or scaffolded to specific analysis structures. We present a proof-of-concept framework, Just Furnish Context (JFC), that integrates autonomous analysis agents with literature-based knowledge retrieval and multi-agent review, and show that this is sufficient to plan, execute, and document a credible high energy physics analysis. We demonstrate this by conducting analyses on open data from ALEPH, DELPHI, and CMS to perform electroweak, QCD, and Higgs boson measurements. Rather than replacing physicists, these tools promise to offload the repetitive technical burden of analysis code development, freeing researchers to focus on physics insight, truly novel method development, and rigorous validation. Given these developments, we advocate for new strategies for how the community trains students, organizes analysis efforts, and allocates human expertise.",
-        "published": "2026-03-20T17:55:27Z",
+        "abstract": "The rapid adoption of diffusion-based generative models has intensified concerns over the attribution and integrity of AI-generated content (AIGC). Existing single-domain watermarking methods either fail under regeneration, remain vulnerable to black-box reprompting that enables adversarial framing, or provide no spatial evidence for tampered regions. We propose Dual-Guard, a dual-channel latent watermarking framework for practical provenance verification, framing resistance, and region-level tamper localization. Dual-Guard combines two complementary anchors: a Gaussian Shading watermark in the initial diffusion noise as a global provenance signal, and a Latent Fingerprint Codec in the final denoised latent as a structured content anchor. Reprompting tends to preserve the former while breaking the latter, whereas localized edits disturb the content anchor only in tampered regions. In Full mode on a 2,400-sample benchmark, Dual-Guard keeps clean-image authentication false rejection and tamper false alarm below one half of one percent, while maintaining near-complete detection under reprompting, diffusion editing, and eight local tampering attacks.",
+        "published": "2026-04-21T05:03:42Z",
         "categories": [
-            "hep-ex",
-            "cs.AI",
-            "cs.LG"
+            "cs.CR"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20179",
-        "abs_url": "https://arxiv.org/abs/2603.20179"
+        "pdf_url": "https://arxiv.org/pdf/2604.19090",
+        "abs_url": "https://arxiv.org/abs/2604.19090"
     },
     {
-        "id": "2603.20172",
-        "title": "Measuring Faithfulness Depends on How You Measure: Classifier Sensitivity in LLM Chain-of-Thought Evaluation",
+        "id": "2604.18849",
+        "title": "From Exposure to Adoption: Generative AI in European Workplaces",
         "authors": [
-            "Richard J. Young"
+            "Golo Henseke"
         ],
-        "abstract": "Recent work on chain-of-thought (CoT) faithfulness reports single aggregate numbers (e.g., DeepSeek-R1 acknowledges hints 39% of the time), implying that faithfulness is an objective, measurable property of a model. This paper demonstrates that it is not. Three classifiers (a regex-only detector, a two-stage regex-plus-LLM pipeline, and an independent Claude Sonnet 4 judge) are applied to 10,276 influenced reasoning traces from 12 open-weight models spanning 9 families and 7B to 1T parameters. On identical data, these classifiers produce overall faithfulness rates of 74.4%, 82.6%, and 69.7%, respectively, with non-overlapping 95% confidence intervals. Per-model gaps range from 2.6 to 30.6 percentage points; all are statistically significant (McNemar's test, p < 0.001). The disagreements are systematic, not random: inter-classifier agreement measured by Cohen's kappa ranges from 0.06 (\"slight\") for sycophancy hints to 0.42 (\"moderate\") for grader hints, and the asymmetry is pronounced: for sycophancy, 883 cases are classified as faithful by the pipeline but unfaithful by the Sonnet judge, while only 2 go the other direction. Classifier choice can also reverse model rankings: Qwen3.5-27B ranks 1st under the pipeline but 7th under the Sonnet judge; OLMo-3.1-32B moves in the opposite direction, from 9th to 3rd. The root cause is that different classifiers operationalize related faithfulness constructs at different levels of stringency (lexical mention versus epistemic dependence), and these constructs yield divergent measurements on the same behavior. These results demonstrate that published faithfulness numbers cannot be meaningfully compared across studies that use different classifiers, and that future evaluations should report sensitivity ranges across multiple classification methodologies rather than single point estimates.",
-        "published": "2026-03-20T17:48:43Z",
+        "abstract": "This study examines who adopts generative AI and whether early adoption has begun to reshape the task content of jobs across 35 European countries. Adoption ranges from under 3% to 25%. Occupational exposure strongly predicts uptake, but AI does not diffuse passively along exposure lines. At the worker level, skills, abstract task content, and employee organisational influence steepen the exposure-adoption gradient; at the country level, so do digitalisation and workplace training. A gender gap persists, concentrated in the most exposed occupations. A shift-share design finds no detectable effect of adoption on worker-reported task restructuring, consistent with an initial integration phase.",
+        "published": "2026-04-20T21:14:17Z",
         "categories": [
-            "cs.CL",
-            "cs.AI",
-            "cs.LG"
+            "econ.GN"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20172",
-        "abs_url": "https://arxiv.org/abs/2603.20172"
+        "pdf_url": "https://arxiv.org/pdf/2604.18849",
+        "abs_url": "https://arxiv.org/abs/2604.18849"
     },
     {
-        "id": "2603.20170",
-        "title": "Learning Dynamic Belief Graphs for Theory-of-mind Reasoning",
+        "id": "2604.16923",
+        "title": "Alignment Imprint: Zero-Shot AI-Generated Text Detection via Provable Preference Discrepancy",
         "authors": [
-            "Ruxiao Chen",
-            "Xilei Zhao",
-            "Thomas J. Cova",
-            "Frank A. Drews",
-            "Susu Xu"
+            "Junxi Wu",
+            "Kailin Huang",
+            "Dongjian Hu",
+            "Bin Chen",
+            "Hao Wu",
+            "Shu-Tao Xia",
+            "Changliang Zou"
         ],
-        "abstract": "Theory of Mind (ToM) reasoning with Large Language Models (LLMs) requires inferring how people's implicit, evolving beliefs shape what they seek and how they act under uncertainty -- especially in high-stakes settings such as disaster response, emergency medicine, and human-in-the-loop autonomy. Prior approaches either prompt LLMs directly or use latent-state models that treat beliefs as static and independent, often producing incoherent mental models over time and weak reasoning in dynamic contexts. We introduce a structured cognitive trajectory model for LLM-based ToM that represents mental state as a dynamic belief graph, jointly inferring latent beliefs, learning their time-varying dependencies, and linking belief evolution to information seeking and decisions. Our model contributes (i) a novel projection from textualized probabilistic statements to consistent probabilistic graphical model updates, (ii) an energy-based factor graph representation of belief interdependencies, and (iii) an ELBO-based objective that captures belief accumulation and delayed decisions. Across multiple real-world disaster evacuation datasets, our model significantly improves action prediction and recovers interpretable belief trajectories consistent with human reasoning, providing a principled module for augmenting LLMs with ToM in high-uncertainty environment. https://anonymous.4open.science/r/ICML_submission-6373/",
-        "published": "2026-03-20T17:46:55Z",
+        "abstract": "Detecting AI-generated text is an important but challenging problem. Existing likelihood-based detection methods are often sensitive to content complexity and may exhibit unstable performance. In this paper, our key insight is that modern Large Language Models (LLMs) undergo alignment (including fine-tuning and preference tuning), leaving a measurable distributional imprint. We theoretically derive this imprint by abstracting the alignment process as a sequence of constrained optimization steps, showing that the log-likelihood ratio can naturally decompose into implicit instructional biases and preference rewards. We refer to this quantity as the Alignment Imprint. Furthermore, to mitigate the instability in high-entropy regions, we introduce Log-likelihood Alignment Preference Discrepancy (LAPD), a standardized information-weighted statistic based on alignment imprint. We provide statistical guarantee that alignment-based statistics dominate Fast-DetectGPT in performance. We also theoretically show that LAPD strictly improves the unweighted alignment scores when the aligned and base models are close in distribution. Extensive experiments show that LAPD achieves an improvement 45.82% relative to the strongest existing baselines, yielding large and consistent gains across all settings.",
+        "published": "2026-04-18T09:12:24Z",
         "categories": [
             "cs.AI"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20170",
-        "abs_url": "https://arxiv.org/abs/2603.20170"
+        "pdf_url": "https://arxiv.org/pdf/2604.16923",
+        "abs_url": "https://arxiv.org/abs/2604.16923"
     },
     {
-        "id": "2603.20164",
-        "title": "The Robot's Inner Critic: Self-Refinement of Social Behaviors through VLM-based Replanning",
+        "id": "2604.15027",
+        "title": "Quality-Aware Calibration for AI-Generated Image Detection in the Wild",
         "authors": [
-            "Jiyu Lim",
-            "Youngwoo Yoon",
-            "Kwanghyun Park"
+            "Fabrizio Guillaro",
+            "Vincenzo De Rosa",
+            "Davide Cozzolino",
+            "Luisa Verdoliva"
         ],
-        "abstract": "Conventional robot social behavior generation has been limited in flexibility and autonomy, relying on predefined motions or human feedback. This study proposes CRISP (Critique-and-Replan for Interactive Social Presence), an autonomous framework where a robot critiques and replans its own actions by leveraging a Vision-Language Model (VLM) as a `human-like social critic.' CRISP integrates (1) extraction of movable joints and constraints by analyzing the robot's description file (e.g., MJCF), (2) generation of step-by-step behavior plans based on situational context, (3) generation of low-level joint control code by referencing visual information (joint range-of-motion visualizations), (4) VLM-based evaluation of social appropriateness and naturalness, including pinpointing erroneous steps, and (5) iterative refinement of behaviors through reward-based search. This approach is not tied to a specific robot API; it can generate subtly different, human-like motions on various platforms using only the robot's structure file. In a user study involving five different robot types and 20 scenarios, including mobile manipulators and humanoids, our proposed method achieved significantly higher preference and situational appropriateness ratings compared to previous methods. This research presents a general framework that minimizes human intervention while expanding the robot's autonomous interaction capabilities and cross-platform applicability.   Detailed result videos and supplementary information regarding this work are available at: https://limjiyu99.github.io/inner-critic/",
-        "published": "2026-03-20T17:40:21Z",
+        "abstract": "Significant progress has been made in detecting synthetic images, however most existing approaches operate on a single image instance and overlook a key characteristic of real-world dissemination: as viral images circulate on the web, multiple near-duplicate versions appear and lose quality due to repeated operations like recompression, resizing and cropping. As a consequence, the same image may yield inconsistent forensic predictions based on which version has been analyzed. In this work, to address this issue we propose QuAD (Quality-Aware calibration with near-Duplicates) a novel framework that makes decisions based on all available near-duplicates of the same image. Given a query, we retrieve its online near-duplicates and feed them to a detector: the resulting scores are then aggregated based on the estimated quality of the corresponding instance. By doing so, we take advantage of all pieces of information while accounting for the reduced reliability of images impaired by multiple processing steps. To support large-scale evaluation, we introduce two datasets: AncesTree, an in-lab dataset of 136k images organized in stochastic degradation trees that simulate online reposting dynamics, and ReWIND, a real-world dataset of nearly 10k near-duplicate images collected from viral web content. Experiments on several state-of-the-art detectors show that our quality-aware fusion improves their performance consistently, with an average gain of around 8% in terms of balanced accuracy compared to plain average. Our results highlight the importance of jointly processing all the images available online to achieve reliable detection of AI-generated content in real-world applications. Code and data are publicly available at https://grip-unina.github.io/QuAD/",
+        "published": "2026-04-16T13:56:52Z",
         "categories": [
-            "cs.RO",
-            "cs.AI"
+            "cs.CV"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20164",
-        "abs_url": "https://arxiv.org/abs/2603.20164"
+        "pdf_url": "https://arxiv.org/pdf/2604.15027",
+        "abs_url": "https://arxiv.org/abs/2604.15027"
     },
     {
-        "id": "2603.20161",
-        "title": "Semantic Token Clustering for Efficient Uncertainty Quantification in Large Language Models",
+        "id": "2604.13776",
+        "title": "Who Gets Flagged? The Pluralistic Evaluation Gap in AI Content Watermarking",
         "authors": [
-            "Qi Cao",
-            "Andrew Gambardella",
-            "Takeshi Kojima",
-            "Yutaka Matsuo",
-            "Yusuke Iwasawa"
+            "Alexander Nemecek",
+            "Osama Zafar",
+            "Yuqiao Xu",
+            "Wenbiao Li",
+            "Erman Ayday"
         ],
-        "abstract": "Large language models (LLMs) have demonstrated remarkable capabilities across diverse tasks. However, the truthfulness of their outputs is not guaranteed, and their tendency toward overconfidence further limits reliability. Uncertainty quantification offers a promising way to identify potentially unreliable outputs, but most existing methods rely on repeated sampling or auxiliary models, introducing substantial computational overhead. To address these limitations, we propose Semantic Token Clustering (STC), an efficient uncertainty quantification method that leverages the semantic information inherently encoded in LLMs. Specifically, we group tokens into semantically consistent clusters using embedding clustering and prefix matching, and quantify uncertainty based on the probability mass aggregated over the corresponding semantic cluster. Our approach requires only a single generation and does not depend on auxiliary models. Experimental results show that STC achieves performance comparable to state-of-the-art baselines while substantially reducing computational overhead.",
-        "published": "2026-03-20T17:37:33Z",
+        "abstract": "Watermarking is becoming the default mechanism for AI content authentication, with governance policies and frameworks referencing it as infrastructure for content provenance. Yet across text, image, and audio modalities, watermark signal strength, detectability, and robustness depend on statistical properties of the content itself, properties that vary systematically across languages, cultural visual traditions, and demographic groups. We examine how this content dependence creates modality-specific pathways to bias. Reviewing the major watermarking benchmarks across modalities, we find that, with one exception, none report performance across languages, cultural content types, or population groups. To address this, we propose three concrete evaluation dimensions for pluralistic watermark benchmarking: cross-lingual detection parity, culturally diverse content coverage, and demographic disaggregation of detection metrics. We connect these to the governance frameworks currently mandating watermarking deployment and show that watermarking is held to a lower fairness standard than the generative systems it is meant to govern. Our position is that evaluation must precede deployment, and that the same bias auditing requirements applied to AI models should extend to the verification layer.",
+        "published": "2026-04-15T12:06:56Z",
+        "categories": [
+            "cs.CY",
+            "cs.CL",
+            "cs.CR",
+            "cs.CV"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.13776",
+        "abs_url": "https://arxiv.org/abs/2604.13776"
+    },
+    {
+        "id": "2604.13692",
+        "title": "Breaking the Generator Barrier: Disentangled Representation for Generalizable AI-Text Detection",
+        "authors": [
+            "Xiao Pu",
+            "Zepeng Cheng",
+            "Lin Yuan",
+            "Yu Wu",
+            "Xiuli Bi"
+        ],
+        "abstract": "As large language models (LLMs) generate text that increasingly resembles human writing, the subtle cues that distinguish AI-generated content from human-written content become increasingly challenging to capture. Reliance on generator-specific artifacts is inherently unstable, since new models emerge rapidly and reduce the robustness of such shortcuts. This generalizes unseen generators as a central and challenging problem for AI-text detection. To tackle this challenge, we propose a progressively structured framework that disentangles AI-detection semantics from generator-aware artifacts. This is achieved through a compact latent encoding that encourages semantic minimality, followed by perturbation-based regularization to reduce residual entanglement, and finally a discriminative adaptation stage that aligns representations with task objectives. Experiments on MAGE benchmark, covering 20 representative LLMs across 7 categories, demonstrate consistent improvements over state-of-the-art methods, achieving up to 24.2% accuracy gain and 26.2% F1 improvement. Notably, performance continues to improve as the diversity of training generators increases, confirming strong scalability and generalization in open-set scenarios. Our source code will be publicly available at https://github.com/PuXiao06/DRGD.",
+        "published": "2026-04-15T10:14:06Z",
+        "categories": [
+            "cs.CL"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.13692",
+        "abs_url": "https://arxiv.org/abs/2604.13692"
+    },
+    {
+        "id": "2604.12353",
+        "title": "Combating Pattern and Content Bias: Adversarial Feature Learning for Generalized AI-Generated Image Detection",
+        "authors": [
+            "Haifeng Zhang",
+            "Qinghui He",
+            "Xiuli Bi",
+            "Bo Liu",
+            "Chi-Man Pun",
+            "Bin Xiao"
+        ],
+        "abstract": "In recent years, the rapid development of generative artificial intelligence technology has significantly lowered the barrier to creating high-quality fake images, posing a serious challenge to information authenticity and credibility. Existing generated image detection methods typically enhance generalization through model architecture or network design. However, their generalization performance remains susceptible to data bias, as the training data may drive models to fit specific generative patterns and content rather than the common features shared by images from different generative models (asymmetric bias learning). To address this issue, we propose a Multi-dimensional Adversarial Feature Learning (MAFL) framework. The framework adopts a pretrained multimodal image encoder as the feature extraction backbone, constructs a real-fake feature learning network, and designs an adversarial bias-learning branch equipped with a multi-dimensional adversarial loss, forming an adversarial training mechanism between authenticity-discriminative feature learning and bias feature learning. By suppressing generation-pattern and content biases, MAFL guides the model to focus on the generative features shared across different generative models, thereby effectively capturing the fundamental differences between real and generated images, enhancing cross-model generalization, and substantially reducing the reliance on large-scale training data. Through extensive experimental validation, our method outperforms existing state-of-the-art approaches by 10.89% in accuracy and 8.57% in Average Precision (AP). Notably, even when trained with only 320 images, it can still achieve over 80% detection accuracy on public datasets.",
+        "published": "2026-04-14T06:41:39Z",
+        "categories": [
+            "cs.CV"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.12353",
+        "abs_url": "https://arxiv.org/abs/2604.12353"
+    },
+    {
+        "id": "2604.12216",
+        "title": "TimeMark: A Trustworthy Time Watermarking Framework for Exact Generation-Time Recovery from AIGC",
+        "authors": [
+            "Shangkun Che",
+            "Silin Du",
+            "Ge Gao"
+        ],
+        "abstract": "The widespread use of Large Language Models (LLMs) in text generation has raised increasing concerns about intellectual property disputes. Watermarking techniques, which embed meta information into AI-generated content (AIGC), have the potential to serve as judicial evidence. However, existing methods rely on statistical signals in token distributions, leading to inherently probabilistic detection and reduced reliability, especially in multi-bit encoding (e.g., timestamps). Moreover, such methods introduce detectable statistical patterns, making them vulnerable to forgery attacks and enabling model providers to fabricate arbitrary watermarks. To address these issues, we propose the concept of trustworthy watermark, which achieves reliable recovery with 100% identification accuracy while resisting both user-side statistical attacks and provider-side forgery. We focus on trustworthy time watermarking for use as judicial evidence. Our framework integrates cryptographic techniques and encodes time information into time-dependent secret keys under regulatory supervision, preventing arbitrary timestamp fabrication. The watermark payload is decoupled from time and generated as a random, non-stored bit sequence for each instance, eliminating statistical patterns. To ensure verifiability, we design a two-stage encoding mechanism, which, combined with error-correcting codes, enables reliable recovery of generation time with theoretically perfect accuracy. Both theoretical analysis and experiments demonstrate that our framework satisfies the reliability requirements for judicial evidence and offers a practical solution for future AIGC-related intellectual property disputes.",
+        "published": "2026-04-14T02:51:14Z",
+        "categories": [
+            "cs.CR",
+            "cs.CL"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.12216",
+        "abs_url": "https://arxiv.org/abs/2604.12216"
+    },
+    {
+        "id": "2604.11796",
+        "title": "C-ReD: A Comprehensive Chinese Benchmark for AI-Generated Text Detection Derived from Real-World Prompts",
+        "authors": [
+            "Chenxi Qing",
+            "Junxi Wu",
+            "Zheng Liu",
+            "Yixiang Qiu",
+            "Hongyao Yu",
+            "Bin Chen",
+            "Hao Wu",
+            "Shu-Tao Xia"
+        ],
+        "abstract": "Recently, large language models (LLMs) are capable of generating highly fluent textual content. While they offer significant convenience to humans, they also introduce various risks, like phishing and academic dishonesty. Numerous research efforts have been dedicated to developing algorithms for detecting AI-generated text and constructing relevant datasets. However, in the domain of Chinese corpora, challenges remain, including limited model diversity and data homogeneity. To address these issues, we propose C-ReD: a comprehensive Chinese Real-prompt AI-generated Detection benchmark. Experiments demonstrate that C-ReD not only enables reliable in-domain detection but also supports strong generalization to unseen LLMs and external Chinese datasets-addressing critical gaps in model diversity, domain coverage, and prompt realism that have limited prior Chinese detection benchmarks. We release our resources at https://github.com/HeraldofLight/C-ReD.",
+        "published": "2026-04-13T17:56:27Z",
         "categories": [
             "cs.CL",
-            "cs.AI",
-            "cs.LG"
+            "cs.AI"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20161",
-        "abs_url": "https://arxiv.org/abs/2603.20161"
+        "pdf_url": "https://arxiv.org/pdf/2604.11796",
+        "abs_url": "https://arxiv.org/abs/2604.11796"
+    },
+    {
+        "id": "2604.11376",
+        "title": "From Redaction to Restoration: Deep Learning for Medical Image Anonymization and Reconstruction",
+        "authors": [
+            "Adrienne Kline",
+            "Abhijit Gaonkar",
+            "Daniel Pittman",
+            "Chris Kuehn",
+            "Nils Forkert"
+        ],
+        "abstract": "Removing patient-specific information from medical images is crucial to enable sharing and open science without compromising patient identities. However, many methods currently used for deidentification have negative effects on downstream image analysis tasks because of removal of relevant but non-identifiable information. This work presents an end-to-end deep learning framework for transforming raw clinical image volumes into de-identified, analysis-ready datasets without compromising downstream utility. The methodology developed and tested in this work first detects and redacts regions likely to contain protected health information (PHI), such as burned-in text and metadata, and then uses a generative deep learning model to inpaint the redacted areas with anatomically and imaging plausible content. The proposed pipeline leverages a lightweight hybrid architecture, combining CRNN-based redaction with a latent-diffusion inpainting restoration module (Stable Diffusion 2). We evaluate the approach using both privacy-oriented metrics, which quantify residual PHI and success of redaction, and image-quality and task-based metrics, which assess the fidelity of restored volumes for representative deep learning applications. Our results suggest that the proposed method yields de-identified medical images that are visually coherent, maintaining fidelity for downstream models, while substantially reducing the risk of patient re-identification. By automating anonymization and image reconstruction within a single workflow, and dissemination of large-scale medical imaging collections, thereby lowering a key barrier to data sharing and multi-institutional collaboration in medical imaging AI.",
+        "published": "2026-04-13T12:15:52Z",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.11376",
+        "abs_url": "https://arxiv.org/abs/2604.11376"
     }
 ]

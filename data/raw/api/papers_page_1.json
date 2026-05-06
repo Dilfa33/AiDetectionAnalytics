@@ -1,115 +1,180 @@
 [
     {
-        "id": "2603.20193",
-        "title": "From Masks to Pixels and Meaning: A New Taxonomy, Benchmark, and Metrics for VLM Image Tampering",
+        "id": "2605.00924",
+        "title": "StyleShield: Exposing the Fragility of AIGC Detectors through Continuous Controllable Style Transfer",
         "authors": [
-            "Xinyi Shang",
-            "Yi Tang",
-            "Jiacheng Cui",
-            "Ahmed Elhagry",
-            "Salwa K. Al Khatib",
-            "Sondos Mahmoud Bsharat",
-            "Jiacheng Liu",
-            "Xiaohan Zhao",
-            "Jing-Hao Xue",
-            "Hao Li",
-            "Salman Khan",
-            "Zhiqiang Shen"
+            "Guantian Zheng"
         ],
-        "abstract": "Existing tampering detection benchmarks largely rely on object masks, which severely misalign with the true edit signal: many pixels inside a mask are untouched or only trivially modified, while subtle yet consequential edits outside the mask are treated as natural. We reformulate VLM image tampering from coarse region labels to a pixel-grounded, meaning and language-aware task. First, we introduce a taxonomy spanning edit primitives (replace/remove/splice/inpaint/attribute/colorization, etc.) and their semantic class of tampered object, linking low-level changes to high-level understanding. Second, we release a new benchmark with per-pixel tamper maps and paired category supervision to evaluate detection and classification within a unified protocol. Third, we propose a training framework and evaluation metrics that quantify pixel-level correctness with localization to assess confidence or prediction on true edit intensity, and further measure tamper meaning understanding via semantics-aware classification and natural language descriptions for the predicted regions. We also re-evaluate the existing strong segmentation/localization baselines on recent strong tamper detectors and reveal substantial over- and under-scoring using mask-only metrics, and expose failure modes on micro-edits and off-mask changes. Our framework advances the field from masks to pixels, meanings and language descriptions, establishing a rigorous standard for tamper localization, semantic classification and description. Code and benchmark data are available at https://github.com/VILA-Lab/PIXAR.",
-        "published": "2026-03-20T17:59:54Z",
+        "abstract": "AI-generated content (AIGC) detectors are increasingly deployed in high-stakes settings such as academic integrity screening, yet their reliability rests on a fundamental paradox: as language models are trained on human-written corpora, the statistical boundary between AI and human writing will inevitably dissolve as models improve. Commercial incentives have further distorted this landscape -- detection services and \"de-AIification\" tools often operate within the same supply chain, replacing evaluation of content quality with judgment of content origin. We present StyleShield, the first flow matching framework for conditional text style transfer, operating directly in continuous token embedding space via a DiT backbone with zero-initialized cross-attention adapters conditioned on frozen Qwen-7B representations. At inference, we adapt the SDEdit paradigm from image synthesis to text embeddings, with a single parameter gamma providing smooth continuous control over the evasion-preservation trade-off. On a multi-domain Chinese benchmark, StyleShield achieves 94.6% evasion against the training detector and >=99% against three unseen detectors, maintaining 0.928 semantic similarity. We further introduce RateAudit, a document-level scheduling algorithm that demonstrates detection-rate verdicts can be set to arbitrary values, directly questioning the reliability of score-based evaluation.",
+        "published": "2026-04-30T18:24:31Z",
         "categories": [
-            "cs.CV",
-            "cs.AI",
-            "cs.LG"
+            "cs.LG",
+            "cs.AI"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20193",
-        "abs_url": "https://arxiv.org/abs/2603.20193"
+        "pdf_url": "https://arxiv.org/pdf/2605.00924",
+        "abs_url": "https://arxiv.org/abs/2605.00924"
     },
     {
-        "id": "2603.20192",
-        "title": "LumosX: Relate Any Identities with Their Attributes for Personalized Video Generation",
+        "id": "2604.26990",
+        "title": "UCSC-NLP at SemEval-2026 Task 13: Multi-View Generalization and Diagnostic Analysis of Machine-Generated Code Detection",
         "authors": [
-            "Jiazheng Xing",
-            "Fei Du",
-            "Hangjie Yuan",
-            "Pengwei Liu",
-            "Hongbin Xu",
-            "Hai Ci",
-            "Ruigang Niu",
-            "Weihua Chen",
-            "Fan Wang",
-            "Yong Liu"
+            "Kargi Chauhan",
+            "Sadiba Nusrat Nur"
         ],
-        "abstract": "Recent advances in diffusion models have significantly improved text-to-video generation, enabling personalized content creation with fine-grained control over both foreground and background elements. However, precise face-attribute alignment across subjects remains challenging, as existing methods lack explicit mechanisms to ensure intra-group consistency. Addressing this gap requires both explicit modeling strategies and face-attribute-aware data resources. We therefore propose LumosX, a framework that advances both data and model design. On the data side, a tailored collection pipeline orchestrates captions and visual cues from independent videos, while multimodal large language models (MLLMs) infer and assign subject-specific dependencies. These extracted relational priors impose a finer-grained structure that amplifies the expressive control of personalized video generation and enables the construction of a comprehensive benchmark. On the modeling side, Relational Self-Attention and Relational Cross-Attention intertwine position-aware embeddings with refined attention dynamics to inscribe explicit subject-attribute dependencies, enforcing disciplined intra-group cohesion and amplifying the separation between distinct subject clusters. Comprehensive evaluations on our benchmark demonstrate that LumosX achieves state-of-the-art performance in fine-grained, identity-consistent, and semantically aligned personalized multi-subject video generation. Code and models are available at https://jiazheng-xing.github.io/lumosx-home/.",
-        "published": "2026-03-20T17:59:46Z",
+        "abstract": "With the rapid growth of large language models for code generation, distinguishing between human-written and AI-generated code has become increasingly critical for academic integrity, hiring evaluations, and software security. We present our system for SemEval-2026 Task 13: Multilingual Machine-Generated Code Detection, participating in Subtask A (binary detection) and Subtask B (multi-class attribution across 10 LLM families). For Subtask A, we fine-tune UniXcoder-base with a multi-view training framework that promotes generator-invariant representations. The framework combines domain-specific structural prefixes, delexicalization with symmetric KL consistency loss, token dropout, and mixed-content augmentation. Our system achieves 0.993 macro F1 on validation and 0.845 macro F1 on the test set, which spans unseen languages and domains. For Subtask B, we show that severe class imbalance (88.4% human code, 221:1 majority-to-minority ratio) causes catastrophic minority-class failure under standard fine-tuning, with macro F1 collapsing to 0.086 despite 88.4% accuracy. A class-weighted extension trained for 3 epochs recovers macro F1 to 0.345 (+301% relative), confirming that multi-class attribution requires imbalance-aware training strategies.",
+        "published": "2026-04-28T21:41:59Z",
+        "categories": [
+            "cs.SE"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.26990",
+        "abs_url": "https://arxiv.org/abs/2604.26990"
+    },
+    {
+        "id": "2604.25370",
+        "title": "GPT-Image-2 in the Wild: A Twitter Dataset of Self-Reported AI-Generated Images from the First Week of Deployment",
+        "authors": [
+            "Kidus Zewde",
+            "Simiao Ren",
+            "Xingyu Shen",
+            "Jenny Wu",
+            "Yuchen Zhou",
+            "Tommy Duong",
+            "Zikang Zhang",
+            "Ethan Traister"
+        ],
+        "abstract": "The release of GPT-image-2 by OpenAI marks a watershed moment in AI-generated imagery: the boundary between photographic reality and synthetic content has never been more difficult to discern. We introduce the GPT-Image-2 Twitter Dataset, the first published dataset of GPT-image-2 generated images, sourced from publicly available Twitter/X posts in the immediate aftermath of the model's April 21, 2026 release. Leveraging the Twitter API v2 and a multi-stage curation pipeline spanning multilingual text heuristics (English, Japanese, and Chinese), browser-automated Twitter \"Made with AI\" badge verification, and model name variant matching, we curate 10,217 confirmed GPT-image-2 images from 27,662 collected records over a six-day window.   We characterize the dataset across four analyses: CLIP-based zero-shot subject taxonomy, OCR text legibility (82.0% of images contain detectable text), face detection (59.2% of images, 22,583 total faces), and semantic clustering (137 CLIP ViT-L/14 clusters).   A key negative result is that C2PA content credentials are systematically stripped by Twitter's CDN on upload, rendering cryptographic provenance verification infeasible for social-media-sourced AI images. The dataset and all curation code are released publicly.",
+        "published": "2026-04-28T08:35:51Z",
         "categories": [
             "cs.CV",
             "cs.AI"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20192",
-        "abs_url": "https://arxiv.org/abs/2603.20192"
+        "pdf_url": "https://arxiv.org/pdf/2604.25370",
+        "abs_url": "https://arxiv.org/abs/2604.25370"
     },
     {
-        "id": "2603.20185",
-        "title": "VideoSeek: Long-Horizon Video Agent with Tool-Guided Seeking",
+        "id": "2604.24426",
+        "title": "DYMAPIA: A Multi-Domain Framework for Detecting AI-based Video Manipulation",
         "authors": [
-            "Jingyang Lin",
-            "Jialian Wu",
-            "Jiang Liu",
-            "Ximeng Sun",
-            "Ze Wang",
-            "Xiaodong Yu",
-            "Jiebo Luo",
-            "Zicheng Liu",
-            "Emad Barsoum"
+            "Md Shohel Rana",
+            "Andrew H. Sung"
         ],
-        "abstract": "Video agentic models have advanced challenging video-language tasks. However, most agentic approaches still heavily rely on greedy parsing over densely sampled video frames, resulting in high computational cost. We present VideoSeek, a long-horizon video agent that leverages video logic flow to actively seek answer-critical evidence instead of exhaustively parsing the full video. This insight allows the model to use far fewer frames while maintaining, or even improving, its video understanding capability. VideoSeek operates in a think-act-observe loop with a well-designed toolkit for collecting multi-granular video observations. This design enables query-aware exploration over accumulated observations and supports practical video understanding and reasoning. Experiments on four challenging video understanding and reasoning benchmarks demonstrate that VideoSeek achieves strong accuracy while using far fewer frames than prior video agents and standalone LMMs. Notably, VideoSeek achieves a 10.2 absolute points improvement on LVBench over its base model, GPT-5, while using 93% fewer frames. Further analysis highlights the significance of leveraging video logic flow, strong reasoning capability, and the complementary roles of toolkit design.",
-        "published": "2026-03-20T17:58:47Z",
+        "abstract": "AI-generated media are advancing rapidly, raising pressing concerns for content authenticity and digital trust. We introduce DYMAPIA, a multi-domain Deepfake detection framework that fuses spatial, spectral, and temporal cues to capture subtle traces of manipulation in visual data. The system builds dynamic anomaly masks by combining evidence from Fourier spectra, local texture descriptors, edge irregularities, and optical flow consistency, which highlight tampered regions with fine spatial accuracy. These masks guide DistXCNet, a lightweight classifier distilled from Xception and optimized with depthwise separable convolutions for fast, region-focused classification. This joint design achieves state-of-the-art results, with accuracy and F1-scores exceeding 99\\% on FF++, Celeb-DF, and VDFD benchmarks, while keeping the model compact enough for real-time use. Beyond outperforming existing full-frame and multidomain detectors, DYMAPIA demonstrates deployment readiness for time-critical forensic tasks, including media verification, misinformation defense, and secure content filtering.",
+        "published": "2026-04-27T12:53:43Z",
+        "categories": [
+            "cs.CV"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.24426",
+        "abs_url": "https://arxiv.org/abs/2604.24426"
+    },
+    {
+        "id": "2604.24004",
+        "title": "Single-Cycle Multidirectional EOG Classification Faster than Human Reaction Time for Wearable Human-Computer Interactions",
+        "authors": [
+            "Tasnia Nabiha",
+            "Orthy Toor",
+            "Wakim Sajjad Sakib",
+            "Abdullah Bin Shams"
+        ],
+        "abstract": "Electrooculogram (EOG) is a non-invasive bio-signal generated by the potential difference between the retina and cornea during eye movement, and is widely utilized in Human-Computer Interaction (HCI) systems. Expanding the range of detectable eye movements enhances system capability. However, increasing the number of classes typically degrades classification performance. While AI-based approaches can mitigate this limitation, their complexity increases significantly when operating on single-cycle EOG signals. Although single-cycle signals offer advantages such as low latency, reduced power consumption, and improved responsiveness, they are inherently limited by reduced informational content and higher susceptibility to noise. Ensuring low latency remains critical for real-time HCI applications, where system response must remain below human reaction thresholds. In this experimental study, using explainable AI, we address these challenges by developing 1-dimensional (1D) and cascaded ANN and CNN architectures capable of highly accurate classification across ten EOG classes (Stare, Blink, Up, Down, Right, Left, Up-left, Up-right, Down-left, and Down-right) using single-cycle signals, while simultaneously achieving latency substantially lower than human reaction time. The study achieved an accuracy of around 99% for all the models with a latency of 38.6 ms for the 1D ANN, and 82.85 ms for the cascaded CNN. These findings confirm that cascaded neural network architectures, can effectively balance high classification accuracy and low latency for single-cycle, multi-class EOG-based HCI systems under limited data availability.",
+        "published": "2026-04-27T03:37:03Z",
+        "categories": [
+            "eess.SP"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.24004",
+        "abs_url": "https://arxiv.org/abs/2604.24004"
+    },
+    {
+        "id": "2605.00874",
+        "title": "Latent Space Probing for Adult Content Detection in Video Generative Models",
+        "authors": [
+            "Alizishaan Khatri",
+            "Chiquita Prabhu"
+        ],
+        "abstract": "The rapid proliferation of AI-powered video generation systems has introduced significant challenges in content moderation, particularly with respect to adult and sexually explicit material. Existing detection methods operate on either prompts or decoded pixel-space outputs. Therefore, both approaches are blind to the rich internal representations formed during generation. In this paper, we propose a novel latent space probing framework that intercepts the denoised latent representations produced by the CogVideoX video diffusion model during inference and attaches lightweight classifiers to perform real-time adult content detection. To support this work, we construct a large-scale binary dataset of 11039 ten-second video clips (5086 violating, 5953 non-violating) sourced from adult websites and YouTube respectively. We introduce two lightweight probing classifier architectures. We train and evaluate it on the dataset. Our work demonstrates that latent-space signals encode strong discriminative features for harmful content detection, achieving 97.29% F1 on our held-out test set with an overhead in the 4-6ms range. Our results suggest that probing the latent space results in improvements in both detection performance as well as cost.",
+        "published": "2026-04-25T01:01:02Z",
         "categories": [
             "cs.CV",
             "cs.AI",
-            "cs.CL"
+            "cs.LG",
+            "cs.MM"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20185",
-        "abs_url": "https://arxiv.org/abs/2603.20185"
+        "pdf_url": "https://arxiv.org/pdf/2605.00874",
+        "abs_url": "https://arxiv.org/abs/2605.00874"
     },
     {
-        "id": "2603.20181",
-        "title": "Improving Generalization on Cybersecurity Tasks with Multi-Modal Contrastive Learning",
+        "id": "2604.23016",
+        "title": "DeepSignature: Digitally Signed, Content-Encoding Watermarks for Robust and Transparent Image Authentication",
         "authors": [
-            "Jianan Huang",
-            "Rodolfo V. Valentim",
-            "Luca Vassio",
-            "Matteo Boffa",
-            "Marco Mellia",
-            "Idilio Drago",
-            "Dario Rossi"
+            "Mathias Graf",
+            "Marco Willi",
+            "Melanie Mathys",
+            "Michael Aerni",
+            "Christian Schwarzer",
+            "Martin Melchior",
+            "Michael H. Graber"
         ],
-        "abstract": "The use of ML in cybersecurity has long been impaired by generalization issues: Models that work well in controlled scenarios fail to maintain performance in production. The root cause often lies in ML algorithms learning superficial patterns (shortcuts) rather than underlying cybersecurity concepts. We investigate contrastive multi-modal learning as a first step towards improving ML performance in cybersecurity tasks. We aim at transferring knowledge from data-rich modalities, such as text, to data-scarce modalities, such as payloads. We set up a case study on threat classification and propose a two-stage multi-modal contrastive learning framework that uses textual vulnerability descriptions to guide payload classification. First, we construct a semantically meaningful embedding space using contrastive learning on descriptions. Then, we align payloads to this space, transferring knowledge from text to payloads. We evaluate the approach on a large-scale private dataset and a synthetic benchmark built from public CVE descriptions and LLM-generated payloads. The methodology appears to reduce shortcut learning over baselines on both benchmarks. We release our synthetic benchmark and source code as open source.",
-        "published": "2026-03-20T17:57:00Z",
+        "abstract": "AI-powered generative models have significantly expanded the possibilities for editing, manipulating, and creating high-quality images. Particularly, images that falsely appear to originate from trusted sources pose a serious threat, undermining public trust in image authenticity. We propose DeepSignature, a novel approach that integrates the guarantees of digital signatures with the capabilities of deep neural networks. Neural networks are used both to generate content-encoding watermarks and to embed them imperceptibly into images while ensuring robust extraction. These watermarks are cryptographically verifiable, enabling source attribution and image integrity validation. DeepSignature is compatible with existing image formats and requires no special handling of signed images. It supports client-side verification, requiring only the signer's public key. Additionally, we introduce a novel latent-space verification approach to detect and localize tampering attempts. We evaluate DeepSignature in terms of imperceptibility, robustness to benign transformations, forgery detection, and its resilience against various attack scenarios. Our results highlight the inherent trade-offs between imperceptibility, robustness, and integrity verification. We demonstrate that DeepSignature reliably identifies significant forgery attempts -- achieving near 100\\% in our experiments. Finally, we emphasize DeepSignature's modularity and tunable parameters, allowing adaptation to application-specific requirements. Code and model weights will be published.",
+        "published": "2026-04-24T21:06:09Z",
         "categories": [
             "cs.CR",
-            "cs.AI"
+            "cs.AI",
+            "cs.CV"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20181",
-        "abs_url": "https://arxiv.org/abs/2603.20181"
+        "pdf_url": "https://arxiv.org/pdf/2604.23016",
+        "abs_url": "https://arxiv.org/abs/2604.23016"
     },
     {
-        "id": "2603.20180",
-        "title": "Adaptive Greedy Frame Selection for Long Video Understanding",
+        "id": "2604.22089",
+        "title": "Ethics Testing: Proactive Identification of Generative AI System Harms",
         "authors": [
-            "Yuning Huang",
-            "Fengqing Zhu"
+            "Shin Hwei Tan",
+            "Haibo Wang",
+            "Heng Li"
         ],
-        "abstract": "Large vision--language models (VLMs) are increasingly applied to long-video question answering, yet inference is often bottlenecked by the number of input frames and resulting visual tokens. Naive sparse sampling can miss decisive moments, while purely relevance-driven selection frequently collapses onto near-duplicate frames and sacrifices coverage of temporally distant evidence. We propose a question-adaptive greedy frame selection method that jointly optimizes query relevance and semantic representativeness under a fixed frame budget. Our approach constructs a 1~FPS candidate pool (capped at 1000) with exact timestamp alignment, embeds candidates in two complementary spaces (SigLIP for question relevance and DINOv2 for semantic similarity), and selects frames by greedily maximizing a weighted sum of a modular relevance term and a facility-location coverage term. This objective is normalized, monotone, and submodular, yielding a standard (1-1/e) greedy approximation guarantee. To account for question-dependent trade-offs between relevance and coverage, we introduce four preset strategies and a lightweight text-only question-type classifier that routes each query to its best-performing preset. Experiments on MLVU show consistent accuracy gains over uniform sampling and a strong recent baseline across frame budgets, with the largest improvements under tight budgets.",
-        "published": "2026-03-20T17:55:32Z",
+        "abstract": "Generative Artificial Intelligence (GAI) systems that can automatically generate content in the form of source code or other contents (e.g., images) has seen increasing popularity due to the emergence of tools such as ChatGPT which rely on Large Language Models (LLMs). Misuse of the automatically generated content can incur serious consequences due to potential harms in the generated content. Despite the importance of ensuring the quality of automatically generated content, there is little to no approach that can systematically generate tests for identifying software harms in the content generated by these GAI systems. In this article, we introduce the novel concept of ethics testing which aims to systematically generate tests for identifying software harms. Different from existing testing methodologies (e.g., fairness testing that aims to identifying software discrimination), ethics testing aims to systematically detect software harms that could be induced due to unethical behavior (e.g., harmful behavior or behavior that violates intellectual property rights) in automatically generated content. We introduced the concept of ethics testing, discussed the challenges therewithin, and conducted five case studies to show how ethics testing can be performed for generative AI systems.",
+        "published": "2026-04-23T21:41:09Z",
         "categories": [
-            "cs.CV",
-            "cs.AI",
-            "cs.CL"
+            "cs.SE",
+            "cs.AI"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20180",
-        "abs_url": "https://arxiv.org/abs/2603.20180"
+        "pdf_url": "https://arxiv.org/pdf/2604.22089",
+        "abs_url": "https://arxiv.org/abs/2604.22089"
+    },
+    {
+        "id": "2604.21300",
+        "title": "Explainable Disentangled Representation Learning for Generalizable Authorship Attribution in the Era of Generative AI",
+        "authors": [
+            "Hieu Man",
+            "Van-Cuong Pham",
+            "Nghia Trung Ngo",
+            "Franck Dernoncourt",
+            "Thien Huu Nguyen"
+        ],
+        "abstract": "Learning robust representations of authorial style is crucial for authorship attribution and AI-generated text detection. However, existing methods often struggle with content-style entanglement, where models learn spurious correlations between authors' writing styles and topics, leading to poor generalization across domains. To address this challenge, we propose Explainable Authorship Variational Autoencoder (EAVAE), a novel framework that explicitly disentangles style from content through architectural separation-by-design. EAVAE first pretrains style encoders using supervised contrastive learning on diverse authorship data, then finetunes with a Variational Autoencoder (VEA) architecture using separate encoders for style and content representations. Disentanglement is enforced through a novel discriminator that not only distinguishes whether pairs of style/content representations belong to the same or different authors/content sources, but also generates natural language explanation for their decision, simultaneously mitigating confounding information and enhancing interpretability. Extensive experiments demonstrate the effectiveness of EAVAE. On authorship attribution, we achieve state-of-the-art performance on various datasets, including Amazon Reviews, PAN21, and HRS. For AI-generated text detection, EAVAE excels in few-shot learning over the M4 dataset. Code and data repositories are available online\\footnote{https://github.com/hieum98/avae} \\footnote{https://huggingface.co/collections/Hieuman/document-level-authorship-datasets}.",
+        "published": "2026-04-23T05:34:20Z",
+        "categories": [
+            "cs.CL",
+            "cs.IR",
+            "cs.LG"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.21300",
+        "abs_url": "https://arxiv.org/abs/2604.21300"
+    },
+    {
+        "id": "2604.19172",
+        "title": "Reasoning-Aware AIGC Detection via Alignment and Reinforcement",
+        "authors": [
+            "Zhao Wang",
+            "Max Xiong",
+            "Jianxun Lian",
+            "Zhicheng Dou"
+        ],
+        "abstract": "The rapid advancement and widespread adoption of Large Language Models (LLMs) have elevated the need for reliable AI-generated content (AIGC) detection, which remains challenging as models evolve. We introduce AIGC-text-bank, a comprehensive multi-domain dataset with diverse LLM sources and authorship scenarios, and propose REVEAL, a detection framework that generates interpretable reasoning chains before classification. Our approach uses a two-stage training strategy: supervised fine-tuning to establish reasoning capabilities, followed by reinforcement learning to improve accuracy, improve logical consistency, and reduce hallucinations. Extensive experiments show that REVEAL achieves state-of-the-art performance across multiple benchmarks, offering a robust and transparent solution for AIGC detection. The project is open-source at https://aka.ms/reveal",
+        "published": "2026-04-21T07:29:55Z",
+        "categories": [
+            "cs.AI"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.19172",
+        "abs_url": "https://arxiv.org/abs/2604.19172"
     }
 ]

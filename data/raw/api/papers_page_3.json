@@ -1,97 +1,217 @@
 [
     {
-        "id": "2603.20151",
-        "title": "Design-OS: A Specification-Driven Framework for Engineering System Design with a Control-Systems Design Case",
+        "id": "2604.11843",
+        "title": "UniMark: Unified Adaptive Multi-bit Watermarking for Autoregressive Image Generators",
         "authors": [
-            "H. Sinan Bank",
-            "Daniel R. Herber",
-            "Thomas H. Bradley"
+            "Yigit Yilmaz",
+            "Elena Petrova",
+            "Mehmet Kaya",
+            "Lucia Rossi",
+            "Amir Rahman"
         ],
-        "abstract": "Engineering system design -- whether mechatronic, control, or embedded -- often proceeds in an ad hoc manner, with requirements left implicit and traceability from intent to parameters largely absent. Existing specification-driven and systematic design methods mostly target software, and AI-assisted tools tend to enter the workflow at solution generation rather than at problem framing. Human--AI collaboration in the design of physical systems remains underexplored. This paper presents Design-OS, a lightweight, specification-driven workflow for engineering system design organized in five stages: concept definition, literature survey, conceptual design, requirements definition, and design definition. Specifications serve as the shared contract between human designers and AI agents; each stage produces structured artifacts that maintain traceability and support agent-augmented execution. We position Design-OS relative to requirements-driven design, systematic design frameworks, and AI-assisted design pipelines, and demonstrate it on a control systems design case using two rotary inverted pendulum platforms -- an open-source SimpleFOC reaction wheel and a commercial Quanser Furuta pendulum -- showing how the same specification-driven workflow accommodates fundamentally different implementations. A blank template and the full design-case artifacts are shared in a public repository to support reproducibility and reuse. The workflow makes the design process visible and auditable, and extends specification-driven orchestration of AI from software to physical engineering system design.",
-        "published": "2026-03-20T17:26:44Z",
+        "abstract": "Invisible watermarking for autoregressive (AR) image generation has recently gained attention as a means of protecting image ownership and tracing AI-generated content. However, existing approaches suffer from three key limitations: (1) they embed only zero-bit watermarks for binary verification, lacking the ability to convey multi-bit messages; (2) they rely on static codebook partitioning strategies that are vulnerable to security attacks once the partition is exposed; and (3) they are designed for specific AR architectures, failing to generalize across diverse AR paradigms. We propose \\method{}, a training-free, unified watermarking framework for autoregressive image generators that addresses all three limitations. \\method{} introduces three core components: \\textbf{Adaptive Semantic Grouping (ASG)}, which dynamically partitions codebook entries based on semantic similarity and a secret key, ensuring both image quality preservation and security; \\textbf{Block-wise Multi-bit Encoding (BME)}, which divides the token sequence into blocks and encodes different bits across blocks with error-correcting codes for reliable message transmission; and \\textbf{a Unified Token-Replacement Interface (UTRI)} that abstracts the watermark embedding process to support both next-token prediction (e.g., LlamaGen) and next-scale prediction (e.g., VAR) paradigms. We provide theoretical analysis on detection error rates and embedding capacity. Extensive experiments on three AR models demonstrate that \\method{} achieves state-of-the-art performance in image quality (FID), watermark detection accuracy, and multi-bit message extraction, while maintaining robustness against cropping, JPEG compression, Gaussian noise, blur, color jitter, and random erasing attacks.",
+        "published": "2026-04-12T16:22:24Z",
         "categories": [
-            "cs.CE",
-            "cs.AI",
-            "eess.SY"
+            "cs.CV"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20151",
-        "abs_url": "https://arxiv.org/abs/2603.20151"
+        "pdf_url": "https://arxiv.org/pdf/2604.11843",
+        "abs_url": "https://arxiv.org/abs/2604.11843"
     },
     {
-        "id": "2603.20149",
-        "title": "Enhancing Hyperspace Analogue to Language (HAL) Representations via Attention-Based Pooling for Text Classification",
+        "id": "2604.10522",
+        "title": "SEED: A Large-Scale Benchmark for Provenance Tracing in Sequential Deepfake Facial Edits",
         "authors": [
-            "Ali Sakour",
-            "Zoalfekar Sakour"
+            "Mengieong Hoi",
+            "Zhedong Zheng",
+            "Ping Liu",
+            "Wei Liu"
         ],
-        "abstract": "The Hyperspace Analogue to Language (HAL) model relies on global word co-occurrence matrices to construct distributional semantic representations. While these representations capture lexical relationships effectively, aggregating them into sentence-level embeddings via standard mean pooling often results in information loss. Mean pooling assigns equal weight to all tokens, thereby diluting the impact of contextually salient words with uninformative structural tokens. In this paper, we address this limitation by integrating a learnable, temperature-scaled additive attention mechanism into the HAL representation pipeline. To mitigate the sparsity and high dimensionality of the raw co-occurrence matrices, we apply Truncated Singular Value Decomposition (SVD) to project the vectors into a dense latent space prior to the attention layer. We evaluate the proposed architecture on the IMDB sentiment analysis dataset. Empirical results demonstrate that the attention-based pooling approach achieves a test accuracy of 82.38%, yielding an absolute improvement of 6.74 percentage points over the traditional mean pooling baseline (75.64%). Furthermore, qualitative analysis of the attention weights indicates that the mechanism successfully suppresses stop-words and selectively attends to sentiment-bearing tokens, improving both classification performance and model interpretability.",
-        "published": "2026-03-20T17:25:09Z",
+        "abstract": "Deepfake content on social networks is increasingly produced through multiple \\emph{sequential} edits to biometric data such as facial imagery. Consequently, the final appearance of an image often reflects a latent chain of operations rather than a single manipulation. Recovering these editing histories is essential for visual provenance analysis, misinformation auditing, and forensic or platform moderation workflows that must trace the origin and evolution of AI-generated media. However, existing datasets predominantly focus on single-step editing and overlook the cumulative artifacts introduced by realistic multi-step pipelines. To address this gap, we introduce Sequential Editing in Diffusion (\\textbf{SEED}), a large-scale benchmark for sequential provenance tracing in facial imagery. SEED contains over 90K images constructed via one to four sequential attribute edits using diffusion-based editing pipelines, with fine-grained annotations including edit order, textual instructions, manipulation masks, and generation models. These metadata enable step-wise evidence analysis and support forgery detection, sequence prediction. To benchmark the challenges posed by SEED, we evaluate representative analysis strategies and observe that spatial-only approaches struggle under subtle and distributed diffusion artifacts, especially when such artifacts accumulate across multiple edits. Motivated by this observation, we further establish \\textbf{FAITH}, a frequency-aware Transformer baseline that aggregates spatial and frequency-domain cues to identify and order latent editing events. Results show that high-frequency signals, particularly wavelet components, provide effective cues even under image degradation. Overall, SEED facilitates systematic study of sequential provenance tracing and evidence aggregation for trustworthy analysis of AI-generated visual content.",
+        "published": "2026-04-12T08:27:17Z",
         "categories": [
-            "cs.CL",
-            "cs.AI",
-            "cs.LG"
-        ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20149",
-        "abs_url": "https://arxiv.org/abs/2603.20149"
-    },
-    {
-        "id": "2603.20131",
-        "title": "An Agentic Multi-Agent Architecture for Cybersecurity Risk Management",
-        "authors": [
-            "Ravish Gupta",
-            "Saket Kumar",
-            "Shreeya Sharma",
-            "Maulik Dang",
-            "Abhishek Aggarwal"
-        ],
-        "abstract": "Getting a real cybersecurity risk assessment for a small organization is expensive -- a NIST CSF-aligned engagement runs $15,000 on the low end, takes weeks, and depends on practitioners who are genuinely scarce. Most small companies skip it entirely. We built a six-agent AI system where each agent handles one analytical stage: profiling the organization, mapping assets, analyzing threats, evaluating controls, scoring risks, and generating recommendations. Agents share a persistent context that grows as the assessment proceeds, so later agents build on what earlier ones concluded -- the mechanism that distinguishes this from standard sequential agent pipelines. We tested it on a 15-person HIPAA-covered healthcare company and compared outputs to independent assessments by three CISSP practitioners -- the system agreed with them 85% of the time on severity classifications, covered 92% of identified risks, and finished in under 15 minutes. We then ran 30 repeated single-agent assessments across five synthetic but sector-realistic organizational profiles in healthcare, fintech, manufacturing, retail, and SaaS, comparing a general-purpose Mistral-7B against a domain fine-tuned model. Both completed every run. The fine-tuned model flagged threats the baseline could not see at all: PHI exposure in healthcare, OT/IIoT vulnerabilities in manufacturing, platform-specific risks in retail. The full multi-agent pipeline, however, failed every one of 30 attempts on a Tesla T4 with its 4,096-token default context window -- context capacity, not model quality, turned out to be the binding constraint.",
-        "published": "2026-03-20T17:00:05Z",
-        "categories": [
-            "eess.SY",
-            "cs.AI",
             "cs.CR"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20131",
-        "abs_url": "https://arxiv.org/abs/2603.20131"
+        "pdf_url": "https://arxiv.org/pdf/2604.10522",
+        "abs_url": "https://arxiv.org/abs/2604.10522"
     },
     {
-        "id": "2603.20122",
-        "title": "Evolving Jailbreaks: Automated Multi-Objective Long-Tail Attacks on Large Language Models",
+        "id": "2604.10460",
+        "title": "Toward Accountable AI-Generated Content on Social Platforms: Steganographic Attribution and Multimodal Harm Detection",
         "authors": [
-            "Wenjing Hong",
-            "Zhonghua Rong",
-            "Li Wang",
-            "Feng Chang",
-            "Jian Zhu",
-            "Ke Tang",
-            "Zexuan Zhu",
-            "Yew-Soon Ong"
+            "Xinlei Guan",
+            "David Arosemena",
+            "Tejaswi Dhandu",
+            "Kuan Huang",
+            "Meng Xu",
+            "Miles Q. Li",
+            "Bingyu Shen",
+            "Ruiyang Qin",
+            "Umamaheswara Rao Tida",
+            "Boyang Li"
         ],
-        "abstract": "Large Language Models (LLMs) have been widely deployed, especially through free Web-based applications that expose them to diverse user-generated inputs, including those from long-tail distributions such as low-resource languages and encrypted private data. This open-ended exposure increases the risk of jailbreak attacks that undermine model safety alignment. While recent studies have shown that leveraging long-tail distributions can facilitate such jailbreaks, existing approaches largely rely on handcrafted rules, limiting the systematic evaluation of these security and privacy vulnerabilities. In this work, we present EvoJail, an automated framework for discovering long-tail distribution attacks via multi-objective evolutionary search. EvoJail formulates long-tail attack prompt generation as a multi-objective optimization problem that jointly maximizes attack effectiveness and minimizes output perplexity, and introduces a semantic-algorithmic solution representation to capture both high-level semantic intent and low-level structural transformations of encryption-decryption logic. Building upon this representation, EvoJail integrates LLM-assisted operators into a multi-objective evolutionary framework, enabling adaptive and semantically informed mutation and crossover for efficiently exploring a highly structured and open-ended search space. Extensive experiments demonstrate that EvoJail consistently discovers diverse and effective long-tail jailbreak strategies, achieving competitive performance with existing methods in both individual and ensemble level.",
-        "published": "2026-03-20T16:45:04Z",
+        "abstract": "The rapid growth of generative AI has introduced new challenges in content moderation and digital forensics. In particular, benign AI-generated images can be paired with harmful or misleading text, creating difficult-to-detect misuse. This contextual misuse undermines the traditional moderation framework and complicates attribution, as synthetic images typically lack persistent metadata or device signatures. We introduce a steganography enabled attribution framework that embeds cryptographically signed identifiers into images at creation time and uses multimodal harmful content detection as a trigger for attribution verification. Our system evaluates five watermarking methods across spatial, frequency, and wavelet domains. It also integrates a CLIP-based fusion model for multimodal harmful-content detection. Experiments demonstrate that spread-spectrum watermarking, especially in the wavelet domain, provides strong robustness under blur distortions, and our multimodal fusion detector achieves an AUC-ROC of 0.99, enabling reliable cross-modal attribution verification. These components form an end-to-end forensic pipeline that enables reliable tracing of harmful deployments of AI-generated imagery, supporting accountability in modern synthetic media environments. Our code is available at GitHub: https://github.com/bli1/steganography",
+        "published": "2026-04-12T04:57:25Z",
         "categories": [
+            "cs.CV",
+            "cs.AI",
             "cs.CR",
-            "cs.AI"
+            "cs.ET"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20122",
-        "abs_url": "https://arxiv.org/abs/2603.20122"
+        "pdf_url": "https://arxiv.org/pdf/2604.10460",
+        "abs_url": "https://arxiv.org/abs/2604.10460"
     },
     {
-        "id": "2603.20116",
-        "title": "Chain-of-Adaptation: Surgical Vision-Language Adaptation with Reinforcement Learning",
+        "id": "2604.09514",
+        "title": "Many Ways to Be Fake: Benchmarking Fake News Detection Under Strategy-Driven AI Generation",
         "authors": [
-            "Jiajie Li",
-            "Chenhui Xu",
-            "Meihuan Liu",
-            "Jinjun Xiong"
+            "Xinyu Wang",
+            "Sai Koneru",
+            "Wenbo Zhang",
+            "Wenliang Zheng",
+            "Saksham Ranjan",
+            "Sarah Rajtmajer"
         ],
-        "abstract": "Conventional fine-tuning on domain-specific datasets can inadvertently alter a model's pretrained multimodal priors, leading to reduced generalization. To address this, we propose Chain-of-Adaptation (CoA), an adaptation framework designed to integrate domain knowledge while maintaining the model's inherent reasoning and perceptual capabilities. CoA introduces a structured reasoning format that enhances domain alignment without sacrificing general multimodal competence by reinforcement learning. Experiments on standard surgical benchmarks, under both in-distribution and out-of-distribution settings, demonstrate that CoA achieves higher accuracy, stronger generalization, and more stable behavior than supervised fine-tuning. Furthermore, ablation studies confirm that CoA effectively preserves the model's core visual-language abilities, providing a reliable pathway for domain specialization in VLMs.",
-        "published": "2026-03-20T16:38:37Z",
+        "abstract": "Recent advances in large language models (LLMs) have enabled the large-scale generation of highly fluent and deceptive news-like content. While prior work has often treated fake news detection as a binary classification problem, modern fake news increasingly arises through human-AI collaboration, where strategic inaccuracies are embedded within otherwise accurate and credible narratives. These mixed-truth cases represent a realistic and consequential threat, yet they remain underrepresented in existing benchmarks. To address this gap, we introduce MANYFAKE, a synthetic benchmark containing 6,798 fake news articles generated through multiple strategy-driven prompting pipelines that capture many ways fake news can be constructed and refined. Using this benchmark, we evaluate a range of state-of-the-art fake news detectors. Our results show that even advanced reasoning-enabled models approach saturation on fully fabricated stories, but remain brittle when falsehoods are subtle, optimized, and interwoven with accurate information.",
+        "published": "2026-04-10T17:36:00Z",
+        "categories": [
+            "cs.CL",
+            "cs.HC"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.09514",
+        "abs_url": "https://arxiv.org/abs/2604.09514"
+    },
+    {
+        "id": "2604.06950",
+        "title": "Making MLLMs Blind: Adversarial Smuggling Attacks in MLLM Content Moderation",
+        "authors": [
+            "Zhiheng Li",
+            "Zongyang Ma",
+            "Yuntong Pan",
+            "Ziqi Zhang",
+            "Xiaolei Lv",
+            "Bo Li",
+            "Jun Gao",
+            "Jianing Zhang",
+            "Chunfeng Yuan",
+            "Bing Li",
+            "Weiming Hu"
+        ],
+        "abstract": "Multimodal Large Language Models (MLLMs) are increasingly being deployed as automated content moderators. Within this landscape, we uncover a critical threat: Adversarial Smuggling Attacks. Unlike adversarial perturbations (for misclassification) and adversarial jailbreaks (for harmful output generation), adversarial smuggling exploits the Human-AI capability gap. It encodes harmful content into human-readable visual formats that remain AI-unreadable, thereby evading automated detection and enabling the dissemination of harmful content. We classify smuggling attacks into two pathways: (1) Perceptual Blindness, disrupting text recognition; and (2) Reasoning Blockade, inhibiting semantic understanding despite successful text recognition. To evaluate this threat, we constructed SmuggleBench, the first comprehensive benchmark comprising 1,700 adversarial smuggling attack instances. Evaluations on SmuggleBench reveal that both proprietary (e.g., GPT-5) and open-source (e.g., Qwen3-VL) state-of-the-art models are vulnerable to this threat, producing Attack Success Rates (ASR) exceeding 90%. By analyzing the vulnerability through the lenses of perception and reasoning, we identify three root causes: the limited capabilities of vision encoders, the robustness gap in OCR, and the scarcity of domain-specific adversarial examples. We conduct a preliminary exploration of mitigation strategies, investigating the potential of test-time scaling (via CoT) and adversarial training (via SFT) to mitigate this threat. Our code is publicly available at https://github.com/zhihengli-casia/smugglebench.",
+        "published": "2026-04-08T11:13:16Z",
+        "categories": [
+            "cs.CV"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.06950",
+        "abs_url": "https://arxiv.org/abs/2604.06950"
+    },
+    {
+        "id": "2604.06714",
+        "title": "Steering the Verifiability of Multimodal AI Hallucinations",
+        "authors": [
+            "Jianhong Pang",
+            "Ruoxi Cheng",
+            "Ziyi Ye",
+            "Xingjun Ma",
+            "Zuxuan Wu",
+            "Xuanjing Huang",
+            "Yu-Gang Jiang"
+        ],
+        "abstract": "AI applications driven by multimodal large language models (MLLMs) are prone to hallucinations and pose considerable risks to human users. Crucially, such hallucinations are not equally problematic: some hallucination contents could be detected by human users(i.e., obvious hallucinations), while others are often missed or require more verification effort(i.e., elusive hallucinations). This indicates that multimodal AI hallucinations vary significantly in their verifiability. Yet, little research has explored how to control this property for AI applications with diverse security and usability demands. To address this gap, we construct a dataset from 4,470 human responses to AI-generated hallucinations and categorize these hallucinations into obvious and elusive types based on their verifiability by human users. Further, we propose an activation-space intervention method that learns separate probes for obvious and elusive hallucinations. We reveal that obvious and elusive hallucinations elicit different intervention probes, allowing for fine-grained control over the model's verifiability. Empirical results demonstrate the efficacy of this approach and show that targeted interventions yield superior performance in regulating corresponding verifiability. Moreover, simply mixing these interventions enables flexible control over the verifiability required for different scenarios.",
+        "published": "2026-04-08T06:13:16Z",
+        "categories": [
+            "cs.AI",
+            "cs.CL",
+            "cs.CV",
+            "cs.LG"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.06714",
+        "abs_url": "https://arxiv.org/abs/2604.06714"
+    },
+    {
+        "id": "2604.05711",
+        "title": "SemLink: A Semantic-Aware Automated Test Oracle for Hyperlink Verification using Siamese Sentence-BERT",
+        "authors": [
+            "Guan-Yan Yang",
+            "Wei-Ling Wen",
+            "Shu-Yuan Ku",
+            "Farn Wang",
+            "Kuo-Hui Yeh"
+        ],
+        "abstract": "Web applications rely heavily on hyperlinks to connect disparate information resources. However, the dynamic nature of the web leads to link rot, where targets become unavailable, and more insidiously, semantic drift, where a valid HTTP 200 connection exists, but the target content no longer aligns with the source context. Traditional verification tools, which primarily function as crash oracles by checking HTTP status codes, often fail to detect semantic inconsistencies, thereby compromising web integrity and user experience. While Large Language Models (LLMs) offer semantic understanding, they suffer from high latency, privacy concerns, and prohibitive costs for large-scale regression testing. In this paper, we propose SemLink, a novel automated test oracle for semantic hyperlink verification. SemLink leverages a Siamese Neural Network architecture powered by a pre-trained Sentence-BERT (SBERT) backbone to compute the semantic coherence between a hyperlink's source context (anchor text, surrounding DOM elements, and visual features) and its target page content. To train and evaluate our model, we introduce the Hyperlink-Webpage Positive Pairs (HWPPs) dataset, a rigorously constructed corpus of over 60,000 semantic pairs. Our evaluation demonstrates that SemLink achieves a Recall of 96.00%, comparable to state-of-the-art LLMs (GPT-5.2), while operating approximately 47.5 times faster and requiring significantly fewer computational resources. This work bridges the gap between traditional syntactic checkers and expensive generative AI, offering a robust and efficient solution for automated web quality assurance.",
+        "published": "2026-04-07T11:10:33Z",
+        "categories": [
+            "cs.SE",
+            "cs.AI",
+            "cs.CL",
+            "cs.IR"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.05711",
+        "abs_url": "https://arxiv.org/abs/2604.05711"
+    },
+    {
+        "id": "2604.05318",
+        "title": "DIA-HARM: Dialectal Disparities in Harmful Content Detection Across 50 English Dialects",
+        "authors": [
+            "Jason Lucas",
+            "Matt Murtagh",
+            "Ali Al-Lawati",
+            "Uchendu Uchendu",
+            "Adaku Uchendu",
+            "Dongwon Lee"
+        ],
+        "abstract": "Harmful content detectors-particularly disinformation classifiers-are predominantly developed and evaluated on Standard American English (SAE), leaving their robustness to dialectal variation unexplored. We present DIA-HARM, the first benchmark for evaluating disinformation detection robustness across 50 English dialects spanning U.S., British, African, Caribbean, and Asia-Pacific varieties. Using Multi-VALUE's linguistically grounded transformations, we introduce D3 (Dialectal Disinformation Detection), a corpus of 195K samples derived from established disinformation benchmarks. Our evaluation of 16 detection models reveals systematic vulnerabilities: human-written dialectal content degrades detection by 1.4-3.6% F1, while AI-generated content remains stable. Fine-tuned transformers substantially outperform zero-shot LLMs (96.6% vs. 78.3% best-case F1), with some models exhibiting catastrophic failures exceeding 33% degradation on mixed content. Cross-dialectal transfer analysis across 2,450 dialect pairs shows that multilingual models (mDeBERTa: 97.2% average F1) generalize effectively, while monolingual models like RoBERTa and XLM-RoBERTa fail on dialectal inputs. These findings demonstrate that current disinformation detectors may systematically disadvantage hundreds of millions of non-SAE speakers worldwide. We release the DIA-HARM framework, D3 corpus, and evaluation tools: https://github.com/jsl5710/dia-harm",
+        "published": "2026-04-07T01:43:48Z",
+        "categories": [
+            "cs.CL"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.05318",
+        "abs_url": "https://arxiv.org/abs/2604.05318"
+    },
+    {
+        "id": "2604.04901",
+        "title": "FileGram: Grounding Agent Personalization in File-System Behavioral Traces",
+        "authors": [
+            "Shuai Liu",
+            "Shulin Tian",
+            "Kairui Hu",
+            "Yuhao Dong",
+            "Zhe Yang",
+            "Bo Li",
+            "Jingkang Yang",
+            "Chen Change Loy",
+            "Ziwei Liu"
+        ],
+        "abstract": "Coworking AI agents operating within local file systems are rapidly emerging as a paradigm in human-AI interaction; however, effective personalization remains limited by severe data constraints, as strict privacy barriers and the difficulty of jointly collecting multimodal real-world traces prevent scalable training and evaluation, and existing methods remain interaction-centric while overlooking dense behavioral traces in file-system operations; to address this gap, we propose FileGram, a comprehensive framework that grounds agent memory and personalization in file-system behavioral traces, comprising three core components: (1) FileGramEngine, a scalable persona-driven data engine that simulates realistic workflows and generates fine-grained multimodal action sequences at scale; (2) FileGramBench, a diagnostic benchmark grounded in file-system behavioral traces for evaluating memory systems on profile reconstruction, trace disentanglement, persona drift detection, and multimodal grounding; and (3) FileGramOS, a bottom-up memory architecture that builds user profiles directly from atomic actions and content deltas rather than dialogue summaries, encoding these traces into procedural, semantic, and episodic channels with query-time abstraction; extensive experiments show that FileGramBench remains challenging for state-of-the-art memory systems and that FileGramEngine and FileGramOS are effective, and by open-sourcing the framework, we hope to support future research on personalized memory-centric file-system agents.",
+        "published": "2026-04-06T17:49:31Z",
         "categories": [
             "cs.CV",
             "cs.AI"
         ],
-        "pdf_url": "https://arxiv.org/pdf/2603.20116",
-        "abs_url": "https://arxiv.org/abs/2603.20116"
+        "pdf_url": "https://arxiv.org/pdf/2604.04901",
+        "abs_url": "https://arxiv.org/abs/2604.04901"
+    },
+    {
+        "id": "2604.04634",
+        "title": "Preserving Forgery Artifacts: AI-Generated Video Detection at Native Scale",
+        "authors": [
+            "Zhengcen Li",
+            "Chenyang Jiang",
+            "Hang Zhao",
+            "Shiyang Zhou",
+            "Yunyang Mo",
+            "Feng Gao",
+            "Fan Yang",
+            "Qiben Shan",
+            "Shaocong Wu",
+            "Jingyong Su"
+        ],
+        "abstract": "The rapid advancement of video generation models has enabled the creation of highly realistic synthetic media, raising significant societal concerns regarding the spread of misinformation. However, current detection methods suffer from critical limitations. They rely on preprocessing operations like fixed-resolution resizing and cropping. These operations not only discard subtle, high-frequency forgery traces but also cause spatial distortion and significant information loss. Furthermore, existing methods are often trained and evaluated on outdated datasets that fail to capture the sophistication of modern generative models. To address these challenges, we introduce a comprehensive dataset and a novel detection framework. First, we curate a large-scale dataset of over 140K videos from 15 state-of-the-art open-source and commercial generators, along with Magic Videos benchmark designed specifically for evaluating ultra-realistic synthetic content. In addition, we propose a novel detection framework built on the Qwen2.5-VL Vision Transformer, which operates natively at variable spatial resolutions and temporal durations. This native-scale approach effectively preserves the high-frequency artifacts and spatiotemporal inconsistencies typically lost during conventional preprocessing. Extensive experiments demonstrate that our method achieves superior performance across multiple benchmarks, underscoring the critical importance of native-scale processing and establishing a robust new baseline for AI-generated video detection.",
+        "published": "2026-04-06T12:36:08Z",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2604.04634",
+        "abs_url": "https://arxiv.org/abs/2604.04634"
     }
 ]

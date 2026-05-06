@@ -1,0 +1,192 @@
+[
+    {
+        "id": "2603.22612",
+        "title": "BioShield: A Context-Aware Firewall for Securing Bio-LLMs",
+        "authors": [
+            "Protiva Das",
+            "Sovon Chakraborty",
+            "Sidhant Narula",
+            "Lucas Potter",
+            "Xavier-Lewis Palmer",
+            "Pratip Rana",
+            "Daniel Takabi",
+            "Mohammad Ghasemigol"
+        ],
+        "abstract": "The rapid advancement of Large Language Models (LLMs) in biological research has significantly lowered the barrier to accessing complex bioinformatics knowledge, ex perimental design strategies, and analytical workflows. While these capabilities accelerate innovation, they also introduce serious dual-use risks, as Bio-LLMs can be exploited to generate harmful biological insights under the guise of legitimate research queries. Existing safeguards, such as static prompt filtering and policy-based restrictions, are insufficient when LLMs are embedded within dynamic biological workflows and application-layer systems. In this paper, we present BioShield, a context-aware application-level firewall designed to secure Bio LLMs against dual-use attacks. At the core of BioShield is a domain-specific prompt scanner that performs contextual risk analysis of incoming queries. The scanner leverages a harmful scoring mechanism tailored to biological dual-use threat cat egories to identify prompts that attempt to conceal malicious intent within seemingly benign research requests. Queries ex ceeding a predefined risk threshold are blocked before reaching the model, effectively preventing unsafe knowledge generation at the source. In addition to pre-generation protection, BioShield deploys a post-generation output verification module that inspects model responses for actionable or weaponizable biological content. If an unsafe response is detected, the system triggers controlled regeneration under strengthened safety constraints. By combining contextual prompt scanning with response-level validation, BioShield provides a layered defense framework specifically designed for bio-domain LLM deployments. Our framework advances cyberbiosecurity by formalizing dual-use threat detection in Bio-LLMs and proposing a structured mitigation strategy for secure, responsible AI driven biological research.",
+        "published": "2026-03-23T22:18:54Z",
+        "categories": [
+            "cs.CR",
+            "cs.HC"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.22612",
+        "abs_url": "https://arxiv.org/abs/2603.22612"
+    },
+    {
+        "id": "2603.21975",
+        "title": "SecureBreak -- A dataset towards safe and secure models",
+        "authors": [
+            "Marco Arazzi",
+            "Vignesh Kumar Kembu",
+            "Antonino Nocera"
+        ],
+        "abstract": "Large language models are becoming pervasive core components in many real-world applications. As a consequence, security alignment represents a critical requirement for their safe deployment. Although previous related works focused primarily on model architectures and alignment methodologies, these approaches alone cannot ensure the complete elimination of harmful generations. This concern is reinforced by the growing body of scientific literature showing that attacks, such as jailbreaking and prompt injection, can bypass existing security alignment mechanisms. As a consequence, additional security strategies are needed both to provide qualitative feedback on the robustness of the obtained security alignment at the training stage, and to create an ``ultimate'' defense layer to block unsafe outputs possibly produced by deployed models. To provide a contribution in this scenario, this paper introduces SecureBreak, a safety-oriented dataset designed to support the development of AI-driven solutions for detecting harmful LLM outputs caused by residual weaknesses in security alignment. The dataset is highly reliable due to careful manual annotation, where labels are assigned conservatively to ensure safety. It performs well in detecting unsafe content across multiple risk categories. Tests with pre-trained LLMs show improved results after fine-tuning on SecureBreak. Overall, the dataset is useful both for post-generation safety filtering and for guiding further model alignment and security improvements.",
+        "published": "2026-03-23T13:41:05Z",
+        "categories": [
+            "cs.CR",
+            "cs.AI",
+            "cs.CL",
+            "cs.LG"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.21975",
+        "abs_url": "https://arxiv.org/abs/2603.21975"
+    },
+    {
+        "id": "2603.21619",
+        "title": "Efficient Zero-Shot AI-Generated Image Detection",
+        "authors": [
+            "Ryosuke Sonoda",
+            "Ramya Srinivasan"
+        ],
+        "abstract": "The rapid progress of text-to-image models has made AI-generated images increasingly realistic, posing significant challenges for accurate detection of generated content. While training-based detectors often suffer from limited generalization to unseen images, training-free approaches offer better robustness, yet struggle to capture subtle discrepancies between real and synthetic images. In this work, we propose a training-free AI-generated image detection method that measures representation sensitivity to structured frequency perturbations, enabling detection of minute manipulations. The proposed method is computationally lightweight, as perturbation generation requires only a single Fourier transform for an input image. As a result, it achieves one to two orders of magnitude faster inference than most training-free detectors.Extensive experiments on challenging benchmarks demonstrate the efficacy of our method over state-of-the-art (SoTA). In particular, on OpenFake benchmark, our method improves AUC by nearly $10\\%$ compared to SoTA, while maintaining substantially lower computational cost.",
+        "published": "2026-03-23T06:33:20Z",
+        "categories": [
+            "cs.CV",
+            "cs.AI"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.21619",
+        "abs_url": "https://arxiv.org/abs/2603.21619"
+    },
+    {
+        "id": "2603.19712",
+        "title": "TAB-AUDIT: Detecting AI-Fabricated Scientific Tables via Multi-View Likelihood Mismatch",
+        "authors": [
+            "Shuo Huang",
+            "Yan Pen",
+            "Lizhen Qu"
+        ],
+        "abstract": "AI-generated fabricated scientific manuscripts raise growing concerns with large-scale breaches of academic integrity. In this work, we present the first systematic study on detecting AI-generated fabricated scientific tables in empirical NLP papers, as information in tables serve as critical evidence for claims. We construct FabTab, the first benchmark dataset of fabricated manuscripts with tables, comprising 1,173 AI-generated papers and 1,215 human-authored ones in empirical NLP. Through a comprehensive analysis, we identify systematic differences between fabricated and real tables and operationalize them into a set of discriminative features within the TAB-AUDIT framework. The key feature, within-table mismatch, captures the perplexity gap between a table's skeleton and its numerical content. Experimental results show that RandomForest built on these features significantly outperform prior state-of-the-art methods, achieving 0.987 AUROC in-domain and 0.883 AUROC out-of-domain. Our findings highlight experimental tables as a critical forensic signal for detecting AI-generated scientific fraud and provide a new benchmark for future research.",
+        "published": "2026-03-20T07:33:54Z",
+        "categories": [
+            "cs.CL"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.19712",
+        "abs_url": "https://arxiv.org/abs/2603.19712"
+    },
+    {
+        "id": "2603.18625",
+        "title": "GenVideoLens: Where LVLMs Fall Short in AI-Generated Video Detection?",
+        "authors": [
+            "Yueying Zou",
+            "Pei Pei Li",
+            "Zekun Li",
+            "Xinyu Guo",
+            "Xing Cui",
+            "Huaibo Huang",
+            "Ran He"
+        ],
+        "abstract": "In recent years, AI-generated videos have become increasingly realistic and sophisticated. Meanwhile, Large Vision-Language Models (LVLMs) have shown strong potential for detecting such content. However, existing evaluation protocols largely treat the task as a binary classification problem and rely on coarse-grained metrics such as overall accuracy, providing limited insight into where LVLMs succeed or fail. To address this limitation, we introduce GenVideoLens, a fine-grained benchmark that enables dimension-wise evaluation of LVLM capabilities in AI-generated video detection. The benchmark contains 400 highly deceptive AI-generated videos and 100 real videos, annotated by experts across 15 authenticity dimensions covering perceptual, optical, physical, and temporal cues. We evaluate eleven representative LVLMs on this benchmark. Our analysis reveals a pronounced dimensional imbalance. While LVLMs perform relatively well on perceptual cues, they struggle with optical consistency, physical interactions, and temporal-causal reasoning. Model performance also varies substantially across dimensions, with smaller open-source models sometimes outperforming stronger proprietary models on specific authenticity cues. Temporal perturbation experiments further show that current LVLMs make limited use of temporal information. Overall, GenVideoLens provides diagnostic insights into LVLM behavior, revealing key capability gaps and offering guidance for improving future AI-generated video detection systems.",
+        "published": "2026-03-19T08:44:08Z",
+        "categories": [
+            "cs.CV"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.18625",
+        "abs_url": "https://arxiv.org/abs/2603.18625"
+    },
+    {
+        "id": "2603.15037",
+        "title": "PhonemeDF: A Synthetic Speech Dataset for Audio Deepfake Detection and Naturalness Evaluation",
+        "authors": [
+            "Vamshi Nallaguntla",
+            "Aishwarya Fursule",
+            "Shruti Kshirsagar",
+            "Anderson R. Avila"
+        ],
+        "abstract": "The growing sophistication of speech generated by Artificial Intelligence (AI) has introduced new challenges in audio deepfake detection. Text-to-speech (TTS) and voice conversion (VC) technologies can create highly convincing synthetic speech with naturalness and intelligibility. This poses serious threats to voice biometric security and to systems designed to combat the spread of spoken misinformation, where synthetic voices may be used to disseminate false or malicious content. While interest in AI-generated speech has increased, resources for evaluating naturalness at the phoneme level remain limited. In this work, we address this gap by presenting the Phoneme-Level DeepFake dataset (PhonemeDF), comprising parallel real and synthetic speech segmented at the phoneme level. Real speech samples are derived from a subset of LibriSpeech, while synthetic samples are generated using four TTS and three VC systems. For each system, phoneme-aligned TextGrid files are obtained using the Montreal Forced Aligner (MFA). We compute the Kullback-Leibler divergence (KLD) between real and synthetic phoneme distributions to quantify fidelity and establish a ranking based on similarity to natural speech. Our findings show a clear correlation between the KLD of real and synthetic phoneme distributions and the performance of classifiers trained to distinguish them, suggesting that KLD can serve as an indicator of the most discriminative phonemes for deepfake detection.",
+        "published": "2026-03-16T09:40:56Z",
+        "categories": [
+            "cs.SD"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.15037",
+        "abs_url": "https://arxiv.org/abs/2603.15037"
+    },
+    {
+        "id": "2603.19316",
+        "title": "Rising Prevalence of Detected AI-Generated Text in Medical Literature: Longitudinal Analysis in Open Access Articles",
+        "authors": [
+            "Nathan Wolfrath",
+            "Simrin Patel",
+            "Madelyn Flitcroft",
+            "Anjishnu Banerjee",
+            "Melek Somai",
+            "Bradley H. Crotty",
+            "Anai N Kothari"
+        ],
+        "abstract": "Generative artificial intelligence (AI) tools are becoming increasingly used for writing tasks. However, the extent of their use in peer-reviewed medical literature remains unclear. We conducted a longitudinal analysis of all Original Investigations, Research Letters, and Invited Commentaries published in JAMA Network Open from January 2022 through March 2025. The main body text of 7,251 articles was analyzed using a commercial AI-detection tool (Originality.AI) to estimate the probability that manuscripts contained a significant amount of AI-generated content. Articles were analyzed aggregated by month, publication type, and domain. Overall, 195 articles (2.7%) were classified as containing significant AI-generated text. The monthly proportion increased from 0.0% in January 2022 to 11.3% in March 2025, with a significant upward trend over time (P<0.001). Invited Commentaries had the highest proportion of detected AI-generated content (6.7%), followed by Original Investigations (2.2%) and Research Letters (1.4%). There was also significant variation across publication domain (P=0.04). Only 15 articles (0.2%) disclosed large language model use, of which 40.0% were classified as containing AI-generated text. While findings suggest increasing detectable AI-generated content in medical literature, limitations of current detection tools necessitates cautious interpretation.",
+        "published": "2026-03-15T02:49:04Z",
+        "categories": [
+            "cs.DL"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.19316",
+        "abs_url": "https://arxiv.org/abs/2603.19316"
+    },
+    {
+        "id": "2603.10598",
+        "title": "Layer Consistency Matters: Elegant Latent Transition Discrepancy for Generalizable Synthetic Image Detection",
+        "authors": [
+            "Yawen Yang",
+            "Feng Li",
+            "Shuqi Kong",
+            "Yunfeng Diao",
+            "Xinjian Gao",
+            "Zenglin Shi",
+            "Meng Wang"
+        ],
+        "abstract": "Recent rapid advancement of generative models has significantly improved the fidelity and accessibility of AI-generated synthetic images. While enabling various innovative applications, the unprecedented realism of these synthetics makes them increasingly indistinguishable from authentic photographs, posing serious security risks, such as media credibility and content manipulation. Although extensive efforts have been dedicated to detecting synthetic images, most existing approaches suffer from poor generalization to unseen data due to their reliance on model-specific artifacts or low-level statistical cues. In this work, we identify a previously unexplored distinction that real images maintain consistent semantic attention and structural coherence in their latent representations, exhibiting more stable feature transitions across network layers, whereas synthetic ones present discernible distinct patterns. Therefore, we propose a novel approach termed latent transition discrepancy (LTD), which captures the inter-layer consistency differences of real and synthetic images. LTD adaptively identifies the most discriminative layers and assesses the transition discrepancies across layers. Benefiting from the proposed inter-layer discriminative modeling, our approach exceeds the base model by 14.35\\% in mean Acc across three datasets containing diverse GANs and DMs. Extensive experiments demonstrate that LTD outperforms recent state-of-the-art methods, achieving superior detection accuracy, generalizability, and robustness. The code is available at https://github.com/yywencs/LTD",
+        "published": "2026-03-11T09:53:06Z",
+        "categories": [
+            "cs.CV"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.10598",
+        "abs_url": "https://arxiv.org/abs/2603.10598"
+    },
+    {
+        "id": "2603.07666",
+        "title": "AI-Driven Phase Identification from X-ray Hyperspectral Imaging of cycled Na-ion Cathode Materials",
+        "authors": [
+            "Fayçal Adrar",
+            "Nicolas Folastre",
+            "Chloé Pablos",
+            "Stefan Stanescu",
+            "Sufal Swaraj",
+            "Raghvender Raghvender",
+            "François Cadiou",
+            "Laurence Croguennec",
+            "Matthieu Bugnet",
+            "Arnaud Demortière"
+        ],
+        "abstract": "Na-ion batteries have emerged as viable candidates for large-scale energy storage applica- tions due to resource abundance and cost advantages. The constraints imposed on their performance and durability, for instance, by complex phase transformations in positive electrode materials during electrochemical cycling, can be addressed and are thus not detrimental to their development. However, diffusion-limited Na-ion transport can drive spatially heterogeneous phase nucleation and propagation, leading to multiphase coexis- tence and locally non-uniform electrochemical activity, generating complex reaction path- ways that challenge both mechanistic understanding and predictive material optimization. These challenges can be addressed by investigating single-crystalline regions of materials, i.e. down to the scale of individual particles, although such analyses are often constrained by energetically and/or spatially sparse hyperspectral datasets. Here, we developed an AI-driven method to process hyperspectral data under sparse sampling conditions and generate multiphase maps with nanometer-scale resolution over a micrometer-scale field of view. We applied this processing on scanning transmission X-ray microscopy (STXM) data to determine the distribution and coexistence of phases in individual particles of NaxV2(PO4)2F3 cathode materials, at different states of charge. The methodology relies on a workflow which combines a Gaussian mixture variational autoencoder (GMVAE) algorithm with the Pearson corre- lation coefficient to identify the sodium content and map their spatial distribution. Our approach reveals nanoscale phase heterogeneity and evolution within individual particles, and improves the reliability of phase detection by identifying ambiguity zones, false assign- ments, and transition phases localized at grain boundaries.",
+        "published": "2026-03-08T14:59:31Z",
+        "categories": [
+            "cond-mat.mtrl-sci",
+            "cs.AI"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.07666",
+        "abs_url": "https://arxiv.org/abs/2603.07666"
+    },
+    {
+        "id": "2603.07401",
+        "title": "VIVECaption: A Split Approach to Caption Quality Improvement",
+        "authors": [
+            "Varun Ananth",
+            "Baqiao Liu",
+            "Haoran Cai"
+        ],
+        "abstract": "Caption quality has emerged as a critical bottleneck in training high-quality text-to-image (T2I) and text-to-video (T2V) generative models. While visual language models (VLMs) are commonly deployed to generate captions from visual data, they suffer from hallucinations, poor compositional reasoning, and limited fine-grained understanding, resulting in misaligned image-caption pairs that degrade downstream model performance. This technical report introduces VIVECaption, a systematic two-sided approach to caption quality improvement. We first establish a comprehensive taxonomy of caption evaluation metrics, distinguishing between \"universal\" and \"instance-grounded\" metrics, with the ultimate goal of showcasing the use-cases and tradeoffs between different caption quality metrics. We then use this language to describe our two-sided approach to caption quality improvement: (1) a gold-standard dataset creation methodology using stratified sampling and (2) a model alignment strategy encompassing context alignment and parameter-level finetuning using SFT. We demonstrate our methodology on open-source models, focusing on structured caption formats that enable better parsing and downstream utilization. We ultimately show that using a finetuned character detection model in an image captioning pipeline significantly improves holistic image-caption alignment quality. Our work addresses the growing need for high-quality \"vegan\" training data in enterprise AI development, providing practical solutions for teams seeking to improve caption-image alignment without relying on potentially copyright-protected web-scraped content.",
+        "published": "2026-03-08T01:29:07Z",
+        "categories": [
+            "cs.CV"
+        ],
+        "pdf_url": "https://arxiv.org/pdf/2603.07401",
+        "abs_url": "https://arxiv.org/abs/2603.07401"
+    }
+]
