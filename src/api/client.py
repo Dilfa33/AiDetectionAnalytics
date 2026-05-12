@@ -17,8 +17,8 @@ from src.utils.logger import logging
 
 # ── Config ────────────────────────────────────────────────────────────────────
 ARXIV_API_URL = "https://export.arxiv.org/api/query"
-RESULTS_PER_PAGE = 5
-SEARCH_TOPIC = "artificial intelligence"
+RESULTS_PER_PAGE = 10
+SEARCH_TOPIC = "AI generated content detection"
 NS = {
     "atom": "http://www.w3.org/2005/Atom",
     "arxiv": "http://arxiv.org/schemas/atom"

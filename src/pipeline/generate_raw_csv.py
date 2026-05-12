@@ -130,6 +130,7 @@ def _inject_dirt(records: list[dict]) -> list[dict]:
 def generate_raw_csv(
     api_dir: Path = RAW_API_DIR,
     output: Path = OUTPUT_CSV,
+    inject_dirt: bool = False,
 ) -> int:
     logging.info("[GenerateRawCSV] Reading JSON files from %s", api_dir)
 
@@ -145,16 +146,16 @@ def generate_raw_csv(
         return 0
 
     records = [_clean_record(p, i) for i, p in enumerate(papers)]
-    dirty   = _inject_dirt(records)
+    rows = _inject_dirt(records) if inject_dirt else records
 
     output.parent.mkdir(parents=True, exist_ok=True)
     with open(output, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
         writer.writeheader()
-        writer.writerows(dirty)
+        writer.writerows(rows)
 
-    logging.info("[GenerateRawCSV] Wrote %d rows to %s", len(dirty), output)
-    return len(dirty)
+    logging.info("[GenerateRawCSV] Wrote %d rows to %s", len(rows), output)
+    return len(rows)
 
 
 if __name__ == "__main__":
