@@ -114,4 +114,16 @@ if __name__ == "__main__":
     # ── Step 4: analytics ─────────────────────────────────────────────────────
     run_analytics_pipeline(cleaned)
 
+    # ── Step 5: embeddings & vector search ───────────────────────────────────
+    logging.info("Embedding step started")
+    try:
+        from src.embeddings.chroma_store import get_client, get_or_create_collection, add_papers
+        client     = get_client()
+        collection = get_or_create_collection(client)
+        added      = add_papers(collection, cleaned)
+        logging.info("Embedding step complete — %d new papers indexed (%d total)",
+                     added, collection.count())
+    except Exception as e:
+        logging.warning("Embedding step skipped: %s", e)
+
     logging.info("Pipeline finished")
