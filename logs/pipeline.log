@@ -704,3 +704,549 @@
 2026-05-05 20:56:04,848 - INFO - [CleanPipeline] Saved cleaned data (14 rows) to data/processed/cleaned/cleaned_data.csv
 2026-05-05 20:56:04,848 - INFO - Cleaning stage complete: 14 clean rows saved
 2026-05-05 20:56:04,848 - INFO - Pipeline finished
+2026-05-06 10:22:32,873 - INFO - [Aggregator] Category summary: 9 categories
+2026-05-06 10:22:32,880 - INFO - [Aggregator] Yearly trends: 1 years
+2026-05-06 10:22:32,882 - INFO - [Aggregator] Saved category_analysis.csv
+2026-05-06 10:22:32,883 - INFO - [Aggregator] Saved yearly_trends.csv
+2026-05-06 10:22:33,138 - INFO - [Aggregator] Saved yearly_trends.png
+2026-05-06 10:22:33,144 - INFO - [PivotBuilder] wide→long: 42 rows × 5 cols
+2026-05-06 10:22:33,169 - INFO - [PivotBuilder] Pivot table: 2 rows × 10 cols
+2026-05-06 10:22:33,170 - INFO - [PivotBuilder] Saved pivot table to data/processed/analytics/pivot_category_year.csv
+2026-05-06 10:22:33,174 - INFO - [TimeSeries] Parsed 'published_date': 14 valid, 0 missing
+2026-05-06 10:22:33,177 - INFO - [TimeSeries] Extracted date components
+2026-05-06 10:22:33,178 - INFO - [TimeSeries] Parsed 'published_date': 14 valid, 0 missing
+2026-05-06 10:22:33,186 - INFO - [TimeSeries] Monthly series: 3 months
+2026-05-06 10:22:33,188 - INFO - [TimeSeries] Yearly series: 1 years
+2026-05-06 10:22:33,190 - INFO - [TimeSeries] Rolling averages computed
+2026-05-06 10:22:33,434 - INFO - [TimeSeries] Saved rolling_citations.png
+2026-05-06 10:23:03,734 - WARNING - [MongoPipeline] MongoDB unavailable (localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 69fafa496497319e239e8458, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>) — using CSV fallback
+2026-05-06 10:23:03,750 - INFO - [MongoPipeline] Fallback pipeline: 9 categories
+2026-05-06 10:23:03,762 - INFO - [Insights] Q1: Top category='EESS.SY' avg_citations=103.0
+2026-05-06 10:23:03,775 - INFO - [Insights] Q2: Highest ROI category='cs.cv' roi=145.76
+2026-05-06 10:23:03,783 - INFO - [Insights] Q3: Year range 2026–2026, 1 data points
+2026-05-06 10:23:03,792 - INFO - [Insights] Q4: 1 languages; dominant='en' (100.0%)
+2026-05-06 10:23:03,939 - INFO - [Insights] Saved category_roi.png
+2026-05-06 10:23:03,946 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-06 10:23:03,946 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-06 10:23:04,024 - INFO - [Insights] Saved yearly_volume.png
+2026-05-06 10:23:12,130 - INFO - Pipeline started
+2026-05-06 10:23:12,130 - INFO - [GenerateRawCSV] Reading JSON files from data/raw/api
+2026-05-06 10:23:12,130 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_1.json
+2026-05-06 10:23:12,131 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_2.json
+2026-05-06 10:23:12,131 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_3.json
+2026-05-06 10:23:12,132 - INFO - [GenerateRawCSV] Wrote 18 rows to data/raw/csv/papers_raw.csv
+2026-05-06 10:23:12,132 - INFO - CSV stage complete: 18 rows → data/raw/csv/papers_raw.csv
+2026-05-06 10:23:12,134 - INFO - Loaded existing cleaned CSV: 14 rows
+2026-05-06 10:23:12,134 - INFO - Cleaning stage complete: 14 clean rows
+2026-05-06 10:23:12,621 - ERROR - [DBConnector] Connection failed: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)")
+2026-05-06 10:23:12,621 - WARNING - [Pipeline] MySQL step skipped: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)")
+2026-05-06 10:23:12,621 - INFO - [Pipeline] Running category summary
+2026-05-06 10:23:12,631 - INFO - [Aggregator] Category summary: 9 categories
+2026-05-06 10:23:12,633 - INFO - [Aggregator] Saved category_analysis.csv
+2026-05-06 10:23:12,633 - INFO - [Pipeline] Running yearly trends
+2026-05-06 10:23:12,639 - INFO - [Aggregator] Yearly trends: 1 years
+2026-05-06 10:23:12,640 - INFO - [Aggregator] Saved yearly_trends.csv
+2026-05-06 10:23:12,872 - INFO - [Aggregator] Saved yearly_trends.png
+2026-05-06 10:23:12,872 - INFO - [Pipeline] Top 3 papers per category by citations
+2026-05-06 10:23:12,881 - INFO - [Aggregator] Top 3 per 'primary_category': 14 rows
+2026-05-06 10:23:47,981 - INFO - Pipeline started
+2026-05-06 10:23:47,981 - INFO - [GenerateRawCSV] Reading JSON files from data/raw/api
+2026-05-06 10:23:47,981 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_1.json
+2026-05-06 10:23:47,982 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_2.json
+2026-05-06 10:23:47,982 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_3.json
+2026-05-06 10:23:47,982 - INFO - [GenerateRawCSV] Wrote 18 rows to data/raw/csv/papers_raw.csv
+2026-05-06 10:23:47,983 - INFO - CSV stage complete: 18 rows → data/raw/csv/papers_raw.csv
+2026-05-06 10:23:47,985 - INFO - Loaded existing cleaned CSV: 14 rows
+2026-05-06 10:23:47,985 - INFO - Cleaning stage complete: 14 clean rows
+2026-05-06 10:23:48,423 - ERROR - [DBConnector] Connection failed: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)")
+2026-05-06 10:23:48,423 - WARNING - [Pipeline] MySQL step skipped: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)")
+2026-05-06 10:23:48,423 - INFO - [Pipeline] Running category summary
+2026-05-06 10:23:48,432 - INFO - [Aggregator] Category summary: 9 categories
+2026-05-06 10:23:48,434 - INFO - [Aggregator] Saved category_analysis.csv
+2026-05-06 10:23:48,434 - INFO - [Pipeline] Running yearly trends
+2026-05-06 10:23:48,441 - INFO - [Aggregator] Yearly trends: 1 years
+2026-05-06 10:23:48,442 - INFO - [Aggregator] Saved yearly_trends.csv
+2026-05-06 10:23:48,695 - INFO - [Aggregator] Saved yearly_trends.png
+2026-05-06 10:23:48,695 - INFO - [Pipeline] Top 3 papers per category by citations
+2026-05-06 10:23:48,703 - INFO - [Aggregator] Top 3 per 'primary_category': 14 rows
+2026-05-06 10:24:04,572 - INFO - Pipeline started
+2026-05-06 10:24:04,573 - INFO - [GenerateRawCSV] Reading JSON files from data/raw/api
+2026-05-06 10:24:04,573 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_1.json
+2026-05-06 10:24:04,574 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_2.json
+2026-05-06 10:24:04,574 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_3.json
+2026-05-06 10:24:04,575 - INFO - [GenerateRawCSV] Wrote 18 rows to data/raw/csv/papers_raw.csv
+2026-05-06 10:24:04,575 - INFO - CSV stage complete: 18 rows → data/raw/csv/papers_raw.csv
+2026-05-06 10:24:04,578 - INFO - Loaded existing cleaned CSV: 14 rows
+2026-05-06 10:24:04,578 - INFO - Cleaning stage complete: 14 clean rows
+2026-05-06 10:24:05,100 - ERROR - [DBConnector] Connection failed: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)")
+2026-05-06 10:24:05,100 - WARNING - [Pipeline] MySQL step skipped: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)")
+2026-05-06 10:24:05,100 - INFO - [Pipeline] Running category summary
+2026-05-06 10:24:05,109 - INFO - [Aggregator] Category summary: 9 categories
+2026-05-06 10:24:05,111 - INFO - [Aggregator] Saved category_analysis.csv
+2026-05-06 10:24:05,111 - INFO - [Pipeline] Running yearly trends
+2026-05-06 10:24:05,117 - INFO - [Aggregator] Yearly trends: 1 years
+2026-05-06 10:24:05,118 - INFO - [Aggregator] Saved yearly_trends.csv
+2026-05-06 10:24:05,343 - INFO - [Aggregator] Saved yearly_trends.png
+2026-05-06 10:24:05,343 - INFO - [Pipeline] Top 3 papers per category by citations
+2026-05-06 10:24:21,453 - INFO - Pipeline started
+2026-05-06 10:24:21,453 - INFO - [GenerateRawCSV] Reading JSON files from data/raw/api
+2026-05-06 10:24:21,453 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_1.json
+2026-05-06 10:24:21,454 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_2.json
+2026-05-06 10:24:21,454 - INFO - [GenerateRawCSV] Loaded 5 papers from papers_page_3.json
+2026-05-06 10:24:21,455 - INFO - [GenerateRawCSV] Wrote 18 rows to data/raw/csv/papers_raw.csv
+2026-05-06 10:24:21,455 - INFO - CSV stage complete: 18 rows → data/raw/csv/papers_raw.csv
+2026-05-06 10:24:21,458 - INFO - Loaded existing cleaned CSV: 14 rows
+2026-05-06 10:24:21,458 - INFO - Cleaning stage complete: 14 clean rows
+2026-05-06 10:24:21,925 - ERROR - [DBConnector] Connection failed: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)")
+2026-05-06 10:24:21,925 - WARNING - [Pipeline] MySQL step skipped: (2003, "Can't connect to MySQL server on 'localhost' ([Errno 111] Connection refused)")
+2026-05-06 10:24:21,925 - INFO - [Pipeline] Running category summary
+2026-05-06 10:24:21,934 - INFO - [Aggregator] Category summary: 9 categories
+2026-05-06 10:24:21,936 - INFO - [Aggregator] Saved category_analysis.csv
+2026-05-06 10:24:21,936 - INFO - [Pipeline] Running yearly trends
+2026-05-06 10:24:21,943 - INFO - [Aggregator] Yearly trends: 1 years
+2026-05-06 10:24:21,944 - INFO - [Aggregator] Saved yearly_trends.csv
+2026-05-06 10:24:22,168 - INFO - [Aggregator] Saved yearly_trends.png
+2026-05-06 10:24:22,168 - INFO - [Pipeline] Top 3 papers per category by citations
+2026-05-06 10:24:22,176 - INFO - [Aggregator] Top 3 per 'primary_category': 14 rows
+2026-05-06 10:24:22,179 - INFO - [Pipeline] Top-N sample:
+primary_category                                                                                                               title  citation_count
+         EESS.SY                                               An Agentic Multi-Agent Architecture For Cybersecurity Risk Management             103
+           cs.AI                                                         Learning Dynamic Belief Graphs For Theory-Of-Mind Reasoning              81
+           cs.CE        Design-Os: A Specification-Driven Framework For Engineering System Design With A Control-Systems Design Case              69
+           cs.CL                         Semantic Token Clustering For Efficient Uncertainty Quantification In Large Language Models              91
+           cs.CL Enhancing Hyperspace Analogue To Language (Hal) Representations Via Attention-Based Pooling For Text Classification              57
+           cs.CL        Measuring Faithfulness Depends On How You Measure: Classifier Sensitivity In Llm Chain-Of-Thought Evaluation               3
+           cs.CR                           Evolving Jailbreaks: Automated Multi-Objective Long-Tail Attacks On Large Language Models              81
+           cs.CR                               Improving Generalization On Cybersecurity Tasks With Multi-Modal Contrastive Learning              81
+           cs.CV                                                        Adaptive Greedy Frame Selection For Long Video Understanding             114
+2026-05-06 10:24:22,179 - INFO - [Pipeline] Building pivot table
+2026-05-06 10:24:22,199 - INFO - [PivotBuilder] Pivot table: 2 rows × 10 cols
+2026-05-06 10:24:22,201 - INFO - [PivotBuilder] Saved pivot table to data/processed/analytics/pivot_category_year.csv
+2026-05-06 10:24:22,201 - INFO - [Pipeline] Building crosstab
+2026-05-06 10:24:22,207 - INFO - [PivotBuilder] Crosstab: 1 rows × 1 cols
+2026-05-06 10:24:22,207 - INFO - [Pipeline] Crosstab shape: (1, 1)
+2026-05-06 10:24:22,207 - INFO - [Pipeline] Running time series analysis
+2026-05-06 10:24:22,210 - INFO - [TimeSeries] Parsed 'published_date': 14 valid, 0 missing
+2026-05-06 10:24:22,212 - INFO - [TimeSeries] Extracted date components
+2026-05-06 10:24:22,213 - INFO - [TimeSeries] Parsed 'published_date': 14 valid, 0 missing
+2026-05-06 10:24:22,218 - INFO - [TimeSeries] Monthly series: 3 months
+2026-05-06 10:24:22,219 - INFO - [TimeSeries] Yearly series: 1 years
+2026-05-06 10:24:22,221 - INFO - [TimeSeries] Rolling averages computed
+2026-05-06 10:24:22,405 - INFO - [TimeSeries] Saved rolling_citations.png
+2026-05-06 10:24:22,405 - INFO - [Pipeline] Monthly series length: 3
+2026-05-06 10:24:22,406 - INFO - [Pipeline] Running MongoDB aggregation pipeline
+2026-05-06 10:24:52,627 - WARNING - [MongoPipeline] MongoDB unavailable (localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 69fafab67916a645514c5e1f, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>) — using CSV fallback
+2026-05-06 10:24:52,640 - INFO - [MongoPipeline] Fallback pipeline: 9 categories
+2026-05-06 10:24:52,643 - INFO - [Pipeline] Mongo pipeline result:
+category  avg_citations  total_papers  max_citations
+ EESS.SY         103.00             1            103
+   cs.CV          99.00             3            114
+   cs.AI          81.00             1             81
+   cs.cv          81.00             1             81
+   cs.CR          81.00             2             81
+  hep-ex          75.00             1             75
+   cs.CE          69.00             1             69
+   cs.CL          50.33             3             91
+   cs.RO           3.00             1              3
+2026-05-06 10:24:52,643 - INFO - [Pipeline] Running analytical questions
+2026-05-06 10:24:52,651 - INFO - [Insights] Q1: Top category='EESS.SY' avg_citations=103.0
+2026-05-06 10:24:52,660 - INFO - [Insights] Q2: Highest ROI category='cs.cv' roi=145.76
+2026-05-06 10:24:52,668 - INFO - [Insights] Q3: Year range 2026–2026, 1 data points
+2026-05-06 10:24:52,676 - INFO - [Insights] Q4: 1 languages; dominant='en' (100.0%)
+2026-05-06 10:24:52,848 - INFO - [Insights] Saved category_roi.png
+2026-05-06 10:24:52,860 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-06 10:24:52,861 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-06 10:24:52,964 - INFO - [Insights] Saved yearly_volume.png
+2026-05-06 10:24:52,970 - INFO - [Pipeline] Analytics complete — outputs in data/processed/analytics
+2026-05-06 10:24:52,970 - INFO - Pipeline finished
+2026-05-06 10:30:10,973 - INFO - Pipeline started
+2026-05-06 10:30:10,973 - INFO - Fetching 50 papers from ArXiv API ...
+2026-05-06 10:30:10,973 - INFO - Fetching page 1 (attempt 1)
+2026-05-06 10:30:12,186 - INFO - Saved 10 papers to data/raw/api/papers_page_1.json
+2026-05-06 10:30:12,186 - INFO - Waiting 3s before next page (ArXiv rate limit)
+2026-05-06 10:30:15,186 - INFO - Fetching page 2 (attempt 1)
+2026-05-06 10:30:15,983 - INFO - Saved 10 papers to data/raw/api/papers_page_2.json
+2026-05-06 10:30:15,983 - INFO - Waiting 3s before next page (ArXiv rate limit)
+2026-05-06 10:30:18,983 - INFO - Fetching page 3 (attempt 1)
+2026-05-06 10:30:19,750 - INFO - Saved 10 papers to data/raw/api/papers_page_3.json
+2026-05-06 10:30:19,750 - INFO - Waiting 3s before next page (ArXiv rate limit)
+2026-05-06 10:30:22,751 - INFO - Fetching page 4 (attempt 1)
+2026-05-06 10:30:23,301 - INFO - Saved 10 papers to data/raw/api/papers_page_4.json
+2026-05-06 10:30:23,301 - INFO - Waiting 3s before next page (ArXiv rate limit)
+2026-05-06 10:30:26,302 - INFO - Fetching page 5 (attempt 1)
+2026-05-06 10:30:26,856 - INFO - Saved 10 papers to data/raw/api/papers_page_5.json
+2026-05-06 10:30:26,856 - INFO - Total papers fetched: 50
+2026-05-06 10:30:26,856 - INFO - Fetch complete: 50 papers retrieved
+2026-05-06 10:30:26,856 - INFO - [GenerateRawCSV] Reading JSON files from data/raw/api
+2026-05-06 10:30:26,856 - INFO - [GenerateRawCSV] Loaded 10 papers from papers_page_1.json
+2026-05-06 10:30:26,857 - INFO - [GenerateRawCSV] Loaded 10 papers from papers_page_2.json
+2026-05-06 10:30:26,857 - INFO - [GenerateRawCSV] Loaded 10 papers from papers_page_3.json
+2026-05-06 10:30:26,857 - INFO - [GenerateRawCSV] Loaded 10 papers from papers_page_4.json
+2026-05-06 10:30:26,857 - INFO - [GenerateRawCSV] Loaded 10 papers from papers_page_5.json
+2026-05-06 10:30:26,859 - INFO - [GenerateRawCSV] Wrote 50 rows to data/raw/csv/papers_raw.csv
+2026-05-06 10:30:26,860 - INFO - CSV stage complete: 50 rows → data/raw/csv/papers_raw.csv
+2026-05-06 10:30:26,860 - INFO - [CleanPipeline] Loading raw data from data/raw/csv/papers_raw.csv
+2026-05-06 10:30:26,864 - INFO - [CleanPipeline] Loaded 50 rows, 11 columns
+2026-05-06 10:30:26,864 - INFO - [CleanPipeline] Step 1: drop high-missing columns
+2026-05-06 10:30:26,867 - INFO - [MissingHandler] Dropped 0 high-missing column(s): []
+2026-05-06 10:30:26,867 - INFO - [CleanPipeline] Step 2: handle missing values
+2026-05-06 10:30:26,868 - INFO - [MissingHandler] Dropped 0 row(s) with missing paper_id
+2026-05-06 10:30:26,869 - INFO - [MissingHandler] Filled 0 missing author(s) with 'Unknown'
+2026-05-06 10:30:26,870 - INFO - [MissingHandler] Filled 0 missing abstract(s)
+2026-05-06 10:30:26,871 - INFO - [MissingHandler] Filled 0 missing citation_count(s) with median 70.5
+2026-05-06 10:30:26,873 - INFO - [MissingHandler] Filled 0 missing/sentinel relevance_score(s) with median 0.7052
+2026-05-06 10:30:26,873 - INFO - [CleanPipeline] Step 3: string cleaning
+2026-05-06 10:30:26,873 - INFO - [StringCleaner] Cleaned title column
+2026-05-06 10:30:26,874 - INFO - [StringCleaner] Normalised language column
+2026-05-06 10:30:26,875 - INFO - [StringCleaner] Cleaned abstract column
+2026-05-06 10:30:26,876 - INFO - [StringCleaner] Cleaned primary_category column
+2026-05-06 10:30:26,876 - INFO - [CleanPipeline] Step 4: extract published year
+2026-05-06 10:30:26,877 - INFO - [StringCleaner] Extracted year into 'published_year' column
+2026-05-06 10:30:26,877 - INFO - [CleanPipeline] Step 5: deduplication
+2026-05-06 10:30:26,879 - INFO - [Deduplicator] Removed 0 exact duplicate row(s)
+2026-05-06 10:30:26,879 - INFO - [Deduplicator] Removed 0 key-duplicate row(s) on 'paper_id'
+2026-05-06 10:30:26,880 - INFO - [CleanPipeline] Step 6: type conversion
+2026-05-06 10:30:26,882 - INFO - [TypeConverter] Converted 'published_date' to datetime
+2026-05-06 10:30:26,883 - INFO - [TypeConverter] Converted 'citation_count' to Int64
+2026-05-06 10:30:26,884 - INFO - [TypeConverter] Converted 'relevance_score' to float32
+2026-05-06 10:30:26,884 - INFO - [TypeConverter] Converted 'primary_category' to category dtype
+2026-05-06 10:30:26,885 - INFO - [CleanPipeline] Step 7: validation
+2026-05-06 10:30:26,885 - INFO - [Validator] paper_id: OK (no nulls or empties)
+2026-05-06 10:30:26,886 - INFO - [Validator] relevance_score: OK (all in [0.0, 1.0])
+2026-05-06 10:30:26,886 - INFO - [Validator] published_date: OK (datetime, no NaT)
+2026-05-06 10:30:26,887 - INFO - [Validator] No duplicate paper_id values: OK
+2026-05-06 10:30:26,887 - INFO - [CleanPipeline]   paper_id_not_null → PASSED
+2026-05-06 10:30:26,887 - INFO - [CleanPipeline]   relevance_in_range → PASSED
+2026-05-06 10:30:26,887 - INFO - [CleanPipeline]   dates_are_datetime → PASSED
+2026-05-06 10:30:26,887 - INFO - [CleanPipeline]   no_duplicate_ids → PASSED
+2026-05-06 10:30:26,890 - INFO - [CleanPipeline] Saved cleaned data (50 rows) to data/processed/cleaned/cleaned_data.csv
+2026-05-06 10:30:26,890 - INFO - Cleaning stage complete: 50 clean rows
+2026-05-06 10:30:27,334 - ERROR - [DBConnector] Connection failed: (1698, "Access denied for user 'root'@'localhost'")
+2026-05-06 10:30:27,334 - WARNING - [Pipeline] MySQL step skipped: (1698, "Access denied for user 'root'@'localhost'")
+2026-05-06 10:30:27,334 - INFO - [Pipeline] Running category summary
+2026-05-06 10:30:27,346 - INFO - [Aggregator] Category summary: 14 categories
+2026-05-06 10:30:27,348 - INFO - [Aggregator] Saved category_analysis.csv
+2026-05-06 10:30:27,348 - INFO - [Pipeline] Running yearly trends
+2026-05-06 10:30:27,354 - INFO - [Aggregator] Yearly trends: 1 years
+2026-05-06 10:30:27,355 - INFO - [Aggregator] Saved yearly_trends.csv
+2026-05-06 10:30:27,551 - INFO - [Aggregator] Saved yearly_trends.png
+2026-05-06 10:30:27,551 - INFO - [Pipeline] Top 3 papers per category by citations
+2026-05-06 10:30:27,591 - INFO - [Aggregator] Top 3 per 'primary_category': 25 rows
+2026-05-06 10:30:27,594 - INFO - [Pipeline] Top-N sample:
+ primary_category                                                                                                    title  citation_count
+cond-mat.mtrl-sci       Ai-Driven Phase Identification From X-Ray Hyperspectral Imaging Of Cycled Na-Ion Cathode Materials              91
+            cs.AI                                               Steering The Verifiability Of Multimodal Ai Hallucinations             110
+            cs.AI             Alignment Imprint: Zero-Shot Ai-Generated Text Detection Via Provable Preference Discrepancy             103
+            cs.AI                                           Reasoning-Aware Aigc Detection Via Alignment And Reinforcement              91
+            cs.CL                  Tab-Audit: Detecting Ai-Fabricated Scientific Tables Via Multi-View Likelihood Mismatch              99
+            cs.CL               Many Ways To Be Fake: Benchmarking Fake News Detection Under Strategy-Driven Ai Generation              70
+            cs.CL C-Red: A Comprehensive Chinese Benchmark For Ai-Generated Text Detection Derived From Real-World Prompts              45
+            cs.CR                                                Bioshield: A Context-Aware Firewall For Securing Bio-Llms             118
+            cs.CR                                                  Securebreak -- A Dataset Towards Safe And Secure Models              71
+2026-05-06 10:30:27,594 - INFO - [Pipeline] Building pivot table
+2026-05-06 10:30:27,610 - INFO - [PivotBuilder] Pivot table: 2 rows × 15 cols
+2026-05-06 10:30:27,612 - INFO - [PivotBuilder] Saved pivot table to data/processed/analytics/pivot_category_year.csv
+2026-05-06 10:30:27,612 - INFO - [Pipeline] Building crosstab
+2026-05-06 10:30:27,617 - INFO - [PivotBuilder] Crosstab: 1 rows × 1 cols
+2026-05-06 10:30:27,617 - INFO - [Pipeline] Crosstab shape: (1, 1)
+2026-05-06 10:30:27,617 - INFO - [Pipeline] Running time series analysis
+2026-05-06 10:30:27,618 - INFO - [TimeSeries] Parsed 'published_date': 50 valid, 0 missing
+2026-05-06 10:30:27,620 - INFO - [TimeSeries] Extracted date components
+2026-05-06 10:30:27,621 - INFO - [TimeSeries] Parsed 'published_date': 50 valid, 0 missing
+2026-05-06 10:30:27,624 - INFO - [TimeSeries] Monthly series: 2 months
+2026-05-06 10:30:27,626 - INFO - [TimeSeries] Yearly series: 1 years
+2026-05-06 10:30:27,627 - INFO - [TimeSeries] Rolling averages computed
+2026-05-06 10:30:27,779 - INFO - [TimeSeries] Saved rolling_citations.png
+2026-05-06 10:30:27,779 - INFO - [Pipeline] Monthly series length: 2
+2026-05-06 10:30:27,779 - INFO - [Pipeline] Running MongoDB aggregation pipeline
+2026-05-06 10:30:57,945 - WARNING - [MongoPipeline] MongoDB unavailable (localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 69fafc2357f3541aeea822f9, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>) — using CSV fallback
+2026-05-06 10:30:57,957 - INFO - [MongoPipeline] Fallback pipeline: 14 categories
+2026-05-06 10:30:57,960 - INFO - [Pipeline] Mongo pipeline result:
+         category  avg_citations  total_papers  max_citations
+          eess.SP          114.0             1            114
+            cs.AI         101.33             3            110
+cond-mat.mtrl-sci           91.0             1             91
+            cs.CY           89.0             1             89
+            cs.LG           81.0             1             81
+            cs.CV          72.15            20            120
+            cs.SE           66.5             4            119
+          econ.GN           57.0             1             57
+            cs.CR          56.67             6            118
+            cs.CL           38.0             7             99
+            cs.SD           35.5             2             40
+          stat.AP           35.0             1             35
+            cs.SI           21.0             1             21
+            cs.DL            8.0             1              8
+2026-05-06 10:30:57,960 - INFO - [Pipeline] Running analytical questions
+2026-05-06 10:30:57,969 - INFO - [Insights] Q1: Top category='eess.SP' avg_citations=114.0
+2026-05-06 10:30:57,978 - INFO - [Insights] Q2: Highest ROI category='eess.SP' roi=147.53
+2026-05-06 10:30:57,983 - INFO - [Insights] Q3: Year range 2026–2026, 1 data points
+2026-05-06 10:30:57,988 - INFO - [Insights] Q4: 1 languages; dominant='en' (100.0%)
+2026-05-06 10:30:58,113 - INFO - [Insights] Saved category_roi.png
+2026-05-06 10:30:58,120 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-06 10:30:58,121 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-06 10:30:58,178 - INFO - [Insights] Saved yearly_volume.png
+2026-05-06 10:30:58,182 - INFO - [Pipeline] Analytics complete — outputs in data/processed/analytics
+2026-05-06 10:30:58,183 - INFO - Pipeline finished
+2026-05-06 10:33:07,036 - INFO - Pipeline started
+2026-05-06 10:33:07,036 - INFO - Fetching 50 papers from ArXiv API ...
+2026-05-06 10:33:07,037 - INFO - Fetching page 1 (attempt 1)
+2026-05-06 10:33:07,345 - INFO - Saved 10 papers to data/raw/api/papers_page_1.json
+2026-05-06 10:33:07,345 - INFO - Waiting 3s before next page (ArXiv rate limit)
+2026-05-06 10:33:10,346 - INFO - Fetching page 2 (attempt 1)
+2026-05-06 10:33:10,599 - INFO - Saved 10 papers to data/raw/api/papers_page_2.json
+2026-05-06 10:33:10,599 - INFO - Waiting 3s before next page (ArXiv rate limit)
+2026-05-06 10:33:13,600 - INFO - Fetching page 3 (attempt 1)
+2026-05-06 10:33:13,825 - INFO - Saved 10 papers to data/raw/api/papers_page_3.json
+2026-05-06 10:33:13,825 - INFO - Waiting 3s before next page (ArXiv rate limit)
+2026-05-06 10:33:16,825 - INFO - Fetching page 4 (attempt 1)
+2026-05-06 10:33:17,063 - INFO - Saved 10 papers to data/raw/api/papers_page_4.json
+2026-05-06 10:33:17,063 - INFO - Waiting 3s before next page (ArXiv rate limit)
+2026-05-06 10:33:20,064 - INFO - Fetching page 5 (attempt 1)
+2026-05-06 10:33:20,266 - INFO - Saved 10 papers to data/raw/api/papers_page_5.json
+2026-05-06 10:33:20,266 - INFO - Total papers fetched: 50
+2026-05-06 10:33:20,266 - INFO - Fetch complete: 50 papers retrieved
+2026-05-06 10:33:20,266 - INFO - [GenerateRawCSV] Reading JSON files from data/raw/api
+2026-05-06 10:33:20,267 - INFO - [GenerateRawCSV] Loaded 10 papers from papers_page_1.json
+2026-05-06 10:33:20,267 - INFO - [GenerateRawCSV] Loaded 10 papers from papers_page_2.json
+2026-05-06 10:33:20,267 - INFO - [GenerateRawCSV] Loaded 10 papers from papers_page_3.json
+2026-05-06 10:33:20,268 - INFO - [GenerateRawCSV] Loaded 10 papers from papers_page_4.json
+2026-05-06 10:33:20,268 - INFO - [GenerateRawCSV] Loaded 10 papers from papers_page_5.json
+2026-05-06 10:33:20,270 - INFO - [GenerateRawCSV] Wrote 50 rows to data/raw/csv/papers_raw.csv
+2026-05-06 10:33:20,271 - INFO - CSV stage complete: 50 rows → data/raw/csv/papers_raw.csv
+2026-05-06 10:33:20,271 - INFO - [CleanPipeline] Loading raw data from data/raw/csv/papers_raw.csv
+2026-05-06 10:33:20,276 - INFO - [CleanPipeline] Loaded 50 rows, 11 columns
+2026-05-06 10:33:20,277 - INFO - [CleanPipeline] Step 1: drop high-missing columns
+2026-05-06 10:33:20,280 - INFO - [MissingHandler] Dropped 0 high-missing column(s): []
+2026-05-06 10:33:20,280 - INFO - [CleanPipeline] Step 2: handle missing values
+2026-05-06 10:33:20,282 - INFO - [MissingHandler] Dropped 0 row(s) with missing paper_id
+2026-05-06 10:33:20,283 - INFO - [MissingHandler] Filled 0 missing author(s) with 'Unknown'
+2026-05-06 10:33:20,285 - INFO - [MissingHandler] Filled 0 missing abstract(s)
+2026-05-06 10:33:20,286 - INFO - [MissingHandler] Filled 0 missing citation_count(s) with median 70.5
+2026-05-06 10:33:20,288 - INFO - [MissingHandler] Filled 0 missing/sentinel relevance_score(s) with median 0.7052
+2026-05-06 10:33:20,288 - INFO - [CleanPipeline] Step 3: string cleaning
+2026-05-06 10:33:20,289 - INFO - [StringCleaner] Cleaned title column
+2026-05-06 10:33:20,290 - INFO - [StringCleaner] Normalised language column
+2026-05-06 10:33:20,291 - INFO - [StringCleaner] Cleaned abstract column
+2026-05-06 10:33:20,292 - INFO - [StringCleaner] Cleaned primary_category column
+2026-05-06 10:33:20,292 - INFO - [CleanPipeline] Step 4: extract published year
+2026-05-06 10:33:20,293 - INFO - [StringCleaner] Extracted year into 'published_year' column
+2026-05-06 10:33:20,293 - INFO - [CleanPipeline] Step 5: deduplication
+2026-05-06 10:33:20,296 - INFO - [Deduplicator] Removed 0 exact duplicate row(s)
+2026-05-06 10:33:20,296 - INFO - [Deduplicator] Removed 0 key-duplicate row(s) on 'paper_id'
+2026-05-06 10:33:20,296 - INFO - [CleanPipeline] Step 6: type conversion
+2026-05-06 10:33:20,300 - INFO - [TypeConverter] Converted 'published_date' to datetime
+2026-05-06 10:33:20,300 - INFO - [TypeConverter] Converted 'citation_count' to Int64
+2026-05-06 10:33:20,301 - INFO - [TypeConverter] Converted 'relevance_score' to float32
+2026-05-06 10:33:20,302 - INFO - [TypeConverter] Converted 'primary_category' to category dtype
+2026-05-06 10:33:20,302 - INFO - [CleanPipeline] Step 7: validation
+2026-05-06 10:33:20,303 - INFO - [Validator] paper_id: OK (no nulls or empties)
+2026-05-06 10:33:20,303 - INFO - [Validator] relevance_score: OK (all in [0.0, 1.0])
+2026-05-06 10:33:20,304 - INFO - [Validator] published_date: OK (datetime, no NaT)
+2026-05-06 10:33:20,304 - INFO - [Validator] No duplicate paper_id values: OK
+2026-05-06 10:33:20,304 - INFO - [CleanPipeline]   paper_id_not_null → PASSED
+2026-05-06 10:33:20,304 - INFO - [CleanPipeline]   relevance_in_range → PASSED
+2026-05-06 10:33:20,304 - INFO - [CleanPipeline]   dates_are_datetime → PASSED
+2026-05-06 10:33:20,304 - INFO - [CleanPipeline]   no_duplicate_ids → PASSED
+2026-05-06 10:33:20,308 - INFO - [CleanPipeline] Saved cleaned data (50 rows) to data/processed/cleaned/cleaned_data.csv
+2026-05-06 10:33:20,308 - INFO - Cleaning stage complete: 50 clean rows
+2026-05-06 10:33:20,654 - ERROR - [DBConnector] Connection failed: (1698, "Access denied for user 'root'@'localhost'")
+2026-05-06 10:33:20,654 - WARNING - [Pipeline] MySQL step skipped: (1698, "Access denied for user 'root'@'localhost'")
+2026-05-06 10:33:20,654 - INFO - [Pipeline] Running category summary
+2026-05-06 10:33:20,665 - INFO - [Aggregator] Category summary: 14 categories
+2026-05-06 10:33:20,667 - INFO - [Aggregator] Saved category_analysis.csv
+2026-05-06 10:33:20,667 - INFO - [Pipeline] Running yearly trends
+2026-05-06 10:33:20,673 - INFO - [Aggregator] Yearly trends: 1 years
+2026-05-06 10:33:20,674 - INFO - [Aggregator] Saved yearly_trends.csv
+2026-05-06 10:33:20,852 - INFO - [Aggregator] Saved yearly_trends.png
+2026-05-06 10:33:20,852 - INFO - [Pipeline] Top 3 papers per category by citations
+2026-05-06 10:33:20,895 - INFO - [Aggregator] Top 3 per 'primary_category': 25 rows
+2026-05-06 10:33:20,898 - INFO - [Pipeline] Top-N sample:
+ primary_category                                                                                                    title  citation_count
+cond-mat.mtrl-sci       Ai-Driven Phase Identification From X-Ray Hyperspectral Imaging Of Cycled Na-Ion Cathode Materials              91
+            cs.AI                                               Steering The Verifiability Of Multimodal Ai Hallucinations             110
+            cs.AI             Alignment Imprint: Zero-Shot Ai-Generated Text Detection Via Provable Preference Discrepancy             103
+            cs.AI                                           Reasoning-Aware Aigc Detection Via Alignment And Reinforcement              91
+            cs.CL                  Tab-Audit: Detecting Ai-Fabricated Scientific Tables Via Multi-View Likelihood Mismatch              99
+            cs.CL               Many Ways To Be Fake: Benchmarking Fake News Detection Under Strategy-Driven Ai Generation              70
+            cs.CL C-Red: A Comprehensive Chinese Benchmark For Ai-Generated Text Detection Derived From Real-World Prompts              45
+            cs.CR                                                Bioshield: A Context-Aware Firewall For Securing Bio-Llms             118
+            cs.CR                                                  Securebreak -- A Dataset Towards Safe And Secure Models              71
+2026-05-06 10:33:20,898 - INFO - [Pipeline] Building pivot table
+2026-05-06 10:33:20,916 - INFO - [PivotBuilder] Pivot table: 2 rows × 15 cols
+2026-05-06 10:33:20,919 - INFO - [PivotBuilder] Saved pivot table to data/processed/analytics/pivot_category_year.csv
+2026-05-06 10:33:20,919 - INFO - [Pipeline] Building crosstab
+2026-05-06 10:33:20,924 - INFO - [PivotBuilder] Crosstab: 1 rows × 1 cols
+2026-05-06 10:33:20,924 - INFO - [Pipeline] Crosstab shape: (1, 1)
+2026-05-06 10:33:20,924 - INFO - [Pipeline] Running time series analysis
+2026-05-06 10:33:20,925 - INFO - [TimeSeries] Parsed 'published_date': 50 valid, 0 missing
+2026-05-06 10:33:20,927 - INFO - [TimeSeries] Extracted date components
+2026-05-06 10:33:20,928 - INFO - [TimeSeries] Parsed 'published_date': 50 valid, 0 missing
+2026-05-06 10:33:20,933 - INFO - [TimeSeries] Monthly series: 2 months
+2026-05-06 10:33:20,934 - INFO - [TimeSeries] Yearly series: 1 years
+2026-05-06 10:33:20,936 - INFO - [TimeSeries] Rolling averages computed
+2026-05-06 10:33:21,087 - INFO - [TimeSeries] Saved rolling_citations.png
+2026-05-06 10:33:21,087 - INFO - [Pipeline] Monthly series length: 2
+2026-05-06 10:33:21,087 - INFO - [Pipeline] Running MongoDB aggregation pipeline
+2026-05-06 10:33:51,244 - WARNING - [MongoPipeline] MongoDB unavailable (localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 69fafcd1539f34af34eb866c, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>) — using CSV fallback
+2026-05-06 10:33:51,264 - INFO - [MongoPipeline] Fallback pipeline: 14 categories
+2026-05-06 10:33:51,267 - INFO - [Pipeline] Mongo pipeline result:
+         category  avg_citations  total_papers  max_citations
+          eess.SP          114.0             1            114
+            cs.AI         101.33             3            110
+cond-mat.mtrl-sci           91.0             1             91
+            cs.CY           89.0             1             89
+            cs.LG           81.0             1             81
+            cs.CV          72.15            20            120
+            cs.SE           66.5             4            119
+          econ.GN           57.0             1             57
+            cs.CR          56.67             6            118
+            cs.CL           38.0             7             99
+            cs.SD           35.5             2             40
+          stat.AP           35.0             1             35
+            cs.SI           21.0             1             21
+            cs.DL            8.0             1              8
+2026-05-06 10:33:51,267 - INFO - [Pipeline] Running analytical questions
+2026-05-06 10:33:51,276 - INFO - [Insights] Q1: Top category='eess.SP' avg_citations=114.0
+2026-05-06 10:33:51,284 - INFO - [Insights] Q2: Highest ROI category='eess.SP' roi=147.53
+2026-05-06 10:33:51,289 - INFO - [Insights] Q3: Year range 2026–2026, 1 data points
+2026-05-06 10:33:51,296 - INFO - [Insights] Q4: 1 languages; dominant='en' (100.0%)
+2026-05-06 10:33:51,427 - INFO - [Insights] Saved category_roi.png
+2026-05-06 10:33:51,434 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-06 10:33:51,436 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-06 10:33:51,503 - INFO - [Insights] Saved yearly_volume.png
+2026-05-06 10:33:51,508 - INFO - [Pipeline] Analytics complete — outputs in data/processed/analytics
+2026-05-06 10:33:51,509 - INFO - Pipeline finished
+2026-05-06 11:12:03,408 - ERROR - [DBConnector] Connection failed: (1049, "Unknown database 'papers_db'")
+2026-05-06 11:12:15,070 - INFO - [DataCombiner] INNER join → 50 rows
+2026-05-06 11:12:15,079 - INFO - [DataCombiner] LEFT join → 50 rows
+2026-05-06 11:12:15,087 - INFO - [DataCombiner] RIGHT join → 50 rows
+2026-05-06 11:12:15,098 - INFO - [DataCombiner] OUTER join → 50 rows
+2026-05-06 11:12:15,296 - INFO - [DataCombiner] Join comparison chart saved to ../data/processed/analytics/join_comparison.png
+2026-05-06 11:12:15,302 - INFO - [DataCombiner] INNER join → 50 rows
+2026-05-06 11:12:15,311 - INFO - [DataCombiner] Combined DataFrame: 50 rows × 12 cols
+2026-05-06 11:12:20,262 - INFO - [PivotBuilder] wide→long: 150 rows × 5 cols
+2026-05-06 11:12:20,284 - INFO - [PivotBuilder] long→wide: 50 rows × 4 cols
+2026-05-06 11:12:20,338 - INFO - [PivotBuilder] Pivot table: 2 rows × 15 cols
+2026-05-06 11:12:20,368 - INFO - [PivotBuilder] Saved pivot table to ../data/processed/analytics/pivot_category_year.csv
+2026-05-06 11:12:20,383 - INFO - [PivotBuilder] Crosstab: 1 rows × 1 cols
+2026-05-06 11:12:39,119 - INFO - [Aggregator] Category summary: 14 categories
+2026-05-06 11:12:39,138 - INFO - [Aggregator] Saved category_analysis.csv
+2026-05-06 11:12:39,238 - INFO - [Aggregator] Yearly trends: 1 years
+2026-05-06 11:12:39,252 - INFO - [Aggregator] Saved yearly_trends.csv
+2026-05-06 11:12:39,556 - INFO - [Aggregator] Saved yearly_trends.png
+2026-05-06 11:12:39,565 - INFO - [Aggregator] Top 3 per 'primary_category': 25 rows
+2026-05-06 11:12:49,994 - INFO - [TimeSeries] Parsed 'published_date': 50 valid, 0 missing
+2026-05-06 11:12:50,001 - INFO - [TimeSeries] Extracted date components
+2026-05-06 11:12:50,020 - INFO - [TimeSeries] Parsed 'published_date': 50 valid, 0 missing
+2026-05-06 11:12:50,035 - INFO - [TimeSeries] Monthly series: 2 months
+2026-05-06 11:12:50,045 - INFO - [TimeSeries] Yearly series: 1 years
+2026-05-06 11:12:50,054 - INFO - [TimeSeries] Rolling averages computed
+2026-05-06 11:12:50,318 - INFO - [TimeSeries] Saved rolling_citations.png
+2026-05-06 11:13:25,138 - WARNING - [MongoPipeline] MongoDB unavailable (localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 69fb0617a0ee5e653d30c6a9, topology_type: Unknown, servers: [<ServerDescription ('localhost', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('localhost:27017: [Errno 111] Connection refused (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>) — using CSV fallback
+2026-05-06 11:13:25,152 - INFO - [MongoPipeline] Fallback pipeline: 14 categories
+2026-05-06 11:13:25,188 - INFO - [Insights] Q1: Top category='eess.SP' avg_citations=114.0
+2026-05-06 11:13:25,208 - INFO - [Insights] Q2: Highest ROI category='eess.SP' roi=147.53
+2026-05-06 11:13:25,221 - INFO - [Insights] Q3: Year range 2026–2026, 1 data points
+2026-05-06 11:13:25,232 - INFO - [Insights] Q4: 1 languages; dominant='en' (100.0%)
+2026-05-06 11:13:25,467 - INFO - [Insights] Saved category_roi.png
+2026-05-06 11:13:25,477 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-06 11:13:25,479 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-06 11:13:25,555 - INFO - [Insights] Saved yearly_volume.png
+2026-05-06 11:15:28,039 - INFO - [DBConnector] MySQL connection established
+2026-05-06 11:15:28,109 - INFO - [DBConnector] Table paper_metrics ready
+2026-05-06 11:15:28,159 - INFO - [DBConnector] Inserted 50 rows into paper_metrics
+2026-05-06 11:15:28,350 - INFO - [DBConnector] Queried 50 rows from paper_metrics
+2026-05-06 11:15:28,351 - INFO - [DBConnector] Connection closed
+2026-05-13 11:20:28,845 - INFO - [Embedder] Loading model: all-MiniLM-L6-v2
+2026-05-13 11:20:28,853 - INFO - No device provided, using cpu
+2026-05-13 11:20:29,294 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:29,337 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-05-13 11:20:29,616 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:29,663 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-13 11:20:29,669 - INFO - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-05-13 11:20:30,121 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:30,139 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-13 11:20:30,284 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:30,286 - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-05-13 11:20:30,310 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md "HTTP/1.1 200 OK"
+2026-05-13 11:20:30,450 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:30,470 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json "HTTP/1.1 200 OK"
+2026-05-13 11:20:30,616 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:30,658 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-13 11:20:30,834 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-13 11:20:31,038 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:31,066 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-05-13 11:20:31,634 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-13 11:20:31,842 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-13 11:20:32,058 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-13 11:20:32,250 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-13 11:20:32,558 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:32,575 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-13 11:20:32,721 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:32,737 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-05-13 11:20:32,884 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:33,172 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json "HTTP/1.1 200 OK"
+2026-05-13 11:20:33,310 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:33,342 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-13 11:20:33,483 - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-13 11:20:33,637 - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-13 11:20:33,913 - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-13 11:20:33,936 - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-13 11:20:34,075 - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-05-13 11:20:34,101 - INFO - [Embedder] Model loaded — embedding dim: 384
+2026-05-13 11:20:38,549 - INFO - [Embedder] Generated embeddings: shape=(5, 384)
+2026-05-13 11:20:50,624 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:20:57,282 - INFO - [ChromaStore] Collection 'papers' ready — 0 documents.
+2026-05-13 11:21:11,794 - INFO - [ChromaStore] Embedding 50 new papers ...
+2026-05-13 11:21:15,288 - INFO - [Embedder] Generated embeddings: shape=(50, 384)
+2026-05-13 11:21:15,461 - INFO - [ChromaStore] Upserted 50 papers.
+2026-05-13 11:21:19,366 - INFO - [Embedder] Generated embeddings: shape=(2, 384)
+2026-05-13 11:21:22,818 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:24,918 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:27,786 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:30,087 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:32,772 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:32,788 - INFO - [SearchEngine] Semantic search 'AI-generated text detection' → 5 results
+2026-05-13 11:21:36,258 - INFO - [SearchEngine] Keyword search 'AI-generated text detection' → 3 results
+2026-05-13 11:21:39,386 - INFO - [SearchEngine] Keyword search 'machine learning for natural language processing' → 0 results
+2026-05-13 11:21:39,423 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:39,438 - INFO - [SearchEngine] Semantic search 'machine learning for natural language processing' → 5 results
+2026-05-13 11:21:42,904 - INFO - [SearchEngine] Keyword search 'detecting fake content written by computers' → 0 results
+2026-05-13 11:21:42,938 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:42,956 - INFO - [SearchEngine] Semantic search 'detecting fake content written by computers' → 4 results
+2026-05-13 11:21:42,976 - INFO - [SearchEngine] Keyword search 'training large language models efficiently' → 0 results
+2026-05-13 11:21:43,029 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:43,047 - INFO - [SearchEngine] Semantic search 'training large language models efficiently' → 4 results
+2026-05-13 11:21:43,065 - INFO - [SearchEngine] Keyword search 'computer vision object detection' → 0 results
+2026-05-13 11:21:43,188 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:43,205 - INFO - [SearchEngine] Semantic search 'computer vision object detection' → 4 results
+2026-05-13 11:21:48,477 - INFO - [SearchEngine] Keyword search 'AI text generation' → 0 results
+2026-05-13 11:21:48,484 - INFO - [SearchEngine] Keyword search 'machine-written content synthesis' → 0 results
+2026-05-13 11:21:48,510 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:48,523 - INFO - [SearchEngine] Semantic search 'AI text generation' → 10 results
+2026-05-13 11:21:48,718 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:48,730 - INFO - [SearchEngine] Semantic search 'machine-written content synthesis' → 10 results
+2026-05-13 11:21:48,743 - INFO - [SearchEngine] Keyword search 'deep learning image recognition' → 0 results
+2026-05-13 11:21:48,756 - INFO - [SearchEngine] Keyword search 'convolutional neural network visual classification' → 0 results
+2026-05-13 11:21:48,905 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:48,922 - INFO - [SearchEngine] Semantic search 'deep learning image recognition' → 10 results
+2026-05-13 11:21:49,031 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:49,045 - INFO - [SearchEngine] Semantic search 'convolutional neural network visual classification' → 10 results
+2026-05-13 11:21:49,059 - INFO - [SearchEngine] Keyword search 'reinforcement learning agent' → 0 results
+2026-05-13 11:21:49,075 - INFO - [SearchEngine] Keyword search 'reward-based policy optimisation' → 0 results
+2026-05-13 11:21:49,142 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:49,153 - INFO - [SearchEngine] Semantic search 'reinforcement learning agent' → 10 results
+2026-05-13 11:21:49,191 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:49,214 - INFO - [SearchEngine] Semantic search 'reward-based policy optimisation' → 10 results
+2026-05-13 11:21:54,823 - INFO - [SearchEngine] Keyword search 'large language model fine-tuning' → 0 results
+2026-05-13 11:21:54,868 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:54,881 - INFO - [SearchEngine] Semantic search 'large language model fine-tuning' → 5 results
+2026-05-13 11:21:54,891 - INFO - [SearchEngine] Keyword search 'large language model fine-tuning' → 0 results
+2026-05-13 11:21:54,981 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:21:54,999 - INFO - [SearchEngine] Semantic search 'large language model fine-tuning' → 20 results
+2026-05-13 11:21:55,076 - INFO - [HybridSearch] 'large language model fine-tuning' → 5 hybrid results (RRF k=60)
+2026-05-13 11:22:06,867 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:22:10,048 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:22:14,419 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
+2026-05-13 11:22:14,672 - INFO - [Embedder] Generated embeddings: shape=(1, 384)
