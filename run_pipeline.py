@@ -1,6 +1,6 @@
 """
 run_pipeline.py
-Lab 9 + Lab 10: Generate raw CSV → clean → analytics.
+Lab 9 + Lab 10 + Lab 12: Generate raw CSV → clean → analytics → visualizations.
 """
 
 import sys
@@ -86,6 +86,14 @@ def run_analytics_pipeline(df):
     return findings
 
 
+def run_visualizations_pipeline(df):
+    """Lab 12: generate all static and interactive charts."""
+    from src.visualization.chart_generator import generate_all_charts
+    logging.info("[Pipeline] Visualization step started")
+    generate_all_charts(df=df)
+    logging.info("[Pipeline] Visualization step complete")
+
+
 if __name__ == "__main__":
     import shutil
     from src.api.client import fetch_papers
@@ -114,7 +122,10 @@ if __name__ == "__main__":
     # ── Step 4: analytics ─────────────────────────────────────────────────────
     run_analytics_pipeline(cleaned)
 
-    # ── Step 5: embeddings & vector search ───────────────────────────────────
+    # ── Step 5: visualizations ────────────────────────────────────────────────
+    run_visualizations_pipeline(cleaned)
+
+    # ── Step 6: embeddings & vector search ───────────────────────────────────
     logging.info("Embedding step started")
     try:
         from src.embeddings.chroma_store import get_client, get_or_create_collection, add_papers
