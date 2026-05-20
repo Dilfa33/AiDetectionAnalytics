@@ -9,7 +9,7 @@ __pycache__/
 *.pyo
 
 # Logs
-*.log
+
 
 # Data files (large/generated)
 data/raw/pdf/
